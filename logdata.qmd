@@ -41,6 +41,10 @@ datatable(logdata, extensions = 'Buttons', options = list(
 ```
 
 
+<br/>
+
+
+
 - tx.change : Taux de Change Reel
 - imp: Importation Haitienne
 - exp: Exportation Haitienne

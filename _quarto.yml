@@ -1,13 +1,30 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "thesisWeb"
+  title: "Présentation du Modèle"
   navbar:
+    background: "black"
+    search: true
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: "Accueil"
+      - href: metadata.qmd
+        text: "Métadonnées"
+      - href: data.qmd
+        text: "Données Brutes"
+      - href: logdata.qmd
+        text: "Données en Log"
+      - href: IT_modele.qmd
+        text: "Modèle IT"
+      - href: ET_modele.qmd
+        text: "Modèle ET"
+      - href: more_test.qmd
+        text: "Plus de Tests"
+
+execute:
+  echo: false
 
 format:
   html:
@@ -16,6 +33,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-

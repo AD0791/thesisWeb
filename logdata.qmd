@@ -1,0 +1,49 @@
+---
+title: "Donnee du modele en Logarithme Neperien"
+author: "Benzico Pierre & Alexandro Disla"
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| warning: false
+#| include: false
+#| eval: true
+
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(DT))
+
+
+```
+
+
+## Periode 1988-2022 transformation en Log
+
+
+```{r}
+#| label: data
+# Charger les données
+data <- read_excel("data_sources.xlsx",1)
+
+logdata = data 
+logdata = logdata %>%
+  lapply(log)%>%
+  as.data.frame()
+
+# Afficher un tableau interactif
+datatable(logdata, extensions = 'Buttons', options = list(
+    dom = 'Blfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf'),
+    lengthMenu = list(c(10,30, 50, -1), 
+                      c('10', '30', '50', 'All')),
+    paging = F)
+)
+```
+
+
+- tx.change : Taux de Change Reel
+- imp: Importation Haitienne
+- exp: Exportation Haitienne
+- pib: Produit Interieur Brute Haitienne
+- pib.usa: Produit Interieur Brute des Etats Unis
+- ipc: L'indice des prix a la Consommation

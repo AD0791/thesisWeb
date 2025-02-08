@@ -1,7 +1,8 @@
 ---
-title: "thesisWeb"
+title: "Accueil"
+author: "Benzico Pierre & Alexandro Disla"
 ---
 
-This is a Quarto website.
+## Accueil
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Bienvenue, Ce site présente les données et les résultats de notre modèle.

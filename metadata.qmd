@@ -1,0 +1,51 @@
+---
+title: "Metadonnee du modele"
+author: "Benzico Pierre & Alexandro Disla"
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| warning: false
+#| include: false
+#| eval: true
+
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(DT))
+
+
+```
+
+
+## Origine source de donnee
+
+
+```{r}
+#| label: metadata
+# Charger les métadonnées
+metadata <- read_excel("data_sources.xlsx",2)
+
+# Afficher un tableau interactif
+datatable(metadata)
+```
+
+> Periode : 1988-2022
+
+- tx.change : Taux de Change Reel
+- imp: Importation Haitienne
+- exp: Exportation Haitienne
+- pib: Produit Interieur Brute Haitienne
+- pib.usa: Produit Interieur Brute des Etats Unis
+- ipc: L'indice des prix a la Consommation
+
+
+## Note sur le taux de change
+
+```{r}
+#| label: note
+# Charger les métadonnées
+note_txc <- read_excel("data_sources.xlsx",3)
+
+# Afficher un tableau interactif
+datatable(note_txc)
+```

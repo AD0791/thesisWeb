@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "logdata.html",
+    "href": "logdata.html",
+    "title": "Donnee du modele en Logarithme Neperien",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "logdata.html#periode-1988-2022-transformation-en-log",
+    "href": "logdata.html#periode-1988-2022-transformation-en-log",
+    "title": "Donnee du modele en Logarithme Neperien",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Accueil",
+    "section": "",
+    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
+  },
+  {
+    "objectID": "index.html#accueil",
+    "href": "index.html#accueil",
+    "title": "Accueil",
+    "section": "",
+    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
+  },
+  {
+    "objectID": "metadata.html",
+    "href": "metadata.html",
+    "title": "Metadonnee du modele",
+    "section": "",
+    "text": "Periode : 1988-2022\n\n\ntx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "metadata.html#origine-source-de-donnee",
+    "href": "metadata.html#origine-source-de-donnee",
+    "title": "Metadonnee du modele",
+    "section": "",
+    "text": "Periode : 1988-2022\n\n\ntx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "metadata.html#note-sur-le-taux-de-change",
+    "href": "metadata.html#note-sur-le-taux-de-change",
+    "title": "Metadonnee du modele",
+    "section": "Note sur le taux de change",
+    "text": "Note sur le taux de change"
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Donnee du modele",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "data.html#periode-1988-2022",
+    "href": "data.html#periode-1988-2022",
+    "title": "Donnee du modele",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  }
+]

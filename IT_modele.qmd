@@ -3,3 +3,99 @@ title: "Modele IT"
 author: "Benzico Pierre & Alexandro Disla"
 ---
 
+## Presentation des resultats du modele IT
+
+```{r}
+#| label: setup
+#| echo: false
+#| warning: false
+#| include: false
+#| eval: true
+
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(dLagM))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(modelsummary))
+suppressPackageStartupMessages(library(tinytable))
+
+
+```
+
+
+
+```{r}
+#| label: beforeModel
+#| warning: false
+#| include: false
+#| eval: true
+
+
+base.data = read_excel("./data_sources.xlsx",1)
+
+DATA = subset(base.data,select=-annee) 
+
+DATA = DATA%>% as.data.frame()
+LDATA = DATA %>%
+  #as.numeric() %>%
+  lapply(log)%>%
+  as.data.frame()
+
+application.du.filtre = lapply(LDATA, diff)
+LFILTER_DATA = as.data.frame(application.du.filtre)
+
+it.series <- cbind(taux.change = LDATA$tx.change, importation = LDATA$imp,pib=LDATA$pib,pib.usa=LDATA$pib.usa,ipc=LDATA$ipc)
+et.series <- cbind(taux.change = LDATA$tx.change, exportation = LDATA$exp,pib=LDATA$pib,pib.usa=LDATA$pib.usa,ipc=LDATA$ipc)
+it.series <- as.data.frame(it.series)
+et.series <- as.data.frame(et.series)
+
+filtered.it.series <- cbind(taux.change = LFILTER_DATA$tx.change, importation = LFILTER_DATA$imp,pib=LFILTER_DATA$pib,pib.usa=LFILTER_DATA$pib.usa,ipc=LFILTER_DATA$ipc)
+filtered.et.series <- cbind(taux.change = LFILTER_DATA$tx.change, exportation = LFILTER_DATA$exp,pib=LFILTER_DATA$pib,pib.usa=LFILTER_DATA$pib.usa,ipc=LFILTER_DATA$ipc)
+filtered.it.series <- as.data.frame(filtered.it.series)
+filtered.et.series <- as.data.frame(filtered.et.series)
+
+ordersIT = ardlBoundOrders(
+  data = it.series,
+  formula = importation~taux.change+pib+pib.usa+ipc,
+  ic="AIC",
+  max.p = 3 ,
+  max.q = 3,
+  FullSearch = TRUE
+)
+
+ordersET = ardlBoundOrders(
+  data = et.series,
+  formula = exportation~taux.change+pib+pib.usa+ipc,
+  ic="AIC",
+  max.p = 3 ,
+  max.q = 3,
+  FullSearch = TRUE
+)
+
+p.it = data.frame(ordersIT$q,ordersIT$p)+1
+p.et = data.frame(ordersET$q,ordersET$p)+1
+
+```
+
+```{r it.modele}
+#| label: ModelIT
+#| warning: false
+
+coint.it = ardlBound(
+  data = it.series,
+  formula = importation ~ taux.change+pib+pib.usa+ipc,
+  p = p.it,
+  ECM=TRUE,
+  stability = TRUE,
+  case = 4
+)
+
+```
+
+
+
+
+```{r ecm.it}
+#modelsummary(coint.it$ECM$EC.model, stars = TRUE)
+coint.it$model$modelFull$formula
+```

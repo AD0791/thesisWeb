@@ -14,9 +14,16 @@ Utilisation de modèles ARDL (Autoregressive Distributed Lag) et ECM (Error Corr
 
 ## Site web
 
-Ce projet est consultable à l'adresse: [https://VOTRE-NOM-UTILISATEUR.github.io/taux-change-haiti/](https://VOTRE-NOM-UTILISATEUR.github.io/taux-change-haiti/)
+Ce projet est consultable à l'adresse: https://ad0791.github.io/thesisWeb/
 
 ## Auteurs
 
 - Benzico Pierre
 - Alexandro Disla
+
+## Deploy with
+
+```zsh
+quarto publish gh-pages
+```
+

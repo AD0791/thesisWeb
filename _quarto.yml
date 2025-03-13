@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Présentation du Modèle"
+  favicon: download.png
   navbar:
     background: "black"
     search: true
@@ -25,6 +26,7 @@ website:
 
 execute:
   echo: false
+  freeze: auto
 
 format:
   html:
@@ -33,3 +35,6 @@ format:
       - brand
     css: styles.css
     toc: true
+
+
+

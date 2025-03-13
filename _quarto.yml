@@ -20,8 +20,8 @@ website:
         text: "Modèle IT"
       - href: ET_modele.qmd
         text: "Modèle ET"
-      - href: more_test.qmd
-        text: "Plus de Tests"
+     # - href: more_test.qmd
+      #  text: "Plus de Tests"
 
 execute:
   echo: false

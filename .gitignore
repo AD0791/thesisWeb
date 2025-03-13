@@ -48,3 +48,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.quarto/
+/.quarto/
+*_cache/
+/renv/
+

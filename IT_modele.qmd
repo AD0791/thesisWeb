@@ -5,6 +5,9 @@ author: "Benzico Pierre & Alexandro Disla"
 
 ## Presentation des resultats du modele IT
 
+1. representation short run et long run
+2. Get the long rung 
+
 ```{r}
 #| label: setup
 #| echo: false
@@ -18,7 +21,13 @@ suppressPackageStartupMessages(library(dLagM))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(modelsummary))
 suppressPackageStartupMessages(library(tinytable))
-
+suppressPackageStartupMessages(library(kableExtra))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(broom))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(gt))
+suppressPackageStartupMessages(library(purrr))
+suppressPackageStartupMessages(library(stringr))
 
 ```
 
@@ -77,25 +86,274 @@ p.et = data.frame(ordersET$q,ordersET$p)+1
 
 ```
 
-```{r it.modele}
-#| label: ModelIT
-#| warning: false
 
+```{r model-spec}
+#| label: model-spec
+#| echo: false
+#| warning: false
+#| include: false
+#| eval: true
+
+# Afficher l'ordre optimal du modèle
+ic.it = as.data.frame(ordersIT$p)
+ic.it$importation = c(ordersIT$q)
+ic.it$aic = c(ordersIT$min.Stat)
+
+kable(head(ic.it, 5), 
+      caption = "Top 5 des modèles optimaux (AIC)",
+      col.names = c("Taux de change", "PIB", "PIB USA", "IPC", "Importation", "AIC"),
+      align = "c", 
+      digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+kable(head(p.it, 5), 
+      caption = "Top 5 des modèles optimaux (AIC)",
+      align = "c", 
+      digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+```
+
+```{r it.modele}
+#| label: cointegration-test
+#| echo: false
+#| warning: false
+#| include: false
+#| eval: true
+
+# Estimer le modèle ARDL avec ECM
 coint.it = ardlBound(
   data = it.series,
-  formula = importation ~ taux.change+pib+pib.usa+ipc,
+  formula = importation ~ taux.change + pib + pib.usa + ipc,
   p = p.it,
-  ECM=TRUE,
+  ECM = TRUE,
   stability = TRUE,
-  case = 4
+  case = 4  # Intercept non restreint et tendance restreinte
 )
 
 ```
 
+##  Representation Classique
+
+
+```{r ecm.it2}
+#| label: ecm-run2
+#| warning: false
 
 
 
-```{r ecm.it}
-#modelsummary(coint.it$ECM$EC.model, stars = TRUE)
-coint.it$model$modelFull$formula
+# Afficher le résumé original pour référence
+summary_result <- summary(coint.it$ECM$EC.model)
+#print(summary_result)
+
+# 1. Extraire les coefficients avec statistiques complètes et ajouter les codes de signification
+model_tidy <- tidy(coint.it$ECM$EC.model, conf.int = TRUE) %>%
+  mutate(
+    p_numeric = p.value,  # Conserver une version numérique pour les comparaisons
+    stars = case_when(
+      p.value < 0.001 ~ "***",
+      p.value < 0.01 ~ "**",
+      p.value < 0.05 ~ "*",
+      p.value < 0.1 ~ ".",
+      TRUE ~ ""
+    ),
+    p.value = format.pval(p.value, digits = 3),
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  # Ajouter une colonne qui combine l'estimateur et les étoiles
+  mutate(
+    estimate_stars = paste0(estimate, " ", stars)
+  )
+
+# 2. Extraire les statistiques globales du modèle
+model_glance <- glance(coint.it$ECM$EC.model) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# 3. Créer un tableau pour les coefficients avec codes de signification
+coef_gt <- gt(model_tidy) %>%
+  tab_header(
+    title = "Modèle à Correction d'Erreur (ECM)",
+    subtitle = "Coefficients et statistiques"
+  ) %>%
+  cols_label(
+    term = "Terme",
+    estimate_stars = "Coefficient",
+    std.error = "Erreur std",
+    statistic = "t-value",
+    p.value = "p-value",
+    conf.low = "IC 95% inf",
+    conf.high = "IC 95% sup"
+  ) %>%
+  cols_hide(c("estimate", "stars", "p_numeric")) %>%
+  tab_style(
+    style = cell_fill(color = "#e9f5f9"),
+    locations = cells_body(rows = p_numeric < 0.05)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(rows = p_numeric < 0.05, 
+                           columns = c(term, estimate_stars, p.value))
+  ) %>%
+  # Ajouter la légende des codes de signification
+  tab_source_note(
+    source_note = md("**Signif. codes:** 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1")
+  )
+
+# 4. Créer un tableau pour les statistiques du modèle
+stats_data <- tibble(
+  Statistique = c("R² ajusté", "F-statistique", "p-value (F)", "Log-vraisemblance", 
+                "AIC", "BIC", "Degrés de liberté", "Nombre d'observations"),
+  Valeur = c(
+    summary_result$adj.r.squared, 
+    summary_result$fstatistic[1],
+    pf(summary_result$fstatistic[1], summary_result$fstatistic[2], summary_result$fstatistic[3], lower.tail = FALSE),
+    model_glance$logLik,
+    model_glance$AIC,
+    model_glance$BIC,
+    model_glance$df,
+    model_glance$nobs
+  )
+) %>%
+  mutate(
+    Valeur = case_when(
+      Statistique == "p-value (F)" ~ format.pval(Valeur, digits = 4),
+      Statistique %in% c("Degrés de liberté", "Nombre d'observations") ~ as.character(round(Valeur)),
+      TRUE ~ as.character(round(Valeur, 4))
+    )
+  )
+
+stats_gt <- gt(stats_data) %>%
+  tab_header(
+    title = "Statistiques globales du modèle"
+  )
+
+# 5. Afficher les deux tableaux
+coef_gt
+stats_gt
+
+# 6. Sauvegarder les deux tableaux
+gt::gtsave(coef_gt, filename = "coefficients_it_ecm.png")
+gt::gtsave(stats_gt, filename = "statistiques_it_ecm.png")
 ```
+
+
+Voici la représentation mathématique du modèle à correction d'erreur pour les importations :
+
+$$
+\begin{align}
+\Delta \text{Importation}_t &= -50.503^{***} - 1.2427^{***} \cdot \text{EC}_{t-1} - 0.783^{**} \cdot \Delta \text{Taux.Change}_t \\
+&+ 1.3778^{***} \cdot \Delta \text{Taux.Change}_{t-1} + 0.8364^{*} \cdot \Delta \text{Taux.Change}_{t-2} + 1.0723^{**} \cdot \Delta \text{Taux.Change}_{t-3} \\
+&+ 1.4397^{.} \cdot \Delta \text{PIB}_t + 1.0529 \cdot \Delta \text{PIB}_{t-1} \\
+&+ 0.89 \cdot \Delta \text{PIB.USA}_t - 1.355 \cdot \Delta \text{PIB.USA}_{t-1} - 1.7264 \cdot \Delta \text{PIB.USA}_{t-2} + 2.8411^{.} \cdot \Delta \text{PIB.USA}_{t-3} \\
+&+ 0.8355 \cdot \Delta \text{IPC}_t - 1.5135^{**} \cdot \Delta \text{IPC}_{t-1} \\
+&+ 0.1167 \cdot \Delta \text{Importation}_{t-1} + 0.2431 \cdot \Delta \text{Importation}_{t-2} + 0.392^{*} \cdot \Delta \text{Importation}_{t-3} + \varepsilon_t
+\end{align}
+$$
+
+Où $\text{EC}_{t-1}$ est le terme de correction d'erreur défini comme :
+
+$$
+\begin{align}
+\text{EC}_{t-1} &= \text{Importation}_{t-1} + 0.5926 \cdot \text{Taux.Change}_{t-1} - 0.3108 \cdot \text{PIB}_{t-1} \\
+&- 1.8199 \cdot \text{PIB.USA}_{t-1} - 1.0459 \cdot \text{IPC}_{t-1}
+\end{align}
+$$
+
+
+
+## Avec long run
+
+
+```{r lr2}
+#| label: long-run-coefs-clean
+#| warning: false
+
+
+# Obtenir le résumé du modèle ARDL complet
+ardl_summary <- summary(coint.it$ARDL.model)
+
+# Extraire manuellement les coefficients pour un meilleur contrôle
+coef_data <- as.data.frame(ardl_summary$coefficients)
+coef_data$variable <- rownames(coef_data)
+rownames(coef_data) <- NULL
+
+# Filtrer uniquement les coefficients de long terme spécifiques demandés
+# et exclure explicitement le trend et l'intercept
+long_term_coefs <- coef_data %>%
+  filter(variable %in% c("importation.1", "taux.change.1", "pib.1", "pib.usa.1", "ipc.1")) %>%
+  rename(
+    estimate = Estimate,
+    std.error = `Std. Error`,
+    t_value = `t value`,
+    p_value = `Pr(>|t|)`
+  ) %>%
+  mutate(
+    stars = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01 ~ "**",
+      p_value < 0.05 ~ "*",
+      p_value < 0.1 ~ ".",
+      TRUE ~ ""
+    ),
+    # Ajouter une colonne qui combine l'estimateur et les étoiles
+    estimate_stars = paste0(round(estimate, 4), " ", stars),
+    # Nettoyer les noms des termes
+    variable_clean = case_when(
+      variable == "importation.1" ~ "Importation (t-1)",
+      variable == "taux.change.1" ~ "Taux de change (t-1)",
+      variable == "pib.1" ~ "PIB Haïti (t-1)",
+      variable == "pib.usa.1" ~ "PIB USA (t-1)",
+      variable == "ipc.1" ~ "IPC (t-1)",
+      TRUE ~ variable
+    )
+  )
+
+# Créer un tableau pour les coefficients de long terme
+long_run_gt <- gt(long_term_coefs) %>%
+  cols_label(
+    variable_clean = "Variable",
+    estimate_stars = "Coefficient",
+    std.error = "Erreur std",
+    t_value = "t-value",
+    p_value = "p-value"
+  ) %>%
+  fmt_number(
+    columns = c(std.error, t_value),
+    decimals = 4
+  ) %>%
+  fmt_number(
+    columns = p_value,
+    decimals = 5
+  ) %>%
+  cols_hide(c("variable", "estimate", "stars")) %>%
+  tab_header(
+    title = "Coefficients de long terme"
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#e9f5f9"),
+    locations = cells_body(rows = p_value < 0.05)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(rows = p_value < 0.05)
+  ) %>%
+  tab_source_note(
+    source_note = md("**Signif. codes:** 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1")
+  )
+
+# Afficher et sauvegarder
+long_run_gt
+gt::gtsave(long_run_gt, filename = "long_coef_it.png")
+
+```
+
+
+La relation de long terme pour le modèle d'importation est :
+
+$$
+\begin{align}
+\text{Importation}_t &= -0.5926 \cdot \text{Taux.Change}_t + 0.3108 \cdot \text{PIB}_t + 1.8199 \cdot \text{PIB.USA}_t + 1.0459 \cdot \text{IPC}_t + \text{constante}
+\end{align}
+$$
+
+

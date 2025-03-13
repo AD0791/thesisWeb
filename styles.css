@@ -1,0 +1,16 @@
+/* css styles */
+body {
+    background-color: White;
+    color: dark;
+    text-align: justify;
+  }
+  
+  .navbar {
+    background-color: black !important;
+    color: white !important;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: white !important;
+  }
+  

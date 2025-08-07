@@ -1,0 +1,7 @@
+---
+title: "Test de Spécification de Ramsey (RESET)"
+---
+
+```{r}
+knitr::include_graphics("./tests/outputs/reset.test_it.png")
+```

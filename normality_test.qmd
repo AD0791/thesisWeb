@@ -1,0 +1,9 @@
+---
+title: "Test de Normalité de Shapiro-Wilk"
+---
+
+## test de Normalite des series d'interet
+
+```{r}
+knitr::include_graphics("./tests/outputs/shapiro_series_test.png")
+```

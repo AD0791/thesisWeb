@@ -21,8 +21,22 @@ website:
         text: "Modèle IT"
       - href: ET_modele.qmd
         text: "Modèle ET"
-     # - href: more_test.qmd
-      #  text: "Plus de Tests"
+      - text: "Tests"
+        menu:
+          - href: stationarity.qmd
+            text: "Stationnarité"
+          - href: granger_causality.qmd
+            text: "Causalité de Granger"
+          - href: kendall_correlation.qmd
+            text: "Corrélation de Kendall"
+          - href: normality_test.qmd
+            text: "Test de Normalité"
+          - href: cusum_test.qmd
+            text: "Test CUSUM"
+          - href: cointegration_test.qmd
+            text: "Test de Cointégration"
+          - href: specification_test.qmd
+            text: "Test de Spécification"
 
 execute:
   echo: false

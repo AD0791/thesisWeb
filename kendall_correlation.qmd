@@ -1,0 +1,9 @@
+---
+title: "Test de Corrélation de Kendall"
+---
+
+Donc on peut proceder a un test de correlation de Kendall.
+
+```{r}
+knitr::include_graphics("./tests/outputs/kendall_test.png")
+```

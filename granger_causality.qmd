@@ -1,0 +1,9 @@
+---
+title: "Test de Causalité de Granger"
+---
+
+## Test de Causalite de Ganger
+
+```{r}
+knitr::include_graphics("./tests/outputs/granger_test.png")
+```

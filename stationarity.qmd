@@ -1,0 +1,46 @@
+---
+title: "Analyse de la Stationnarité"
+---
+
+## Procédure
+
+La procédure d'étude de la stationnarité demande que l'on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests.
+
+## Filtre de différence
+
+Le filtre de différence est une opération couramment utilisée dans l'analyse des séries chronologiques pour transformer une série en une série stationnaire en différenciant les observations. La différenciation implique de soustraire chaque observation de la série par son observation précédente. Cette opération aide à éliminer les tendances et les structures temporelles de la série, rendant ainsi la série stationnaire. Voici comment le filtre de différence est mathématiquement représenté :
+
+Si nous avons une série chronologique \(y_t\) pour \(t = 1, 2, ..., T\), alors la série de différences premières, notée \(\Delta y_t\), est définie comme :
+
+$$ \Delta y_t = y_t - y_{t-1} $$
+
+Cette équation montre que chaque observation \(y_t\) est soustraite de son observation précédente \(y_{t-1}\) pour obtenir la différence première \(\Delta y_t\). Cela peut être répété pour chaque observation dans la série, créant ainsi une nouvelle série de différences premières avec une longueur de \(T - 1\), car la première observation n'a pas de valeur précédente à soustraire.
+
+L'opération de différenciation peut être répétée plusieurs fois si nécessaire pour obtenir une série encore plus stationnaire, en soustrayant chaque observation par son observation précédente dans la série de différences premières. La série résultante est appelée série de différences d'ordre \(d\), où \(d\) représente le nombre de différences effectuées.
+
+Voici un exemple d'équation LaTeX pour représenter la série de différences premières :
+Cette équation peut être utilisée dans les documents LaTeX pour représenter mathématiquement le concept de différenciation dans l'analyse des séries chronologiques.
+
+## Hypothèses pour les tests de stationnarité
+
+Bien sûr, voici les hypothèses nulles et alternatives pour les tests ADF, KPSS et Phillips-Perron :
+
+1.  **Test de Dickey-Fuller Augmenté (ADF)** :
+    -   Hypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu'elle n'est pas stationnaire.
+    -   Hypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu'elle est stationnaire.
+
+2.  **Test KPSS (Kwiatkowski-Phillips-Schmidt-Shin)** :
+    -   Hypothèse Nulle (H0) : La série chronologique est stationnaire.
+    -   Hypothèse Alternative (H1) : La série chronologique n'est pas stationnaire.
+
+3.  **Test Phillips-Perron** :
+    -   Hypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu'elle n'est pas stationnaire.
+    -   Hypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu'elle est stationnaire.
+
+Il est important de noter que les conclusions des tests dépendent de la p-value associée. Si la p-value est inférieure à un certain seuil (généralement 0,05), on rejette l'hypothèse nulle au profit de l'hypothèse alternative, ce qui signifie que la série est considérée comme stationnaire. Sinon, si la p-value est supérieure au seuil, on ne peut pas rejeter l'hypothèse nulle, ce qui indique que la série n'est pas stationnaire.
+
+## Tableau Présentant les résultats des tests de stationnarité
+
+```{r}
+knitr::include_graphics("./tests/outputs/res_stationarity.png")
+```

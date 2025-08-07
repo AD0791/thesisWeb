@@ -1,0 +1,45 @@
+---
+title: "Test de Cointégration de Pesaran (Bound Test)"
+---
+
+Considérons le modèle ARDL suivant :
+
+$$ \Delta Y_t = \alpha + \beta_1 Y_{t-1} + \beta_2 \Delta Y_{t-1} + \beta_3 \Delta Y_{t-2} + \ldots + \beta_p \Delta Y_{t-p} + \gamma_1 X_{1,t-1} + \gamma_2 \Delta X_{1,t-1} + \ldots + \gamma_q \Delta X_{1,t-q} + \epsilon_t $$
+
+Le ARDL Bound Test implique deux tests de nullité :
+
+1.  **Pratiquement un test de Wald:**
+    -   Nullité : \(\beta_{1} = \beta_{2} = \ldots = \beta_{p} = 0\) (pas de cointégration)
+    -   Alternative : Au moins un des coefficients \(\beta_{i}\) est différent de zéro (cointégration)
+    -   Test statistique : F-test
+
+```{r}
+knitr::include_graphics('./tests/outputs/interpretation_boundtest.png')
+```
+
+## Test de cointégration de Pesaran (Bound test) - Modèle IT
+
+Pesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.
+
+> 4ème cas retenu
+
+```{r}
+knitr::include_graphics('./tests/outputs/peasaran.coint.test_it.png')
+```
+
+## Test de cointégration de Pesaran (Bound test) - Modèle ET
+
+Pesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.
+
+> 3ème cas retenu
+
+```{r}
+knitr::include_graphics('./tests/outputs/peasaran.coint.test_et.png')
+```
+
+## Conclusion du test de cointégration
+
+1.  Modèle IT:
+    -   ECM avec intercept non restreint et une tendance restreinte
+2.  Modèle ET:
+    -   ECM avec intercept non restreint et sans tendance

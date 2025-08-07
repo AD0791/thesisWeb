@@ -1,0 +1,15 @@
+---
+title: "Test de Stabilité CUSUM"
+---
+
+## CUSUM IT
+
+```{r}
+knitr::include_graphics("./tests/outputs/cusum_it.modele.png")
+```
+
+## CUSUM ET
+
+```{r}
+knitr::include_graphics("./tests/outputs/cusum_et.modele.png")
+```

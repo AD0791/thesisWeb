@@ -1,0 +1,15 @@
+{
+  "hash": "c3c23258f95aefc29d9b6e6fb26fbd84",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Spécification de Ramsey (RESET)\"\n---\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/reset.test_it.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

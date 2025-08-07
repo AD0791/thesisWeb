@@ -1,0 +1,15 @@
+{
+  "hash": "16f17e31d6f94c6b3d708cf923b8d18c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Corrélation de Kendall\"\n---\n\nDonc on peut proceder a un test de correlation de Kendall.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/kendall_test.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hash": "0143473c909e3d288b01915f00c084fa",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Causalité de Granger\"\n---\n\n## Test de Causalite de Ganger\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/granger_test.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

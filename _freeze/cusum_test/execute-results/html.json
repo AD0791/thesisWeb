@@ -1,0 +1,15 @@
+{
+  "hash": "d26b905723fd26edd872352f095b2b8d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Stabilité CUSUM\"\n---\n\n## CUSUM IT\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_it.modele.png)\n:::\n:::\n\n\n## CUSUM ET\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_et.modele.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

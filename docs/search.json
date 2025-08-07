@@ -14,6 +14,13 @@
     "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
   },
   {
+    "objectID": "kendall_correlation.html",
+    "href": "kendall_correlation.html",
+    "title": "Test de Corrélation de Kendall",
+    "section": "",
+    "text": "Donc on peut proceder a un test de correlation de Kendall."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Accueil",
@@ -26,6 +33,41 @@
     "title": "Accueil",
     "section": "",
     "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
+  },
+  {
+    "objectID": "stationarity.html",
+    "href": "stationarity.html",
+    "title": "Analyse de la Stationnarité",
+    "section": "",
+    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
+  },
+  {
+    "objectID": "stationarity.html#procédure",
+    "href": "stationarity.html#procédure",
+    "title": "Analyse de la Stationnarité",
+    "section": "",
+    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
+  },
+  {
+    "objectID": "stationarity.html#filtre-de-différence",
+    "href": "stationarity.html#filtre-de-différence",
+    "title": "Analyse de la Stationnarité",
+    "section": "Filtre de différence",
+    "text": "Filtre de différence\nLe filtre de différence est une opération couramment utilisée dans l’analyse des séries chronologiques pour transformer une série en une série stationnaire en différenciant les observations. La différenciation implique de soustraire chaque observation de la série par son observation précédente. Cette opération aide à éliminer les tendances et les structures temporelles de la série, rendant ainsi la série stationnaire. Voici comment le filtre de différence est mathématiquement représenté :\nSi nous avons une série chronologique (y_t) pour (t = 1, 2, …, T), alors la série de différences premières, notée (y_t), est définie comme :\n\\[ \\Delta y_t = y_t - y_{t-1} \\]\nCette équation montre que chaque observation (y_t) est soustraite de son observation précédente (y_{t-1}) pour obtenir la différence première (y_t). Cela peut être répété pour chaque observation dans la série, créant ainsi une nouvelle série de différences premières avec une longueur de (T - 1), car la première observation n’a pas de valeur précédente à soustraire.\nL’opération de différenciation peut être répétée plusieurs fois si nécessaire pour obtenir une série encore plus stationnaire, en soustrayant chaque observation par son observation précédente dans la série de différences premières. La série résultante est appelée série de différences d’ordre (d), où (d) représente le nombre de différences effectuées.\nVoici un exemple d’équation LaTeX pour représenter la série de différences premières : Cette équation peut être utilisée dans les documents LaTeX pour représenter mathématiquement le concept de différenciation dans l’analyse des séries chronologiques."
+  },
+  {
+    "objectID": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
+    "href": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
+    "title": "Analyse de la Stationnarité",
+    "section": "Hypothèses pour les tests de stationnarité",
+    "text": "Hypothèses pour les tests de stationnarité\nBien sûr, voici les hypothèses nulles et alternatives pour les tests ADF, KPSS et Phillips-Perron :\n\nTest de Dickey-Fuller Augmenté (ADF) :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\nTest KPSS (Kwiatkowski-Phillips-Schmidt-Shin) :\n\nHypothèse Nulle (H0) : La série chronologique est stationnaire.\nHypothèse Alternative (H1) : La série chronologique n’est pas stationnaire.\n\nTest Phillips-Perron :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\n\nIl est important de noter que les conclusions des tests dépendent de la p-value associée. Si la p-value est inférieure à un certain seuil (généralement 0,05), on rejette l’hypothèse nulle au profit de l’hypothèse alternative, ce qui signifie que la série est considérée comme stationnaire. Sinon, si la p-value est supérieure au seuil, on ne peut pas rejeter l’hypothèse nulle, ce qui indique que la série n’est pas stationnaire."
+  },
+  {
+    "objectID": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
+    "href": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
+    "title": "Analyse de la Stationnarité",
+    "section": "Tableau Présentant les résultats des tests de stationnarité",
+    "text": "Tableau Présentant les résultats des tests de stationnarité"
   },
   {
     "objectID": "ET_modele.html",
@@ -117,5 +159,40 @@
     "title": "Donnee du modele",
     "section": "",
     "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "cointegration_test.html",
+    "href": "cointegration_test.html",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "",
+    "text": "Considérons le modèle ARDL suivant :\n\\[ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t \\]\nLe ARDL Bound Test implique deux tests de nullité :"
+  },
+  {
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle IT",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle IT\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n4ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle ET",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle ET\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n3ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "href": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Conclusion du test de cointégration",
+    "text": "Conclusion du test de cointégration\n\nModèle IT:\n\nECM avec intercept non restreint et une tendance restreinte\n\nModèle ET:\n\nECM avec intercept non restreint et sans tendance"
+  },
+  {
+    "objectID": "cusum_test.html#cusum-et",
+    "href": "cusum_test.html#cusum-et",
+    "title": "Test de Stabilité CUSUM",
+    "section": "CUSUM ET",
+    "text": "CUSUM ET"
   }
 ]

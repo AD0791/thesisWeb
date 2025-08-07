@@ -1,0 +1,15 @@
+{
+  "hash": "550ee9646ac75767fcac2c9fa447f1a6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Cointégration de Pesaran (Bound Test)\"\n---\n\nConsidérons le modèle ARDL suivant :\n\n$$ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t $$\n\nLe ARDL Bound Test implique deux tests de nullité :\n\n1.  **Pratiquement un test de Wald:**\n    -   Nullité : \\(\\beta_{1} = \\beta_{2} = \\ldots = \\beta_{p} = 0\\) (pas de cointégration)\n    -   Alternative : Au moins un des coefficients \\(\\beta_{i}\\) est différent de zéro (cointégration)\n    -   Test statistique : F-test\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/interpretation_boundtest.png)\n:::\n:::\n\n\n## Test de cointégration de Pesaran (Bound test) - Modèle IT\n\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n> 4ème cas retenu\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/peasaran.coint.test_it.png)\n:::\n:::\n\n\n## Test de cointégration de Pesaran (Bound test) - Modèle ET\n\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n> 3ème cas retenu\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/peasaran.coint.test_et.png)\n:::\n:::\n\n\n## Conclusion du test de cointégration\n\n1.  Modèle IT:\n    -   ECM avec intercept non restreint et une tendance restreinte\n2.  Modèle ET:\n    -   ECM avec intercept non restreint et sans tendance\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

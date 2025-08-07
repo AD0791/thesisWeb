@@ -9,34 +9,34 @@ website:
     background: "black"
     search: true
     left:
-      - href: index.qmd
-        text: "Accueil"
-      - href: metadata.qmd
-        text: "Métadonnées"
-      - href: data.qmd
-        text: "Données Brutes"
-      - href: logdata.qmd
-        text: "Données en Log"
-      - href: IT_modele.qmd
-        text: "Modèle IT"
-      - href: ET_modele.qmd
-        text: "Modèle ET"
-      - text: "Tests"
+      -  text: "Accueil"
+         href: index.qmd
+      -  text: "Métadonnées"
+         href: metadata.qmd
+      -  text: "Données Brutes"
+         href: data.qmd
+      -  text: "Données en Log"
+         href: logdata.qmd
+      -  text: "Modèle IT"
+         href: IT_modele.qmd
+      -  text: "Modèle ET"
+         href: ET_modele.qmd
+      - text: "tests"
         menu:
-          - href: stationarity.qmd
-            text: "Stationnarité"
-          - href: granger_causality.qmd
-            text: "Causalité de Granger"
-          - href: kendall_correlation.qmd
-            text: "Corrélation de Kendall"
-          - href: normality_test.qmd
-            text: "Test de Normalité"
-          - href: cusum_test.qmd
-            text: "Test CUSUM"
-          - href: cointegration_test.qmd
-            text: "Test de Cointégration"
-          - href: specification_test.qmd
-            text: "Test de Spécification"
+          -  text: "Stationnarité"
+             href: stationarity.qmd
+          -  text: "Causalité de Granger"
+             href: granger_causality.qmd
+          -  text: "Corrélation de Kendall"
+             href: kendall_correlation.qmd
+          -  text: "Test de Normalité"
+             href: normality_test.qmd
+          -  text: "Test CUSUM"
+             href: cusum_test.qmd
+          -  text: "Test de Cointégration"
+             href: cointegration_test.qmd
+          -  text: "Test de Spécification"
+             href: specification_test.qmd
 
 execute:
   echo: false

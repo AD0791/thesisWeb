@@ -1,31 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://AD0791.github.io/thesisWeb/logdata.html</loc>
-    <lastmod>2025-03-13T21:44:28.669Z</lastmod>
+    <loc>https://AD0791.github.io/thesisWeb/IT_modele.html</loc>
+    <lastmod>2025-08-07T23:02:53.871Z</lastmod>
   </url>
   <url>
-    <loc>https://AD0791.github.io/thesisWeb/index.html</loc>
-    <lastmod>2025-03-13T21:44:28.669Z</lastmod>
+    <loc>https://AD0791.github.io/thesisWeb/stationarity.html</loc>
+    <lastmod>2025-08-07T23:02:53.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/kendall_correlation.html</loc>
+    <lastmod>2025-08-07T23:02:53.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/logdata.html</loc>
+    <lastmod>2025-08-07T23:02:53.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/specification_test.html</loc>
+    <lastmod>2025-08-07T23:02:53.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/cointegration_test.html</loc>
+    <lastmod>2025-08-07T23:02:53.896Z</lastmod>
   </url>
   <url>
     <loc>https://AD0791.github.io/thesisWeb/ET_modele.html</loc>
-    <lastmod>2025-03-13T21:44:28.609Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AD0791.github.io/thesisWeb/IT_modele.html</loc>
-    <lastmod>2025-03-13T21:44:28.609Z</lastmod>
+    <lastmod>2025-08-07T23:02:53.871Z</lastmod>
   </url>
   <url>
     <loc>https://AD0791.github.io/thesisWeb/metadata.html</loc>
-    <lastmod>2025-03-13T21:44:28.673Z</lastmod>
+    <lastmod>2025-08-07T23:02:53.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/index.html</loc>
+    <lastmod>2025-08-07T23:02:53.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/normality_test.html</loc>
+    <lastmod>2025-08-07T23:02:53.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/granger_causality.html</loc>
+    <lastmod>2025-08-07T23:02:53.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AD0791.github.io/thesisWeb/cusum_test.html</loc>
+    <lastmod>2025-08-07T23:02:53.896Z</lastmod>
   </url>
   <url>
     <loc>https://AD0791.github.io/thesisWeb/data.html</loc>
-    <lastmod>2025-03-13T21:44:28.613Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AD0791.github.io/thesisWeb/more_test.html</loc>
-    <lastmod>2025-03-13T21:44:28.673Z</lastmod>
+    <lastmod>2025-08-07T23:02:53.896Z</lastmod>
   </url>
 </urlset>

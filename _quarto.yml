@@ -21,22 +21,24 @@ website:
          href: IT_modele.qmd
       -  text: "Modèle ET"
          href: ET_modele.qmd
-      - text: "tests"
+      - text: "Validation des Tests"
         menu:
-          -  text: "Stationnarité"
-             href: stationarity.qmd
-          -  text: "Causalité de Granger"
-             href: granger_causality.qmd
-          -  text: "Corrélation de Kendall"
-             href: kendall_correlation.qmd
-          -  text: "Test de Normalité"
-             href: normality_test.qmd
-          -  text: "Test CUSUM"
-             href: cusum_test.qmd
-          -  text: "Test de Cointégration"
-             href: cointegration_test.qmd
-          -  text: "Test de Spécification"
-             href: specification_test.qmd
+          - text: "Tests de Diagnostic"
+            href: diagnostic_tests.qmd
+          - text: "Test de Cointégration"
+            href: cointegration_test.qmd
+          - text: "Test CUSUM"
+            href: cusum_test.qmd
+          - text: "Causalité de Granger"
+            href: granger_causality.qmd
+          - text: "Corrélation de Kendall"
+            href: kendall_correlation.qmd
+          - text: "Test de Normalité"
+            href: normality_test.qmd
+          - text: "Test de Spécification"
+            href: specification_test.qmd
+          - text: "Tests de Stationnarité"
+            href: stationarity_tests.qmd
 
 execute:
   echo: false
@@ -49,6 +51,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-

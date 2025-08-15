@@ -1,0 +1,20 @@
+---
+title: "Test de Spécification (Modèle IT)"
+---
+
+## Test de Spécification de Ramsey (RESET) pour le Modèle IT
+
+Le test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.
+
+### Hypothèses du Test
+
+- **H0 :** Le modèle est correctement spécifié.
+- **H1 :** Le modèle n'est pas correctement spécifié.
+
+### Résultats du Test de Spécification pour le Modèle IT
+
+Le tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d'importation (IT).
+
+```{r}
+knitr::include_graphics("VAL.IT.png")
+```

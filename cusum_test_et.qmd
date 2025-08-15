@@ -1,0 +1,17 @@
+---
+title: "Test CUSUM (Modèle ET)"
+---
+
+## Test CUSUM pour le Modèle ET
+
+Le test CUSUM (Cumulative Sum) est un test de stabilité des paramètres du modèle. Il est basé sur la somme cumulative des résidus récursifs.
+
+### Interprétation
+
+Si la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), les paramètres du modèle sont considérés comme stables dans le temps.
+
+### Résultats du Test CUSUM pour le Modèle ET
+
+```{r}
+knitr::include_graphics("cusum_et.modele.png")
+```

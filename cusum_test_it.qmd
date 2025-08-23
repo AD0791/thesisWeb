@@ -13,5 +13,5 @@ Si la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), 
 ### Résultats du Test CUSUM pour le Modèle IT
 
 ```{r}
-knitr::include_graphics("cusum_it.modele.png")
+knitr::include_graphics("./tests/outputs/cusum_it.modele.png")
 ```

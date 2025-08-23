@@ -1,0 +1,36 @@
+---
+title: "Etablissement du nombre de retard Maximal pour les series sous etudes"
+---
+
+## Information Criterion
+Les critères d'information sont des outils utilisés en statistiques pour sélectionner un modèle parmi un ensemble de modèles candidats. L'objectif est de choisir le modèle qui offre un bon équilibre entre l'ajustement aux données et la complexité du modèle. Les deux critères d'information les plus couramment utilisés sont le Critère d'Information Akaike (AIC) et le Critère d'Information Bayésien (BIC). Voici une explication de ces deux critères :
+
+1. **Critère d'Information Akaike (AIC)** :
+   - Le Critère d'Information Akaike (AIC) a été développé par Hirotugu Akaike dans les années 1970. Il est basé sur la théorie de l'information et est largement utilisé pour comparer des modèles statistiques.
+   - L'AIC est calculé à partir de la fonction de vraisemblance du modèle et de sa complexité, mesurée par le nombre de paramètres du modèle. L'AIC est défini comme :
+   $$\text{AIC} = -2 \times \text{log-vraisemblance maximisée} + 2 \times \text{nombre de paramètres du modèle}$$
+   - Le modèle avec le plus faible AIC est considéré comme le meilleur ajustement parmi les modèles considérés.
+
+2. **Critère d'Information Bayésien (BIC)** :
+   - Le Critère d'Information Bayésien (BIC), également connu sous le nom de Critère de Schwarz, a été développé par Gideon Schwarz dans les années 1970. Il est basé sur la théorie bayésienne de la probabilité.
+   - Comme l'AIC, le BIC prend en compte à la fois l'ajustement aux données et la complexité du modèle. Cependant, le BIC pénalise la complexité du modèle plus fortement que l'AIC.
+   - Le BIC est calculé comme suit :
+   $$\text{BIC} = -2 \times \text{log-vraisemblance maximisée} + \log(n) \times \text{nombre de paramètres du modèle}$$
+   où $ n $ est la taille de l'échantillon.
+   - Comme pour l'AIC, le modèle avec le plus faible BIC est considéré comme le meilleur ajustement parmi les modèles considérés.
+
+En résumé, les critères d'information, tels que l'AIC et le BIC, fournissent une approche objective pour comparer différents modèles statistiques en tenant compte à la fois de leur ajustement aux données et de leur complexité. Ces critères sont largement utilisés dans la sélection de modèles en statistiques et en apprentissage automatique.
+
+## Max Lag Importation
+
+
+```{r}
+knitr::include_graphics('./tests/outputs/optimal_selection_AIC_IT.png')
+```
+
+## Max Lag Exportation
+
+
+```{r}
+knitr::include_graphics('./tests/outputs/optimal_selection_AIC_ET.png')
+```

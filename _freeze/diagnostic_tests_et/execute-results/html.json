@@ -1,0 +1,15 @@
+{
+  "hash": "0817ac40f48ac9363ac8a20295b9dcf7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Tests de Diagnostic (Modèle ET)\"\n---\n\n## Validation du Modèle ET\n\nCette section présente les résultats des tests de diagnostic pour le modèle d'exportation (ET).\n\n### Résultats des Tests de Diagnostic\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](VAL.ET.png)\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

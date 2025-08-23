@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Présentation du Modèle"
+  title: "Mod"
   favicon: download.png
   navbar:
     background: "black"
@@ -21,25 +21,32 @@ website:
          href: IT_modele.qmd
       -  text: "Modèle ET"
          href: ET_modele.qmd
-      - text: "Validation des Tests"
+      - text: "Tests fondamentaux"
         menu:
-          - text: "Tests de Diagnostic"
-            href: diagnostic_tests.qmd
+          - text: "Test de Normalité des variables"
+            href: jacquesbera.qmd
+          - text: "Tests de Stationnarité"
+            href: stationarity.qmd
+          - text: "Le nombre de retard Maximal"
+            href: maxlag.qmd
           - text: "Test de Cointégration"
             href: cointegration_test.qmd
+      - text: "Validation des Modeles"
+        menu:
+          - text: "Les Tests Diagnostic"
+            href: diagnostic_tests.qmd
           - text: "Test CUSUM"
             href: cusum_test.qmd
-          - text: "Causalité de Granger"
-            href: granger_causality.qmd
-          - text: "Corrélation de Kendall"
-            href: kendall_correlation.qmd
-          - text: "Test de Normalité"
-            href: normality_test.qmd
           - text: "Test de Spécification"
             href: specification_test.qmd
-          - text: "Tests de Stationnarité"
-            href: stationarity_tests.qmd
-
+      - text: "Test Economique"
+        menu:
+          - text: "test de Normalite des series d'interet"
+            href: normality_test.qmd
+          - text: "Corrélation de Kendall"
+            href: kendall_correlation.qmd
+          - text: "Causalité de Granger"
+            href: granger_causality.qmd      
 execute:
   echo: false
   freeze: auto

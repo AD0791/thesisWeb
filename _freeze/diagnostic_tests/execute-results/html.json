@@ -1,0 +1,15 @@
+{
+  "hash": "6b78a319288500d2eca918b4d1572a82",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Tests de Diagnostic des modeles\"\n---\n\n## Introduction\n\nLes tests de diagnostic sont essentiels pour vérifier la validité des hypothèses sous-jacentes d'un modèle économétrique. Ces tests permettent de s'assurer que le modèle est bien spécifié et que les résultats sont fiables.\n\n### Test de Breusch-Pagan\n\nLe test de Breusch-Pagan est utilisé pour détecter l'hétéroscédasticité dans les résidus d'un modèle de régression. L'hétéroscédasticité signifie que la variance des erreurs n'est pas constante.\n\n- **H0 :** Homoscédasticité (la variance des erreurs est constante).\n- **H1 :** Hétéroscédasticité (la variance des erreurs n'est pas constante).\n\n### Test de Breusch-Godfrey\n\nLe test de Breusch-Godfrey est utilisé pour détecter l'autocorrélation des erreurs dans un modèle de régression. L'autocorrélation signifie que les erreurs sont corrélées entre elles.\n\n- **H0 :** Il n'y a pas d'autocorrélation des erreurs.\n- **H1 :** Il y a une autocorrélation des erreurs.\n\n### Test de Ljung-Box\n\nLe test de Ljung-Box est un test statistique qui permet de déceler l'autocorrélation dans une série temporelle.\n\n- **H0 :** Les résidus sont indépendants (pas d'autocorrélation).\n- **H1 :** Les résidus ne sont pas indépendants (autocorrélation).\n\n### Test de Shapiro-Wilk\n\nLe test de Shapiro-Wilk est un test de normalité des résidus. Il permet de vérifier si les erreurs suivent une distribution normale.\n\n- **H0 :** Les résidus suivent une distribution normale.\n- **H1 :** Les résidus ne suivent pas une distribution normale.\n\n### Test de Ramsey (RESET)\n\nLe test RESET (Regression Specification Error Test) de Ramsey est un test de spécification de modèle. Il permet de vérifier si le modèle est bien spécifié, c'est-à-dire s'il n'y a pas de variables omises ou de formes fonctionnelles incorrectes.\n\n- **H0 :** Le modèle est bien spécifié.\n- **H1 :** Le modèle n'est pas bien spécifié.\n\n## Résultats des Tests\n\nLes résultats des tests de diagnostic pour chaque modèle sont présentés dans les pages suivantes :\n\n### MODELE IT\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/VAL.IT.png)\n:::\n:::\n\n\n### modele ET\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/VAL.ET.png)\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

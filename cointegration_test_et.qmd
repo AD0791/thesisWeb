@@ -26,5 +26,5 @@ La statistique F calculée est comparée à deux bornes critiques :
 Pour le modèle d'exportation (ET), le cas 3 (intercept non restreint et sans tendance) a été retenu.
 
 ```{r}
-knitr::include_graphics("peasaran.coint.test_et.png")
+knitr::include_graphics("./tests/outputs/peasaran.coint.test_et.png")
 ```

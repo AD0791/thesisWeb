@@ -1,0 +1,15 @@
+{
+  "hash": "dbb4f7fe35aaccfeb5747d5271daa646",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Cointégration (Modèle IT)\"\n---\n\n## Test de Cointégration de Pesaran (Bound test) pour le Modèle IT\n\nLe test de cointégration de Pesaran, également connu sous le nom de \"Bound test\", est utilisé pour déterminer s'il existe une relation de long terme entre les variables d'un modèle ARDL.\n\n### Hypothèses du Test\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\n- **H0 :** Il n'y a pas de relation de long terme (pas de cointégration).\n- **H1 :** Il existe une relation de long terme (cointégration).\n\n### Interprétation\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\n- Si la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\n- Si la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\n- Si la statistique F se situe entre les deux bornes, le test est non concluant.\n\n### Résultats du Test de Cointégration pour le Modèle IT\n\nPour le modèle d'importation (IT), le cas 4 (intercept non restreint et tendance restreinte) a été retenu.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/peasaran.coint.test_it.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

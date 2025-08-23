@@ -1,0 +1,15 @@
+{
+  "hash": "924fbd851524417c99b774153665c394",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Tests de Diagnostic (Modèle IT)\"\n---\n\n## Validation du Modèle IT\n\nCette section présente les résultats des tests de diagnostic pour le modèle d'importation (IT).\n\n### Tests de Diagnostic\n\nLes tests de diagnostic sont essentiels pour vérifier la validité des hypothèses du modèle.\n\n#### Test de Breusch-Pagan\n\nLe test de Breusch-Pagan est utilisé pour détecter l'hétéroscédasticité dans les résidus d'un modèle de régression.\n\n- **H0 :** Homoscédasticité (la variance des erreurs est constante).\n- **H1 :** Hétéroscédasticité (la variance des erreurs n'est pas constante).\n\n#### Test de Breusch-Godfrey\n\nLe test de Breusch-Godfrey est utilisé pour détecter l'autocorrélation des erreurs dans un modèle de régression.\n\n- **H0 :** Il n'y a pas d'autocorrélation des erreurs.\n- **H1 :** Il y a une autocorrélation des erreurs.\n\n#### Test de Ljung-Box\n\nLe test de Ljung-Box est un test statistique qui permet de déceler l'autocorrélation dans une série temporelle.\n\n- **H0 :** Les résidus sont indépendants (pas d'autocorrélation).\n- **H1 :** Les résidus ne sont pas indépendants (autocorrélation).\n\n#### Test de Shapiro-Wilk\n\nLe test de Shapiro-Wilk est un test de normalité des résidus.\n\n- **H0 :** Les résidus suivent une distribution normale.\n- **H1 :** Les résidus ne suivent pas une distribution normale.\n\n### Résultats des Tests de Diagnostic\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](VAL.IT.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

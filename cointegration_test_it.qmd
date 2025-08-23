@@ -26,5 +26,5 @@ La statistique F calculée est comparée à deux bornes critiques :
 Pour le modèle d'importation (IT), le cas 4 (intercept non restreint et tendance restreinte) a été retenu.
 
 ```{r}
-knitr::include_graphics("peasaran.coint.test_it.png")
+knitr::include_graphics("./tests/outputs/peasaran.coint.test_it.png")
 ```

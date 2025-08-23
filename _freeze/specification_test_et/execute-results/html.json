@@ -1,0 +1,15 @@
+{
+  "hash": "37cdafe6353a67c8f8bf3f2d009cd8fc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Test de Spécification (Modèle ET)\"\n---\n\n## Test de Spécification de Ramsey (RESET) pour le Modèle ET\n\nLe test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.\n\n### Hypothèses du Test\n\n- **H0 :** Le modèle est correctement spécifié.\n- **H1 :** Le modèle n'est pas correctement spécifié.\n\n### Résultats du Test de Spécification pour le Modèle ET\n\nLe tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d'exportation (ET).\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](VAL.ET.png)\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

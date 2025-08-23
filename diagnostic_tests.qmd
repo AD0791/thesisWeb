@@ -1,5 +1,5 @@
 ---
-title: "Tests de Diagnostic"
+title: "Tests de Diagnostic des modeles"
 ---
 
 ## Introduction
@@ -45,5 +45,15 @@ Le test RESET (Regression Specification Error Test) de Ramsey est un test de sp�
 
 Les résultats des tests de diagnostic pour chaque modèle sont présentés dans les pages suivantes :
 
-- [Tests de Diagnostic (Modèle ET)](diagnostic_tests_et.qmd)
-- [Tests de Diagnostic (Modèle IT)](diagnostic_tests_it.qmd)
+### MODELE IT
+
+```{r}
+knitr::include_graphics('./tests/outputs/VAL.IT.png')
+```
+
+### modele ET
+
+
+```{r}
+knitr::include_graphics('./tests/outputs/VAL.ET.png')
+```

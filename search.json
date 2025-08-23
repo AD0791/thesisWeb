@@ -1,31 +1,94 @@
 [
   {
-    "objectID": "IT_modele.html",
-    "href": "IT_modele.html",
-    "title": "Modele IT",
+    "objectID": "maxlag.html",
+    "href": "maxlag.html",
+    "title": "Etablissement du nombre de retard Maximal pour les series sous etudes",
     "section": "",
-    "text": "representation short run et long run\nGet the long rung"
+    "text": "Les critères d’information sont des outils utilisés en statistiques pour sélectionner un modèle parmi un ensemble de modèles candidats. L’objectif est de choisir le modèle qui offre un bon équilibre entre l’ajustement aux données et la complexité du modèle. Les deux critères d’information les plus couramment utilisés sont le Critère d’Information Akaike (AIC) et le Critère d’Information Bayésien (BIC). Voici une explication de ces deux critères :\n\nCritère d’Information Akaike (AIC) :\n\nLe Critère d’Information Akaike (AIC) a été développé par Hirotugu Akaike dans les années 1970. Il est basé sur la théorie de l’information et est largement utilisé pour comparer des modèles statistiques.\nL’AIC est calculé à partir de la fonction de vraisemblance du modèle et de sa complexité, mesurée par le nombre de paramètres du modèle. L’AIC est défini comme : \\[\\text{AIC} = -2 \\times \\text{log-vraisemblance maximisée} + 2 \\times \\text{nombre de paramètres du modèle}\\]\nLe modèle avec le plus faible AIC est considéré comme le meilleur ajustement parmi les modèles considérés.\n\nCritère d’Information Bayésien (BIC) :\n\nLe Critère d’Information Bayésien (BIC), également connu sous le nom de Critère de Schwarz, a été développé par Gideon Schwarz dans les années 1970. Il est basé sur la théorie bayésienne de la probabilité.\nComme l’AIC, le BIC prend en compte à la fois l’ajustement aux données et la complexité du modèle. Cependant, le BIC pénalise la complexité du modèle plus fortement que l’AIC.\nLe BIC est calculé comme suit : \\[\\text{BIC} = -2 \\times \\text{log-vraisemblance maximisée} + \\log(n) \\times \\text{nombre de paramètres du modèle}\\] où $ n $ est la taille de l’échantillon.\nComme pour l’AIC, le modèle avec le plus faible BIC est considéré comme le meilleur ajustement parmi les modèles considérés.\n\n\nEn résumé, les critères d’information, tels que l’AIC et le BIC, fournissent une approche objective pour comparer différents modèles statistiques en tenant compte à la fois de leur ajustement aux données et de leur complexité. Ces critères sont largement utilisés dans la sélection de modèles en statistiques et en apprentissage automatique."
   },
   {
-    "objectID": "IT_modele.html#presentation-des-resultats-du-modele-it",
-    "href": "IT_modele.html#presentation-des-resultats-du-modele-it",
-    "title": "Modele IT",
+    "objectID": "maxlag.html#information-criterion",
+    "href": "maxlag.html#information-criterion",
+    "title": "Etablissement du nombre de retard Maximal pour les series sous etudes",
     "section": "",
-    "text": "representation short run et long run\nGet the long rung"
+    "text": "Les critères d’information sont des outils utilisés en statistiques pour sélectionner un modèle parmi un ensemble de modèles candidats. L’objectif est de choisir le modèle qui offre un bon équilibre entre l’ajustement aux données et la complexité du modèle. Les deux critères d’information les plus couramment utilisés sont le Critère d’Information Akaike (AIC) et le Critère d’Information Bayésien (BIC). Voici une explication de ces deux critères :\n\nCritère d’Information Akaike (AIC) :\n\nLe Critère d’Information Akaike (AIC) a été développé par Hirotugu Akaike dans les années 1970. Il est basé sur la théorie de l’information et est largement utilisé pour comparer des modèles statistiques.\nL’AIC est calculé à partir de la fonction de vraisemblance du modèle et de sa complexité, mesurée par le nombre de paramètres du modèle. L’AIC est défini comme : \\[\\text{AIC} = -2 \\times \\text{log-vraisemblance maximisée} + 2 \\times \\text{nombre de paramètres du modèle}\\]\nLe modèle avec le plus faible AIC est considéré comme le meilleur ajustement parmi les modèles considérés.\n\nCritère d’Information Bayésien (BIC) :\n\nLe Critère d’Information Bayésien (BIC), également connu sous le nom de Critère de Schwarz, a été développé par Gideon Schwarz dans les années 1970. Il est basé sur la théorie bayésienne de la probabilité.\nComme l’AIC, le BIC prend en compte à la fois l’ajustement aux données et la complexité du modèle. Cependant, le BIC pénalise la complexité du modèle plus fortement que l’AIC.\nLe BIC est calculé comme suit : \\[\\text{BIC} = -2 \\times \\text{log-vraisemblance maximisée} + \\log(n) \\times \\text{nombre de paramètres du modèle}\\] où $ n $ est la taille de l’échantillon.\nComme pour l’AIC, le modèle avec le plus faible BIC est considéré comme le meilleur ajustement parmi les modèles considérés.\n\n\nEn résumé, les critères d’information, tels que l’AIC et le BIC, fournissent une approche objective pour comparer différents modèles statistiques en tenant compte à la fois de leur ajustement aux données et de leur complexité. Ces critères sont largement utilisés dans la sélection de modèles en statistiques et en apprentissage automatique."
   },
   {
-    "objectID": "IT_modele.html#representation-classique",
-    "href": "IT_modele.html#representation-classique",
-    "title": "Modele IT",
-    "section": "Representation Classique",
-    "text": "Representation Classique\n\n\n\n\n\n\n\n\nModèle à Correction d'Erreur (ECM)\n\n\nCoefficients et statistiques\n\n\nTerme\nErreur std\nt-value\np-value\nIC 95% inf\nIC 95% sup\nCoefficient\n\n\n\n\n(Intercept)\n9.9361\n-5.0827\n0.000167\n-71.8139\n-29.1920\n-50.503 ***\n\n\nec.1\n0.2446\n-5.0800\n0.000168\n-1.7674\n-0.7180\n-1.2427 ***\n\n\ndtaux.change.t\n0.2042\n-3.8344\n0.001823\n-1.2210\n-0.3450\n-0.783 **\n\n\ndtaux.change.1\n0.2563\n5.3758\n9.78e-05\n0.8281\n1.9275\n1.3778 ***\n\n\ndtaux.change.2\n0.3046\n2.7457\n0.015779\n0.1830\n1.4897\n0.8364 *\n\n\ndtaux.change.3\n0.2637\n4.0660\n0.001157\n0.5067\n1.6380\n1.0723 **\n\n\ndpib.t\n0.7345\n1.9602\n0.070183\n-0.1356\n3.0150\n1.4397 .\n\n\ndpib.1\n0.7377\n1.4272\n0.175441\n-0.5294\n2.6351\n1.0529\n\n\ndpib.usa.t\n1.2399\n0.7178\n0.484697\n-1.7694\n3.5493\n0.89\n\n\ndpib.usa.1\n1.2806\n-1.0581\n0.307907\n-4.1016\n1.3915\n-1.355\n\n\ndpib.usa.2\n1.4518\n-1.1891\n0.254167\n-4.8403\n1.3875\n-1.7264\n\n\ndpib.usa.3\n1.5072\n1.8850\n0.080352\n-0.3915\n6.0737\n2.8411 .\n\n\ndipc.t\n0.5814\n1.4370\n0.172700\n-0.4116\n2.0826\n0.8355\n\n\ndipc.1\n0.4612\n-3.2818\n0.005457\n-2.5026\n-0.5243\n-1.5135 **\n\n\ndimportation.1\n0.1475\n0.7917\n0.441766\n-0.1995\n0.4330\n0.1167\n\n\ndimportation.2\n0.1455\n1.6705\n0.117019\n-0.0690\n0.5552\n0.2431\n\n\ndimportation.3\n0.1410\n2.7793\n0.014768\n0.0895\n0.6945\n0.392 *\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques globales du modèle\n\n\nStatistique\nValeur\n\n\n\n\nR² ajusté\n0.6352\n\n\nF-statistique\n4.2653\n\n\np-value (F)\n0.004646\n\n\nLog-vraisemblance\n42.1279\n\n\nAIC\n-48.2557\n\n\nBIC\n-22.444\n\n\nDegrés de liberté\n16\n\n\nNombre d'observations\n31\n\n\n\n\n\n\n\nVoici la représentation mathématique du modèle à correction d’erreur pour les importations :\n\\[\n\\begin{align}\n\\Delta \\text{Importation}_t &= -50.503^{***} - 1.2427^{***} \\cdot \\text{EC}_{t-1} - 0.783^{**} \\cdot \\Delta \\text{Taux.Change}_t \\\\\n&+ 1.3778^{***} \\cdot \\Delta \\text{Taux.Change}_{t-1} + 0.8364^{*} \\cdot \\Delta \\text{Taux.Change}_{t-2} + 1.0723^{**} \\cdot \\Delta \\text{Taux.Change}_{t-3} \\\\\n&+ 1.4397^{.} \\cdot \\Delta \\text{PIB}_t + 1.0529 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&+ 0.89 \\cdot \\Delta \\text{PIB.USA}_t - 1.355 \\cdot \\Delta \\text{PIB.USA}_{t-1} - 1.7264 \\cdot \\Delta \\text{PIB.USA}_{t-2} + 2.8411^{.} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 0.8355 \\cdot \\Delta \\text{IPC}_t - 1.5135^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.1167 \\cdot \\Delta \\text{Importation}_{t-1} + 0.2431 \\cdot \\Delta \\text{Importation}_{t-2} + 0.392^{*} \\cdot \\Delta \\text{Importation}_{t-3} + \\varepsilon_t\n\\end{align}\n\\]\nOù \\(\\text{EC}_{t-1}\\) est le terme de correction d’erreur défini comme :\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Importation}_{t-1} + 0.5926 \\cdot \\text{Taux.Change}_{t-1} - 0.3108 \\cdot \\text{PIB}_{t-1} \\\\\n&- 1.8199 \\cdot \\text{PIB.USA}_{t-1} - 1.0459 \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]"
+    "objectID": "maxlag.html#max-lag-importation",
+    "href": "maxlag.html#max-lag-importation",
+    "title": "Etablissement du nombre de retard Maximal pour les series sous etudes",
+    "section": "Max Lag Importation",
+    "text": "Max Lag Importation"
   },
   {
-    "objectID": "IT_modele.html#avec-long-run",
-    "href": "IT_modele.html#avec-long-run",
-    "title": "Modele IT",
-    "section": "Avec long run",
-    "text": "Avec long run\n\n\n\n\n\n\n\n\nCoefficients de long terme\n\n\nErreur std\nt-value\np-value\nCoefficient\nVariable\n\n\n\n\n0.3052\n−3.9640\n0.00328\n-1.21 **\nImportation (t-1)\n\n\n0.7419\n−0.7987\n0.44501\n-0.5926\nTaux de change (t-1)\n\n\n1.6372\n0.1898\n0.85365\n0.3108\nPIB Haïti (t-1)\n\n\n2.5243\n0.7209\n0.48925\n1.8199\nPIB USA (t-1)\n\n\n0.8176\n1.2793\n0.23280\n1.0459\nIPC (t-1)\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\nLa relation de long terme pour le modèle d’importation est :\n\\[\n\\begin{align}\n\\text{Importation}_t &= -0.5926 \\cdot \\text{Taux.Change}_t + 0.3108 \\cdot \\text{PIB}_t + 1.8199 \\cdot \\text{PIB.USA}_t + 1.0459 \\cdot \\text{IPC}_t + \\text{constante}\n\\end{align}\n\\]"
+    "objectID": "maxlag.html#max-lag-exportation",
+    "href": "maxlag.html#max-lag-exportation",
+    "title": "Etablissement du nombre de retard Maximal pour les series sous etudes",
+    "section": "Max Lag Exportation",
+    "text": "Max Lag Exportation"
+  },
+  {
+    "objectID": "cusum_test.html#cusum-et",
+    "href": "cusum_test.html#cusum-et",
+    "title": "Test de Stabilité CUSUM",
+    "section": "CUSUM ET",
+    "text": "CUSUM ET"
+  },
+  {
+    "objectID": "cointegration_test_it.html",
+    "href": "cointegration_test_it.html",
+    "title": "Test de Cointégration (Modèle IT)",
+    "section": "",
+    "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’importation (IT), le cas 4 (intercept non restreint et tendance restreinte) a été retenu."
+  },
+  {
+    "objectID": "cointegration_test_it.html#test-de-cointégration-de-pesaran-bound-test-pour-le-modèle-it",
+    "href": "cointegration_test_it.html#test-de-cointégration-de-pesaran-bound-test-pour-le-modèle-it",
+    "title": "Test de Cointégration (Modèle IT)",
+    "section": "",
+    "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’importation (IT), le cas 4 (intercept non restreint et tendance restreinte) a été retenu."
+  },
+  {
+    "objectID": "cointegration_test_et.html",
+    "href": "cointegration_test_et.html",
+    "title": "Test de Cointégration (Modèle ET)",
+    "section": "",
+    "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’exportation (ET), le cas 3 (intercept non restreint et sans tendance) a été retenu."
+  },
+  {
+    "objectID": "cointegration_test_et.html#test-de-cointégration-de-pesaran-bound-test-pour-le-modèle-et",
+    "href": "cointegration_test_et.html#test-de-cointégration-de-pesaran-bound-test-pour-le-modèle-et",
+    "title": "Test de Cointégration (Modèle ET)",
+    "section": "",
+    "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’exportation (ET), le cas 3 (intercept non restreint et sans tendance) a été retenu."
+  },
+  {
+    "objectID": "cointegration_test.html",
+    "href": "cointegration_test.html",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "",
+    "text": "Considérons le modèle ARDL suivant :\n\\[ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t \\]\nLe ARDL Bound Test implique deux tests de nullité :"
+  },
+  {
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle IT",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle IT\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n4ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle ET",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle ET\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n3ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "href": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Conclusion du test de cointégration",
+    "text": "Conclusion du test de cointégration\n\nModèle IT:\n\nECM avec intercept non restreint et une tendance restreinte\n\nModèle ET:\n\nECM avec intercept non restreint et sans tendance"
   },
   {
     "objectID": "stationarity.html",
@@ -63,55 +126,6 @@
     "text": "Tableau Présentant les résultats des tests de stationnarité"
   },
   {
-    "objectID": "kendall_correlation.html",
-    "href": "kendall_correlation.html",
-    "title": "Test de Corrélation de Kendall",
-    "section": "",
-    "text": "Donc on peut proceder a un test de correlation de Kendall."
-  },
-  {
-    "objectID": "logdata.html",
-    "href": "logdata.html",
-    "title": "Donnee du modele en Logarithme Neperien",
-    "section": "",
-    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
-  },
-  {
-    "objectID": "logdata.html#periode-1988-2022-transformation-en-log",
-    "href": "logdata.html#periode-1988-2022-transformation-en-log",
-    "title": "Donnee du modele en Logarithme Neperien",
-    "section": "",
-    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
-  },
-  {
-    "objectID": "cointegration_test.html",
-    "href": "cointegration_test.html",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "",
-    "text": "Considérons le modèle ARDL suivant :\n\\[ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t \\]\nLe ARDL Bound Test implique deux tests de nullité :"
-  },
-  {
-    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
-    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Test de cointégration de Pesaran (Bound test) - Modèle IT",
-    "text": "Test de cointégration de Pesaran (Bound test) - Modèle IT\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n4ème cas retenu"
-  },
-  {
-    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
-    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Test de cointégration de Pesaran (Bound test) - Modèle ET",
-    "text": "Test de cointégration de Pesaran (Bound test) - Modèle ET\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n3ème cas retenu"
-  },
-  {
-    "objectID": "cointegration_test.html#conclusion-du-test-de-cointégration",
-    "href": "cointegration_test.html#conclusion-du-test-de-cointégration",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Conclusion du test de cointégration",
-    "text": "Conclusion du test de cointégration\n\nModèle IT:\n\nECM avec intercept non restreint et une tendance restreinte\n\nModèle ET:\n\nECM avec intercept non restreint et sans tendance"
-  },
-  {
     "objectID": "ET_modele.html",
     "href": "ET_modele.html",
     "title": "Modele ET",
@@ -140,6 +154,83 @@
     "text": "Avec long run\n\n\n\n\n\n\n\n\nCoefficients de long terme\n\n\nErreur std\nt-value\np-value\nCoefficient\nVariable\n\n\n\n\n0.3329\n−5.3565\n0.00017\n-1.7831 ***\nExportation (t-1)\n\n\n1.1360\n−1.3967\n0.18779\n-1.5866\nTaux de change (t-1)\n\n\n2.6717\n4.7460\n0.00048\n12.6797 ***\nPIB Haïti (t-1)\n\n\n4.8073\n−3.2896\n0.00646\n-15.814 **\nPIB USA (t-1)\n\n\n0.8657\n4.0570\n0.00159\n3.5121 **\nIPC (t-1)\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\nLa relation de long terme pour le modèle d’exportation est :\n\\[\n\\begin{align}\n\\text{Exportation}_t &= -1.5866 \\cdot \\text{Taux.Change}_t + 12.6797^{***} \\cdot \\text{PIB}_t - 15.814^{**} \\cdot \\text{PIB.USA}_t + 3.5121^{**} \\cdot \\text{IPC}_t + \\text{constante}\n\\end{align}\n\\]"
   },
   {
+    "objectID": "cusum_test_it.html",
+    "href": "cusum_test_it.html",
+    "title": "Test CUSUM (Modèle IT)",
+    "section": "",
+    "text": "Le test CUSUM (Cumulative Sum) est un test de stabilité des paramètres du modèle. Il est basé sur la somme cumulative des résidus récursifs.\n\n\nSi la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), les paramètres du modèle sont considérés comme stables dans le temps."
+  },
+  {
+    "objectID": "cusum_test_it.html#test-cusum-pour-le-modèle-it",
+    "href": "cusum_test_it.html#test-cusum-pour-le-modèle-it",
+    "title": "Test CUSUM (Modèle IT)",
+    "section": "",
+    "text": "Le test CUSUM (Cumulative Sum) est un test de stabilité des paramètres du modèle. Il est basé sur la somme cumulative des résidus récursifs.\n\n\nSi la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), les paramètres du modèle sont considérés comme stables dans le temps."
+  },
+  {
+    "objectID": "IT_modele.html",
+    "href": "IT_modele.html",
+    "title": "Modele IT",
+    "section": "",
+    "text": "representation short run et long run\nGet the long rung"
+  },
+  {
+    "objectID": "IT_modele.html#presentation-des-resultats-du-modele-it",
+    "href": "IT_modele.html#presentation-des-resultats-du-modele-it",
+    "title": "Modele IT",
+    "section": "",
+    "text": "representation short run et long run\nGet the long rung"
+  },
+  {
+    "objectID": "IT_modele.html#representation-classique",
+    "href": "IT_modele.html#representation-classique",
+    "title": "Modele IT",
+    "section": "Representation Classique",
+    "text": "Representation Classique\n\n\n\n\n\n\n\n\nModèle à Correction d'Erreur (ECM)\n\n\nCoefficients et statistiques\n\n\nTerme\nErreur std\nt-value\np-value\nIC 95% inf\nIC 95% sup\nCoefficient\n\n\n\n\n(Intercept)\n9.9361\n-5.0827\n0.000167\n-71.8139\n-29.1920\n-50.503 ***\n\n\nec.1\n0.2446\n-5.0800\n0.000168\n-1.7674\n-0.7180\n-1.2427 ***\n\n\ndtaux.change.t\n0.2042\n-3.8344\n0.001823\n-1.2210\n-0.3450\n-0.783 **\n\n\ndtaux.change.1\n0.2563\n5.3758\n9.78e-05\n0.8281\n1.9275\n1.3778 ***\n\n\ndtaux.change.2\n0.3046\n2.7457\n0.015779\n0.1830\n1.4897\n0.8364 *\n\n\ndtaux.change.3\n0.2637\n4.0660\n0.001157\n0.5067\n1.6380\n1.0723 **\n\n\ndpib.t\n0.7345\n1.9602\n0.070183\n-0.1356\n3.0150\n1.4397 .\n\n\ndpib.1\n0.7377\n1.4272\n0.175441\n-0.5294\n2.6351\n1.0529\n\n\ndpib.usa.t\n1.2399\n0.7178\n0.484697\n-1.7694\n3.5493\n0.89\n\n\ndpib.usa.1\n1.2806\n-1.0581\n0.307907\n-4.1016\n1.3915\n-1.355\n\n\ndpib.usa.2\n1.4518\n-1.1891\n0.254167\n-4.8403\n1.3875\n-1.7264\n\n\ndpib.usa.3\n1.5072\n1.8850\n0.080352\n-0.3915\n6.0737\n2.8411 .\n\n\ndipc.t\n0.5814\n1.4370\n0.172700\n-0.4116\n2.0826\n0.8355\n\n\ndipc.1\n0.4612\n-3.2818\n0.005457\n-2.5026\n-0.5243\n-1.5135 **\n\n\ndimportation.1\n0.1475\n0.7917\n0.441766\n-0.1995\n0.4330\n0.1167\n\n\ndimportation.2\n0.1455\n1.6705\n0.117019\n-0.0690\n0.5552\n0.2431\n\n\ndimportation.3\n0.1410\n2.7793\n0.014768\n0.0895\n0.6945\n0.392 *\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques globales du modèle\n\n\nStatistique\nValeur\n\n\n\n\nR² ajusté\n0.6352\n\n\nF-statistique\n4.2653\n\n\np-value (F)\n0.004646\n\n\nLog-vraisemblance\n42.1279\n\n\nAIC\n-48.2557\n\n\nBIC\n-22.444\n\n\nDegrés de liberté\n16\n\n\nNombre d'observations\n31\n\n\n\n\n\n\n\nVoici la représentation mathématique du modèle à correction d’erreur pour les importations :\n\\[\n\\begin{align}\n\\Delta \\text{Importation}_t &= -50.503^{***} - 1.2427^{***} \\cdot \\text{EC}_{t-1} - 0.783^{**} \\cdot \\Delta \\text{Taux.Change}_t \\\\\n&+ 1.3778^{***} \\cdot \\Delta \\text{Taux.Change}_{t-1} + 0.8364^{*} \\cdot \\Delta \\text{Taux.Change}_{t-2} + 1.0723^{**} \\cdot \\Delta \\text{Taux.Change}_{t-3} \\\\\n&+ 1.4397^{.} \\cdot \\Delta \\text{PIB}_t + 1.0529 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&+ 0.89 \\cdot \\Delta \\text{PIB.USA}_t - 1.355 \\cdot \\Delta \\text{PIB.USA}_{t-1} - 1.7264 \\cdot \\Delta \\text{PIB.USA}_{t-2} + 2.8411^{.} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 0.8355 \\cdot \\Delta \\text{IPC}_t - 1.5135^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.1167 \\cdot \\Delta \\text{Importation}_{t-1} + 0.2431 \\cdot \\Delta \\text{Importation}_{t-2} + 0.392^{*} \\cdot \\Delta \\text{Importation}_{t-3} + \\varepsilon_t\n\\end{align}\n\\]\nOù \\(\\text{EC}_{t-1}\\) est le terme de correction d’erreur défini comme :\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Importation}_{t-1} + 0.5926 \\cdot \\text{Taux.Change}_{t-1} - 0.3108 \\cdot \\text{PIB}_{t-1} \\\\\n&- 1.8199 \\cdot \\text{PIB.USA}_{t-1} - 1.0459 \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "IT_modele.html#avec-long-run",
+    "href": "IT_modele.html#avec-long-run",
+    "title": "Modele IT",
+    "section": "Avec long run",
+    "text": "Avec long run\n\n\n\n\n\n\n\n\nCoefficients de long terme\n\n\nErreur std\nt-value\np-value\nCoefficient\nVariable\n\n\n\n\n0.3052\n−3.9640\n0.00328\n-1.21 **\nImportation (t-1)\n\n\n0.7419\n−0.7987\n0.44501\n-0.5926\nTaux de change (t-1)\n\n\n1.6372\n0.1898\n0.85365\n0.3108\nPIB Haïti (t-1)\n\n\n2.5243\n0.7209\n0.48925\n1.8199\nPIB USA (t-1)\n\n\n0.8176\n1.2793\n0.23280\n1.0459\nIPC (t-1)\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\nLa relation de long terme pour le modèle d’importation est :\n\\[\n\\begin{align}\n\\text{Importation}_t &= -0.5926 \\cdot \\text{Taux.Change}_t + 0.3108 \\cdot \\text{PIB}_t + 1.8199 \\cdot \\text{PIB.USA}_t + 1.0459 \\cdot \\text{IPC}_t + \\text{constante}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "specification_test_et.html",
+    "href": "specification_test_et.html",
+    "title": "Test de Spécification (Modèle ET)",
+    "section": "",
+    "text": "Le test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.\n\n\n\nH0 : Le modèle est correctement spécifié.\nH1 : Le modèle n’est pas correctement spécifié.\n\n\n\n\nLe tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d’exportation (ET)."
+  },
+  {
+    "objectID": "specification_test_et.html#test-de-spécification-de-ramsey-reset-pour-le-modèle-et",
+    "href": "specification_test_et.html#test-de-spécification-de-ramsey-reset-pour-le-modèle-et",
+    "title": "Test de Spécification (Modèle ET)",
+    "section": "",
+    "text": "Le test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.\n\n\n\nH0 : Le modèle est correctement spécifié.\nH1 : Le modèle n’est pas correctement spécifié.\n\n\n\n\nLe tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d’exportation (ET)."
+  },
+  {
+    "objectID": "diagnostic_tests.html",
+    "href": "diagnostic_tests.html",
+    "title": "Tests de Diagnostic des modeles",
+    "section": "",
+    "text": "Les tests de diagnostic sont essentiels pour vérifier la validité des hypothèses sous-jacentes d’un modèle économétrique. Ces tests permettent de s’assurer que le modèle est bien spécifié et que les résultats sont fiables.\n\n\nLe test de Breusch-Pagan est utilisé pour détecter l’hétéroscédasticité dans les résidus d’un modèle de régression. L’hétéroscédasticité signifie que la variance des erreurs n’est pas constante.\n\nH0 : Homoscédasticité (la variance des erreurs est constante).\nH1 : Hétéroscédasticité (la variance des erreurs n’est pas constante).\n\n\n\n\nLe test de Breusch-Godfrey est utilisé pour détecter l’autocorrélation des erreurs dans un modèle de régression. L’autocorrélation signifie que les erreurs sont corrélées entre elles.\n\nH0 : Il n’y a pas d’autocorrélation des erreurs.\nH1 : Il y a une autocorrélation des erreurs.\n\n\n\n\nLe test de Ljung-Box est un test statistique qui permet de déceler l’autocorrélation dans une série temporelle.\n\nH0 : Les résidus sont indépendants (pas d’autocorrélation).\nH1 : Les résidus ne sont pas indépendants (autocorrélation).\n\n\n\n\nLe test de Shapiro-Wilk est un test de normalité des résidus. Il permet de vérifier si les erreurs suivent une distribution normale.\n\nH0 : Les résidus suivent une distribution normale.\nH1 : Les résidus ne suivent pas une distribution normale.\n\n\n\n\nLe test RESET (Regression Specification Error Test) de Ramsey est un test de spécification de modèle. Il permet de vérifier si le modèle est bien spécifié, c’est-à-dire s’il n’y a pas de variables omises ou de formes fonctionnelles incorrectes.\n\nH0 : Le modèle est bien spécifié.\nH1 : Le modèle n’est pas bien spécifié."
+  },
+  {
+    "objectID": "diagnostic_tests.html#introduction",
+    "href": "diagnostic_tests.html#introduction",
+    "title": "Tests de Diagnostic des modeles",
+    "section": "",
+    "text": "Les tests de diagnostic sont essentiels pour vérifier la validité des hypothèses sous-jacentes d’un modèle économétrique. Ces tests permettent de s’assurer que le modèle est bien spécifié et que les résultats sont fiables.\n\n\nLe test de Breusch-Pagan est utilisé pour détecter l’hétéroscédasticité dans les résidus d’un modèle de régression. L’hétéroscédasticité signifie que la variance des erreurs n’est pas constante.\n\nH0 : Homoscédasticité (la variance des erreurs est constante).\nH1 : Hétéroscédasticité (la variance des erreurs n’est pas constante).\n\n\n\n\nLe test de Breusch-Godfrey est utilisé pour détecter l’autocorrélation des erreurs dans un modèle de régression. L’autocorrélation signifie que les erreurs sont corrélées entre elles.\n\nH0 : Il n’y a pas d’autocorrélation des erreurs.\nH1 : Il y a une autocorrélation des erreurs.\n\n\n\n\nLe test de Ljung-Box est un test statistique qui permet de déceler l’autocorrélation dans une série temporelle.\n\nH0 : Les résidus sont indépendants (pas d’autocorrélation).\nH1 : Les résidus ne sont pas indépendants (autocorrélation).\n\n\n\n\nLe test de Shapiro-Wilk est un test de normalité des résidus. Il permet de vérifier si les erreurs suivent une distribution normale.\n\nH0 : Les résidus suivent une distribution normale.\nH1 : Les résidus ne suivent pas une distribution normale.\n\n\n\n\nLe test RESET (Regression Specification Error Test) de Ramsey est un test de spécification de modèle. Il permet de vérifier si le modèle est bien spécifié, c’est-à-dire s’il n’y a pas de variables omises ou de formes fonctionnelles incorrectes.\n\nH0 : Le modèle est bien spécifié.\nH1 : Le modèle n’est pas bien spécifié."
+  },
+  {
+    "objectID": "diagnostic_tests.html#résultats-des-tests",
+    "href": "diagnostic_tests.html#résultats-des-tests",
+    "title": "Tests de Diagnostic des modeles",
+    "section": "Résultats des Tests",
+    "text": "Résultats des Tests\nLes résultats des tests de diagnostic pour chaque modèle sont présentés dans les pages suivantes :\n\nMODELE IT\n\n\n\n\n\n\n\n\n\n\n\nmodele ET"
+  },
+  {
     "objectID": "metadata.html",
     "href": "metadata.html",
     "title": "Metadonnee du modele",
@@ -161,6 +252,55 @@
     "text": "Note sur le taux de change"
   },
   {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Donnee du modele",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "data.html#periode-1988-2022",
+    "href": "data.html#periode-1988-2022",
+    "title": "Donnee du modele",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+  },
+  {
+    "objectID": "jacquesbera.html",
+    "href": "jacquesbera.html",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "",
+    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
+  },
+  {
+    "objectID": "jacquesbera.html#jarque-bera-test",
+    "href": "jacquesbera.html#jarque-bera-test",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "",
+    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
+  },
+  {
+    "objectID": "jacquesbera.html#litterature-du-test-de-jarque-bera",
+    "href": "jacquesbera.html#litterature-du-test-de-jarque-bera",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Litterature du Test de Jarque Bera",
+    "text": "Litterature du Test de Jarque Bera\nLe test de Jarque-Bera est un test statistique utilisé pour évaluer si un échantillon de données donné présente un coefficient d’asymétrie et un coefficient d’aplatissement qui sont approximativement distribués selon une loi normale, ce qui est une hypothèse courante dans de nombreuses techniques statistiques.\n\nComparaison de la statistique de test à la valeur critique :\n\nLa statistique de test de Jarque-Bera suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle. Par conséquent, vous comparez la statistique de test calculée à la valeur critique de la distribution du chi carré avec 2 degrés de liberté à votre niveau de signification choisi (par exemple, 0,05 ou 0,01).\n\nPrise de décision :\n\n\nSi la statistique de test calculée est supérieure à la valeur critique, vous rejetez l’hypothèse nulle, concluant que les données ne proviennent pas d’une distribution normale.\nSi la statistique de test calculée est inférieure ou égale à la valeur critique, vous ne rejetez pas l’hypothèse nulle, ce qui indique qu’il n’y a pas suffisamment de preuves pour conclure que les données ne proviennent pas d’une distribution normale."
+  },
+  {
+    "objectID": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
+    "href": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Rappel sur la notion de P-Value",
+    "text": "Rappel sur la notion de P-Value\nDans le cadre du test de Jarque-Bera, la p-valeur est une mesure cruciale pour interpréter les résultats du test. Voici comment interpréter la p-valeur :\nSi la p-valeur est inférieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle (que les données proviennent d’une distribution normale) est faible. Vous rejetez alors l’hypothèse nulle au niveau de signification α. En d’autres termes, vous avez suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. Si la p-valeur est supérieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle est élevée. Vous ne rejetez pas l’hypothèse nulle au niveau de signification α. En d’autres termes, vous ne disposez pas de suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. En résumé :\nUne p-valeur faible suggère des preuves en faveur du rejet de l’hypothèse nulle, indiquant que les données ne suivent probablement pas une distribution normale. Une p-valeur élevée suggère un manque de preuves pour rejeter l’hypothèse nulle, ce qui signifie que les données pourraient suivre une distribution normale. Il est important de choisir un seuil de signification approprié (α) avant d’interpréter la p-valeur. Les valeurs typiques pour α sont 0,05 ou 0,01, mais cela dépend souvent du contexte de l’analyse et des normes de l’industrie."
+  },
+  {
+    "objectID": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
+    "href": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Conclusion du Test de Jarque Bera des series",
+    "text": "Conclusion du Test de Jarque Bera des series\n\nOn ne peut rejeter l’hypothese nulle pour aucune des series parce que \\(p \\ge \\alpha, \\alpha = 0.05\\)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Accueil",
@@ -175,23 +315,51 @@
     "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
   },
   {
-    "objectID": "cusum_test.html#cusum-et",
-    "href": "cusum_test.html#cusum-et",
-    "title": "Test de Stabilité CUSUM",
-    "section": "CUSUM ET",
-    "text": "CUSUM ET"
+    "objectID": "cusum_test_et.html",
+    "href": "cusum_test_et.html",
+    "title": "Test CUSUM (Modèle ET)",
+    "section": "",
+    "text": "Le test CUSUM (Cumulative Sum) est un test de stabilité des paramètres du modèle. Il est basé sur la somme cumulative des résidus récursifs.\n\n\nSi la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), les paramètres du modèle sont considérés comme stables dans le temps."
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Donnee du modele",
+    "objectID": "cusum_test_et.html#test-cusum-pour-le-modèle-et",
+    "href": "cusum_test_et.html#test-cusum-pour-le-modèle-et",
+    "title": "Test CUSUM (Modèle ET)",
+    "section": "",
+    "text": "Le test CUSUM (Cumulative Sum) est un test de stabilité des paramètres du modèle. Il est basé sur la somme cumulative des résidus récursifs.\n\n\nSi la ligne CUSUM reste dans les limites de confiance (les deux lignes rouges), les paramètres du modèle sont considérés comme stables dans le temps."
+  },
+  {
+    "objectID": "kendall_correlation.html",
+    "href": "kendall_correlation.html",
+    "title": "Test de Corrélation de Kendall",
+    "section": "",
+    "text": "Donc on peut proceder a un test de correlation de Kendall."
+  },
+  {
+    "objectID": "specification_test_it.html",
+    "href": "specification_test_it.html",
+    "title": "Test de Spécification (Modèle IT)",
+    "section": "",
+    "text": "Le test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.\n\n\n\nH0 : Le modèle est correctement spécifié.\nH1 : Le modèle n’est pas correctement spécifié.\n\n\n\n\nLe tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d’importation (IT)."
+  },
+  {
+    "objectID": "specification_test_it.html#test-de-spécification-de-ramsey-reset-pour-le-modèle-it",
+    "href": "specification_test_it.html#test-de-spécification-de-ramsey-reset-pour-le-modèle-it",
+    "title": "Test de Spécification (Modèle IT)",
+    "section": "",
+    "text": "Le test RESET de Ramsey est un test de spécification de modèle. Il est utilisé pour détecter les erreurs de spécification, telles que les variables omises et la forme fonctionnelle incorrecte.\n\n\n\nH0 : Le modèle est correctement spécifié.\nH1 : Le modèle n’est pas correctement spécifié.\n\n\n\n\nLe tableau ci-dessous présente le résultat du test de Ramsey pour le modèle d’importation (IT)."
+  },
+  {
+    "objectID": "logdata.html",
+    "href": "logdata.html",
+    "title": "Donnee du modele en Logarithme Neperien",
     "section": "",
     "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
   },
   {
-    "objectID": "data.html#periode-1988-2022",
-    "href": "data.html#periode-1988-2022",
-    "title": "Donnee du modele",
+    "objectID": "logdata.html#periode-1988-2022-transformation-en-log",
+    "href": "logdata.html#periode-1988-2022-transformation-en-log",
+    "title": "Donnee du modele en Logarithme Neperien",
     "section": "",
     "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
   }

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Benzico Pierre &amp; Alexandro Disla">
 
-<title>Metadonnee du modele – Mod</title>
+<title>Tests de Diagnostic des modeles – Mod</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,16 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -107,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Accueil</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./metadata.html" aria-current="page"> 
+    <a class="nav-link" href="./metadata.html"> 
 <span class="menu-text">Métadonnées</span></a>
   </li>  
   <li class="nav-item">
@@ -203,8 +192,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#origine-source-de-donnee" id="toc-origine-source-de-donnee" class="nav-link active" data-scroll-target="#origine-source-de-donnee">Origine source de donnee</a></li>
-  <li><a href="#note-sur-le-taux-de-change" id="toc-note-sur-le-taux-de-change" class="nav-link" data-scroll-target="#note-sur-le-taux-de-change">Note sur le taux de change</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#test-de-breusch-pagan" id="toc-test-de-breusch-pagan" class="nav-link" data-scroll-target="#test-de-breusch-pagan">Test de Breusch-Pagan</a></li>
+  <li><a href="#test-de-breusch-godfrey" id="toc-test-de-breusch-godfrey" class="nav-link" data-scroll-target="#test-de-breusch-godfrey">Test de Breusch-Godfrey</a></li>
+  <li><a href="#test-de-ljung-box" id="toc-test-de-ljung-box" class="nav-link" data-scroll-target="#test-de-ljung-box">Test de Ljung-Box</a></li>
+  <li><a href="#test-de-shapiro-wilk" id="toc-test-de-shapiro-wilk" class="nav-link" data-scroll-target="#test-de-shapiro-wilk">Test de Shapiro-Wilk</a></li>
+  <li><a href="#test-de-ramsey-reset" id="toc-test-de-ramsey-reset" class="nav-link" data-scroll-target="#test-de-ramsey-reset">Test de Ramsey (RESET)</a></li>
+  </ul></li>
+  <li><a href="#résultats-des-tests" id="toc-résultats-des-tests" class="nav-link" data-scroll-target="#résultats-des-tests">Résultats des Tests</a>
+  <ul class="collapse">
+  <li><a href="#modele-it" id="toc-modele-it" class="nav-link" data-scroll-target="#modele-it">MODELE IT</a></li>
+  <li><a href="#modele-et" id="toc-modele-et" class="nav-link" data-scroll-target="#modele-et">modele ET</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -213,19 +213,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Metadonnee du modele</h1>
+<h1 class="title">Tests de Diagnostic des modeles</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Benzico Pierre &amp; Alexandro Disla </p>
-          </div>
-  </div>
     
   
     
@@ -236,36 +230,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="origine-source-de-donnee" class="level2">
-<h2 class="anchored" data-anchor-id="origine-source-de-donnee">Origine source de donnee</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-653f15124791aebb628f" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-653f15124791aebb628f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["tx.change","importation","exportation","pib","pib.usa","inflation"],["HTG/USD","USD constant 2010","USD constant 2010","USD constant 2010","USD constant 2010","(2010 = 100)"],["1960-2022","1988-2022","1988-2022","1960-2022","1960-2022","1960-2022"],["une moyenne annuelle sur la base des moyennes mensuelles.","n/a","n/a","n/a","n/a","n/a"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Variable<\/th>\n      <th>Specificite<\/th>\n      <th>period<\/th>\n      <th>note<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Variable","targets":1},{"name":"Specificite","targets":2},{"name":"period","targets":3},{"name":"note","targets":4}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>Periode : 1988-2022</p>
-</blockquote>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Les tests de diagnostic sont essentiels pour vérifier la validité des hypothèses sous-jacentes d’un modèle économétrique. Ces tests permettent de s’assurer que le modèle est bien spécifié et que les résultats sont fiables.</p>
+<section id="test-de-breusch-pagan" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-breusch-pagan">Test de Breusch-Pagan</h3>
+<p>Le test de Breusch-Pagan est utilisé pour détecter l’hétéroscédasticité dans les résidus d’un modèle de régression. L’hétéroscédasticité signifie que la variance des erreurs n’est pas constante.</p>
 <ul>
-<li>tx.change : Taux de Change Reel</li>
-<li>imp: Importation Haitienne</li>
-<li>exp: Exportation Haitienne</li>
-<li>pib: Produit Interieur Brute Haitienne</li>
-<li>pib.usa: Produit Interieur Brute des Etats Unis</li>
-<li>ipc: L’indice des prix a la Consommation</li>
+<li><strong>H0 :</strong> Homoscédasticité (la variance des erreurs est constante).</li>
+<li><strong>H1 :</strong> Hétéroscédasticité (la variance des erreurs n’est pas constante).</li>
 </ul>
 </section>
-<section id="note-sur-le-taux-de-change" class="level2">
-<h2 class="anchored" data-anchor-id="note-sur-le-taux-de-change">Note sur le taux de change</h2>
+<section id="test-de-breusch-godfrey" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-breusch-godfrey">Test de Breusch-Godfrey</h3>
+<p>Le test de Breusch-Godfrey est utilisé pour détecter l’autocorrélation des erreurs dans un modèle de régression. L’autocorrélation signifie que les erreurs sont corrélées entre elles.</p>
+<ul>
+<li><strong>H0 :</strong> Il n’y a pas d’autocorrélation des erreurs.</li>
+<li><strong>H1 :</strong> Il y a une autocorrélation des erreurs.</li>
+</ul>
+</section>
+<section id="test-de-ljung-box" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-ljung-box">Test de Ljung-Box</h3>
+<p>Le test de Ljung-Box est un test statistique qui permet de déceler l’autocorrélation dans une série temporelle.</p>
+<ul>
+<li><strong>H0 :</strong> Les résidus sont indépendants (pas d’autocorrélation).</li>
+<li><strong>H1 :</strong> Les résidus ne sont pas indépendants (autocorrélation).</li>
+</ul>
+</section>
+<section id="test-de-shapiro-wilk" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-shapiro-wilk">Test de Shapiro-Wilk</h3>
+<p>Le test de Shapiro-Wilk est un test de normalité des résidus. Il permet de vérifier si les erreurs suivent une distribution normale.</p>
+<ul>
+<li><strong>H0 :</strong> Les résidus suivent une distribution normale.</li>
+<li><strong>H1 :</strong> Les résidus ne suivent pas une distribution normale.</li>
+</ul>
+</section>
+<section id="test-de-ramsey-reset" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-ramsey-reset">Test de Ramsey (RESET)</h3>
+<p>Le test RESET (Regression Specification Error Test) de Ramsey est un test de spécification de modèle. Il permet de vérifier si le modèle est bien spécifié, c’est-à-dire s’il n’y a pas de variables omises ou de formes fonctionnelles incorrectes.</p>
+<ul>
+<li><strong>H0 :</strong> Le modèle est bien spécifié.</li>
+<li><strong>H1 :</strong> Le modèle n’est pas bien spécifié.</li>
+</ul>
+</section>
+</section>
+<section id="résultats-des-tests" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-des-tests">Résultats des Tests</h2>
+<p>Les résultats des tests de diagnostic pour chaque modèle sont présentés dans les pages suivantes :</p>
+<section id="modele-it" class="level3">
+<h3 class="anchored" data-anchor-id="modele-it">MODELE IT</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-fc6e8c39f604cbc14de8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fc6e8c39f604cbc14de8">{"x":{"filter":"none","vertical":false,"data":[["1"],["Le taux de change officiel fait référence au taux de change indiqué par les autorités nationales ou au taux fixé légalement par le marché des taux. Il est calculé comme étant une moyenne annuelle sur la base des moyennes mensuelles (unités de devises locales par rapport au dollar américain)."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>tx.change<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"tx.change","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/VAL.IT.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modele-et" class="level3">
+<h3 class="anchored" data-anchor-id="modele-et">modele ET</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/VAL.ET.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

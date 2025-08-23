@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Benzico Pierre &amp; Alexandro Disla">
 
-<title>Metadonnee du modele – Mod</title>
+<title>Test de Normalite des Variables sous etudes – Mod</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,17 +69,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -107,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Accueil</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./metadata.html" aria-current="page"> 
+    <a class="nav-link" href="./metadata.html"> 
 <span class="menu-text">Métadonnées</span></a>
   </li>  
   <li class="nav-item">
@@ -203,8 +221,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#origine-source-de-donnee" id="toc-origine-source-de-donnee" class="nav-link active" data-scroll-target="#origine-source-de-donnee">Origine source de donnee</a></li>
-  <li><a href="#note-sur-le-taux-de-change" id="toc-note-sur-le-taux-de-change" class="nav-link" data-scroll-target="#note-sur-le-taux-de-change">Note sur le taux de change</a></li>
+  <li><a href="#jarque-bera-test" id="toc-jarque-bera-test" class="nav-link active" data-scroll-target="#jarque-bera-test">Jarque Bera test</a></li>
+  <li><a href="#litterature-du-test-de-jarque-bera" id="toc-litterature-du-test-de-jarque-bera" class="nav-link" data-scroll-target="#litterature-du-test-de-jarque-bera">Litterature du Test de Jarque Bera</a></li>
+  <li><a href="#rappel-sur-la-notion-de-p-value" id="toc-rappel-sur-la-notion-de-p-value" class="nav-link" data-scroll-target="#rappel-sur-la-notion-de-p-value">Rappel sur la notion de P-Value</a></li>
+  <li><a href="#conclusion-du-test-de-jarque-bera-des-series" id="toc-conclusion-du-test-de-jarque-bera-des-series" class="nav-link" data-scroll-target="#conclusion-du-test-de-jarque-bera-des-series">Conclusion du Test de Jarque Bera des series</a></li>
   </ul>
 </nav>
     </div>
@@ -213,19 +233,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Metadonnee du modele</h1>
+<h1 class="title">Test de Normalite des Variables sous etudes</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Benzico Pierre &amp; Alexandro Disla </p>
-          </div>
-  </div>
     
   
     
@@ -236,32 +250,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="origine-source-de-donnee" class="level2">
-<h2 class="anchored" data-anchor-id="origine-source-de-donnee">Origine source de donnee</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-653f15124791aebb628f" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-653f15124791aebb628f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["tx.change","importation","exportation","pib","pib.usa","inflation"],["HTG/USD","USD constant 2010","USD constant 2010","USD constant 2010","USD constant 2010","(2010 = 100)"],["1960-2022","1988-2022","1988-2022","1960-2022","1960-2022","1960-2022"],["une moyenne annuelle sur la base des moyennes mensuelles.","n/a","n/a","n/a","n/a","n/a"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Variable<\/th>\n      <th>Specificite<\/th>\n      <th>period<\/th>\n      <th>note<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Variable","targets":1},{"name":"Specificite","targets":2},{"name":"period","targets":3},{"name":"note","targets":4}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>Periode : 1988-2022</p>
-</blockquote>
+<section id="jarque-bera-test" class="level2">
+<h2 class="anchored" data-anchor-id="jarque-bera-test">Jarque Bera test</h2>
+<p><strong>Test d’Hypothèse de Jarque-Bera :</strong></p>
+<p>Hypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.</p>
+<p>Hypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.</p>
+<p><strong>Statistique de Jarque-Bera :</strong></p>
+<p>La statistique de Jarque-Bera (JB) est définie comme suit :</p>
+<p><span class="math display">\[JB = \frac{n}{6} \left( S^2 + \frac{(K-3)^2}{4} \right)\]</span></p>
+<p><strong>Où :</strong></p>
 <ul>
-<li>tx.change : Taux de Change Reel</li>
-<li>imp: Importation Haitienne</li>
-<li>exp: Exportation Haitienne</li>
-<li>pib: Produit Interieur Brute Haitienne</li>
-<li>pib.usa: Produit Interieur Brute des Etats Unis</li>
-<li>ipc: L’indice des prix a la Consommation</li>
+<li><strong>n</strong> est la taille de l’échantillon.</li>
+<li><strong>S</strong> est le coefficient d’asymétrie de l’échantillon.</li>
+<li><strong>K</strong> est le coefficient d’aplatissement de l’échantillon.</li>
+</ul>
+<p>Cette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀).</p>
+</section>
+<section id="litterature-du-test-de-jarque-bera" class="level2">
+<h2 class="anchored" data-anchor-id="litterature-du-test-de-jarque-bera">Litterature du Test de Jarque Bera</h2>
+<p>Le test de Jarque-Bera est un test statistique utilisé pour évaluer si un échantillon de données donné présente un coefficient d’asymétrie et un coefficient d’aplatissement qui sont approximativement distribués selon une loi normale, ce qui est une hypothèse courante dans de nombreuses techniques statistiques.</p>
+<ol type="1">
+<li>Comparaison de la statistique de test à la valeur critique :</li>
+</ol>
+<p>La statistique de test de Jarque-Bera suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle. Par conséquent, vous comparez la statistique de test calculée à la valeur critique de la distribution du chi carré avec 2 degrés de liberté à votre niveau de signification choisi (par exemple, 0,05 ou 0,01).</p>
+<ol start="2" type="1">
+<li>Prise de décision :</li>
+</ol>
+<ul>
+<li><p>Si la statistique de test calculée est supérieure à la valeur critique, vous rejetez l’hypothèse nulle, concluant que les données ne proviennent pas d’une distribution normale.</p></li>
+<li><p>Si la statistique de test calculée est inférieure ou égale à la valeur critique, vous ne rejetez pas l’hypothèse nulle, ce qui indique qu’il n’y a pas suffisamment de preuves pour conclure que les données ne proviennent pas d’une distribution normale.</p></li>
 </ul>
 </section>
-<section id="note-sur-le-taux-de-change" class="level2">
-<h2 class="anchored" data-anchor-id="note-sur-le-taux-de-change">Note sur le taux de change</h2>
+<section id="rappel-sur-la-notion-de-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-sur-la-notion-de-p-value">Rappel sur la notion de P-Value</h2>
+<p>Dans le cadre du test de Jarque-Bera, la p-valeur est une mesure cruciale pour interpréter les résultats du test. Voici comment interpréter la p-valeur :</p>
+<p>Si la p-valeur est inférieure au seuil de signification (α) :</p>
+<p>Cela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle (que les données proviennent d’une distribution normale) est faible. Vous rejetez alors l’hypothèse nulle au niveau de signification α. En d’autres termes, vous avez suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. Si la p-valeur est supérieure au seuil de signification (α) :</p>
+<p>Cela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle est élevée. Vous ne rejetez pas l’hypothèse nulle au niveau de signification α. En d’autres termes, vous ne disposez pas de suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. En résumé :</p>
+<p>Une p-valeur faible suggère des preuves en faveur du rejet de l’hypothèse nulle, indiquant que les données ne suivent probablement pas une distribution normale. Une p-valeur élevée suggère un manque de preuves pour rejeter l’hypothèse nulle, ce qui signifie que les données pourraient suivre une distribution normale. Il est important de choisir un seuil de signification approprié (α) avant d’interpréter la p-valeur. Les valeurs typiques pour α sont 0,05 ou 0,01, mais cela dépend souvent du contexte de l’analyse et des normes de l’industrie.</p>
+</section>
+<section id="conclusion-du-test-de-jarque-bera-des-series" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-du-test-de-jarque-bera-des-series">Conclusion du Test de Jarque Bera des series</h2>
+<blockquote class="blockquote">
+<p>On ne peut rejeter l’hypothese nulle pour aucune des series parce que <span class="math inline">\(p \ge \alpha, \alpha = 0.05\)</span></p>
+</blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-fc6e8c39f604cbc14de8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fc6e8c39f604cbc14de8">{"x":{"filter":"none","vertical":false,"data":[["1"],["Le taux de change officiel fait référence au taux de change indiqué par les autorités nationales ou au taux fixé légalement par le marché des taux. Il est calculé comme étant une moyenne annuelle sur la base des moyennes mensuelles (unités de devises locales par rapport au dollar américain)."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>tx.change<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"tx.change","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/table_description.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 

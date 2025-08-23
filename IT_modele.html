@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Benzico Pierre &amp; Alexandro Disla">
 
-<title>Modele IT – Présentation du Modèle</title>
+<title>Modele IT – Mod</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./download.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-09b140d2d032adf2aedb8b099be3ee13.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18b7e56bb1516fe51fe974c204017ad2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b64b839b8e423ddc9e882271eb9d8c10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,7 +87,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -113,7 +114,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Présentation du Modèle</span>
+    <span class="navbar-title">Mod</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -147,37 +148,63 @@ window.Quarto = {
 <span class="menu-text">Modèle ET</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tests" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">tests</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tests-fondamentaux" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tests fondamentaux</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tests">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tests-fondamentaux">    
+        <li>
+    <a class="dropdown-item" href="./jacquesbera.html">
+ <span class="dropdown-text">Test de Normalité des variables</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./stationarity.html">
- <span class="dropdown-text">Stationnarité</span></a>
+ <span class="dropdown-text">Tests de Stationnarité</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./granger_causality.html">
- <span class="dropdown-text">Causalité de Granger</span></a>
+    <a class="dropdown-item" href="./maxlag.html">
+ <span class="dropdown-text">Le nombre de retard Maximal</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./kendall_correlation.html">
- <span class="dropdown-text">Corrélation de Kendall</span></a>
+    <a class="dropdown-item" href="./cointegration_test.html">
+ <span class="dropdown-text">Test de Cointégration</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-validation-des-modeles" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Validation des Modeles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-validation-des-modeles">    
         <li>
-    <a class="dropdown-item" href="./normality_test.html">
- <span class="dropdown-text">Test de Normalité</span></a>
+    <a class="dropdown-item" href="./diagnostic_tests.html">
+ <span class="dropdown-text">Les Tests Diagnostic</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cusum_test.html">
  <span class="dropdown-text">Test CUSUM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./cointegration_test.html">
- <span class="dropdown-text">Test de Cointégration</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./specification_test.html">
  <span class="dropdown-text">Test de Spécification</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-test-economique" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Test Economique</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-test-economique">    
+        <li>
+    <a class="dropdown-item" href="./normality_test.html">
+ <span class="dropdown-text">test de Normalite des series d’interet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./kendall_correlation.html">
+ <span class="dropdown-text">Corrélation de Kendall</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./granger_causality.html">
+ <span class="dropdown-text">Causalité de Granger</span></a>
   </li>  
     </ul>
   </li>
@@ -692,13 +719,13 @@ window.Quarto = {
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="7" class="gt_heading gt_title gt_font_normal">Modèle à Correction d'Erreur (ECM)</th>
+<td colspan="7" class="gt_heading gt_title gt_font_normal">Modèle à Correction d'Erreur (ECM)</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Coefficients et statistiques</th>
+<td colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Coefficients et statistiques</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Terme</th>
@@ -1325,10 +1352,10 @@ window.Quarto = {
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Statistiques globales du modèle</th>
+<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Statistiques globales du modèle</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Statistique" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Statistique</th>
@@ -1847,10 +1874,10 @@ window.Quarto = {
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">Coefficients de long terme</th>
+<td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">Coefficients de long terme</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Erreur std</th>

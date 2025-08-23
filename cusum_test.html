@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -219,6 +248,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Le test CUSUM (Cumulative Sum) est un outil d’analyse de la stabilité des paramètres dans un modèle de régression. Il a été introduit par Brown, Durbin et Evans (1975) pour détecter les changements structurels dans les paramètres d’un modèle. L’idée principale du test CUSUM est de voir si les résidus récursifs s’éloignent de manière significative de leur moyenne de zéro.</p>
+<p>Le test CUSUM est basé sur la somme cumulée des résidus récursifs. La statistique du test est calculée comme suit:</p>
+<p><span class="math inline">\(W_t = \sum_{i=k+1}^{t} \frac{w_i}{\hat{\sigma}}\)</span> pour <span class="math inline">\(t = k+1, ..., T\)</span></p>
+<p>où: - <span class="math inline">\(w_i\)</span> sont les résidus récursifs. - <span class="math inline">\(\hat{\sigma}\)</span> est l’estimation de l’écart-type des résidus récursifs.</p>
+<p>La statistique <span class="math inline">\(W_t\)</span> est ensuite normalisée et tracée par rapport au temps. Si la statistique CUSUM se situe à l’intérieur d’une bande de confiance, on ne rejette pas l’hypothèse nulle de la stabilité des paramètres. Si la statistique CUSUM sort de la bande de confiance, on rejette l’hypothèse nulle et on conclut à une instabilité des paramètres.</p>
+<p>Les lignes de confiance sont calculées comme suit:</p>
+<p><span class="math inline">\(y = \pm [a\sqrt{(T-k)} + \frac{2a(t-k)}{\sqrt{(T-k)}}]\)</span></p>
+<p>où: - <span class="math inline">\(a\)</span> est une constante qui dépend du niveau de signification souhaité (par exemple, a = 0,948 pour un niveau de signification de 5%). - <span class="math inline">\(T\)</span> est le nombre total d’observations. - <span class="math inline">\(k\)</span> est le nombre de paramètres dans le modèle. - <span class="math inline">\(t\)</span> est le point temporel actuel.</p>
 <section id="cusum-it" class="level2">
 <h2 class="anchored" data-anchor-id="cusum-it">CUSUM IT</h2>
 <div class="cell">

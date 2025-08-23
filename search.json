@@ -28,6 +28,20 @@
     "text": "Max Lag Exportation"
   },
   {
+    "objectID": "cusum_test.html",
+    "href": "cusum_test.html",
+    "title": "Test de Stabilité CUSUM",
+    "section": "",
+    "text": "Le test CUSUM (Cumulative Sum) est un outil d’analyse de la stabilité des paramètres dans un modèle de régression. Il a été introduit par Brown, Durbin et Evans (1975) pour détecter les changements structurels dans les paramètres d’un modèle. L’idée principale du test CUSUM est de voir si les résidus récursifs s’éloignent de manière significative de leur moyenne de zéro.\nLe test CUSUM est basé sur la somme cumulée des résidus récursifs. La statistique du test est calculée comme suit:\n\\(W_t = \\sum_{i=k+1}^{t} \\frac{w_i}{\\hat{\\sigma}}\\) pour \\(t = k+1, ..., T\\)\noù: - \\(w_i\\) sont les résidus récursifs. - \\(\\hat{\\sigma}\\) est l’estimation de l’écart-type des résidus récursifs.\nLa statistique \\(W_t\\) est ensuite normalisée et tracée par rapport au temps. Si la statistique CUSUM se situe à l’intérieur d’une bande de confiance, on ne rejette pas l’hypothèse nulle de la stabilité des paramètres. Si la statistique CUSUM sort de la bande de confiance, on rejette l’hypothèse nulle et on conclut à une instabilité des paramètres.\nLes lignes de confiance sont calculées comme suit:\n\\(y = \\pm [a\\sqrt{(T-k)} + \\frac{2a(t-k)}{\\sqrt{(T-k)}}]\\)\noù: - \\(a\\) est une constante qui dépend du niveau de signification souhaité (par exemple, a = 0,948 pour un niveau de signification de 5%). - \\(T\\) est le nombre total d’observations. - \\(k\\) est le nombre de paramètres dans le modèle. - \\(t\\) est le point temporel actuel."
+  },
+  {
+    "objectID": "cusum_test.html#cusum-it",
+    "href": "cusum_test.html#cusum-it",
+    "title": "Test de Stabilité CUSUM",
+    "section": "CUSUM IT",
+    "text": "CUSUM IT"
+  },
+  {
     "objectID": "cusum_test.html#cusum-et",
     "href": "cusum_test.html#cusum-et",
     "title": "Test de Stabilité CUSUM",
@@ -49,6 +63,20 @@
     "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’importation (IT), le cas 4 (intercept non restreint et tendance restreinte) a été retenu."
   },
   {
+    "objectID": "granger_causality.html",
+    "href": "granger_causality.html",
+    "title": "Test de Causalité de Granger",
+    "section": "",
+    "text": "Le test de causalité de Granger est un test statistique permettant de déterminer si une série temporelle est utile pour prévoir une autre. L’hypothèse nulle est que les coefficients des valeurs passées de la première série temporelle sont nuls dans une régression des valeurs de la deuxième série temporelle sur ses propres valeurs passées et sur les valeurs passées de la première série temporelle. Si la valeur p est inférieure à un certain niveau de signification, l’hypothèse nulle est rejetée et on conclut que la première série temporelle est utile pour prévoir la seconde.\nLe test de causalité de Granger est basé sur les régressions suivantes:\nModèle non restreint: \\(Y_t = \\alpha_0 + \\sum_{i=1}^{p} \\alpha_i Y_{t-i} + \\sum_{j=1}^{q} \\beta_j X_{t-j} + \\epsilon_t\\)\nModèle restreint: \\(Y_t = \\alpha_0 + \\sum_{i=1}^{p} \\alpha_i Y_{t-i} + u_t\\)\noù: - \\(Y_t\\) est la valeur de la série temporelle Y à l’instant t. - \\(X_t\\) est la valeur de la série temporelle X à l’instant t. - \\(\\alpha_i\\) et \\(\\beta_j\\) sont les coefficients de régression. - \\(\\epsilon_t\\) et \\(u_t\\) sont les termes d’erreur. - \\(p\\) et \\(q\\) sont les ordres de retard.\nL’hypothèse nulle est que \\(X\\) ne cause pas \\(Y\\) au sens de Granger, c’est-à-dire \\(\\beta_1 = \\beta_2 = ... = \\beta_q = 0\\).\nLe test F est utilisé pour tester cette hypothèse. La statistique F est calculée comme suit:\n\\(F = \\frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-p-q-1)}\\)\noù: - \\(SSR_r\\) est la somme des carrés des résidus du modèle restreint. - \\(SSR_{ur}\\) est la somme des carrés des résidus du modèle non restreint. - \\(n\\) est le nombre d’observations. - \\(p\\) et \\(q\\) sont les ordres de retard."
+  },
+  {
+    "objectID": "granger_causality.html#test-de-causalite-de-ganger",
+    "href": "granger_causality.html#test-de-causalite-de-ganger",
+    "title": "Test de Causalité de Granger",
+    "section": "Test de Causalite de Ganger",
+    "text": "Test de Causalite de Ganger"
+  },
+  {
     "objectID": "cointegration_test_et.html",
     "href": "cointegration_test_et.html",
     "title": "Test de Cointégration (Modèle ET)",
@@ -61,6 +89,20 @@
     "title": "Test de Cointégration (Modèle ET)",
     "section": "",
     "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’exportation (ET), le cas 3 (intercept non restreint et sans tendance) a été retenu."
+  },
+  {
+    "objectID": "normality_test.html",
+    "href": "normality_test.html",
+    "title": "Test de Normalité de Shapiro-Wilk",
+    "section": "",
+    "text": "Le test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.\nL’hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l’hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.\nLa statistique du test est:\n\\(W = \\frac{(\\sum_{i=1}^{n} a_i x_{(i)})^2}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\)\noù: - \\(x_{(i)}\\) est la i-ème statistique d’ordre (c’est-à-dire le i-ème plus petit nombre dans l’échantillon). - \\(\\bar{x}\\) est la moyenne de l’échantillon. - les coefficients \\(a_i\\) sont donnés par \\(a = (a_1, ..., a_n) = \\frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}\\) - où \\(m = (m_1, ..., m_n)^T\\) sont les valeurs attendues des statistiques d’ordre d’un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et \\(V\\) est la matrice de covariance de ces statistiques d’ordre."
+  },
+  {
+    "objectID": "normality_test.html#test-de-normalite-des-series-dinteret",
+    "href": "normality_test.html#test-de-normalite-des-series-dinteret",
+    "title": "Test de Normalité de Shapiro-Wilk",
+    "section": "test de Normalite des series d’interet",
+    "text": "test de Normalite des series d’interet"
   },
   {
     "objectID": "cointegration_test.html",
@@ -333,7 +375,7 @@
     "href": "kendall_correlation.html",
     "title": "Test de Corrélation de Kendall",
     "section": "",
-    "text": "Donc on peut proceder a un test de correlation de Kendall."
+    "text": "Le coefficient de corrélation de rang de Kendall, communément appelé tau de Kendall (τ), est une statistique utilisée pour mesurer l’association ordinale entre deux quantités mesurées. Un test tau est un test d’hypothèse non paramétrique pour la dépendance statistique basé sur le coefficient tau.\nLe coefficient de Kendall est calculé comme suit:\n\\(\\tau = \\frac{n_c - n_d}{\\frac{1}{2}n(n-1)}\\)\noù: - \\(n_c\\) est le nombre de paires concordantes. - \\(n_d\\) est le nombre de paires discordantes. - \\(n\\) est le nombre d’observations.\nUne paire de points \\((x_i, y_i)\\) et \\((x_j, y_j)\\) est dite concordante si \\(x_i &lt; x_j\\) et \\(y_i &lt; y_j\\), ou si \\(x_i &gt; x_j\\) et \\(y_i &gt; y_j\\). Elle est dite discordante si \\(x_i &lt; x_j\\) et \\(y_i &gt; y_j\\), ou si \\(x_i &gt; x_j\\) et \\(y_i &lt; y_j\\).\nLa valeur de \\(\\tau\\) est comprise entre -1 et 1. Une valeur de 1 indique une corrélation parfaite positive, une valeur de -1 indique une corrélation parfaite négative et une valeur de 0 indique une absence de corrélation.\nDonc on peut proceder a un test de correlation de Kendall."
   },
   {
     "objectID": "specification_test_it.html",

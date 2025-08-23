@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -212,6 +241,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Le coefficient de corrélation de rang de Kendall, communément appelé tau de Kendall (τ), est une statistique utilisée pour mesurer l’association ordinale entre deux quantités mesurées. Un test tau est un test d’hypothèse non paramétrique pour la dépendance statistique basé sur le coefficient tau.</p>
+<p>Le coefficient de Kendall est calculé comme suit:</p>
+<p><span class="math inline">\(\tau = \frac{n_c - n_d}{\frac{1}{2}n(n-1)}\)</span></p>
+<p>où: - <span class="math inline">\(n_c\)</span> est le nombre de paires concordantes. - <span class="math inline">\(n_d\)</span> est le nombre de paires discordantes. - <span class="math inline">\(n\)</span> est le nombre d’observations.</p>
+<p>Une paire de points <span class="math inline">\((x_i, y_i)\)</span> et <span class="math inline">\((x_j, y_j)\)</span> est dite concordante si <span class="math inline">\(x_i &lt; x_j\)</span> et <span class="math inline">\(y_i &lt; y_j\)</span>, ou si <span class="math inline">\(x_i &gt; x_j\)</span> et <span class="math inline">\(y_i &gt; y_j\)</span>. Elle est dite discordante si <span class="math inline">\(x_i &lt; x_j\)</span> et <span class="math inline">\(y_i &gt; y_j\)</span>, ou si <span class="math inline">\(x_i &gt; x_j\)</span> et <span class="math inline">\(y_i &lt; y_j\)</span>.</p>
+<p>La valeur de <span class="math inline">\(\tau\)</span> est comprise entre -1 et 1. Une valeur de 1 indique une corrélation parfaite positive, une valeur de -1 indique une corrélation parfaite négative et une valeur de 0 indique une absence de corrélation.</p>
 <p>Donc on peut proceder a un test de correlation de Kendall.</p>
 <div class="cell">
 <div class="cell-output-display">

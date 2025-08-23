@@ -1,9 +1,11 @@
 {
-  "hash": "16f17e31d6f94c6b3d708cf923b8d18c",
+  "hash": "e80d201a6907c2be0d983f7478e462aa",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Test de Corrélation de Kendall\"\n---\n\nDonc on peut proceder a un test de correlation de Kendall.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/kendall_test.png)\n:::\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Test de Corrélation de Kendall\"\n---\n\nLe coefficient de corrélation de rang de Kendall, communément appelé tau de Kendall (τ), est une statistique utilisée pour mesurer l'association ordinale entre deux quantités mesurées. Un test tau est un test d'hypothèse non paramétrique pour la dépendance statistique basé sur le coefficient tau.\n\nLe coefficient de Kendall est calculé comme suit:\n\n$\\tau = \\frac{n_c - n_d}{\\frac{1}{2}n(n-1)}$\n\n\noù:\n- $n_c$ est le nombre de paires concordantes.\n- $n_d$ est le nombre de paires discordantes.\n- $n$ est le nombre d'observations.\n\nUne paire de points $(x_i, y_i)$ et $(x_j, y_j)$ est dite concordante si $x_i < x_j$ et $y_i < y_j$, ou si $x_i > x_j$ et $y_i > y_j$. Elle est dite discordante si $x_i < x_j$ et $y_i > y_j$, ou si $x_i > x_j$ et $y_i < y_j$.\n\nLa valeur de $\\tau$ est comprise entre -1 et 1. Une valeur de 1 indique une corrélation parfaite positive, une valeur de -1 indique une corrélation parfaite négative et une valeur de 0 indique une absence de corrélation.\n\nDonc on peut proceder a un test de correlation de Kendall.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/kendall_test.png)\n:::\n:::\n",
+    "supporting": [
+      "kendall_correlation_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

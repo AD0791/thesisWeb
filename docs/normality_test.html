@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -218,6 +247,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Le test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.</p>
+<p>L’hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l’hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.</p>
+<p>La statistique du test est:</p>
+<p><span class="math inline">\(W = \frac{(\sum_{i=1}^{n} a_i x_{(i)})^2}{\sum_{i=1}^{n} (x_i - \bar{x})^2}\)</span></p>
+<p>où: - <span class="math inline">\(x_{(i)}\)</span> est la i-ème statistique d’ordre (c’est-à-dire le i-ème plus petit nombre dans l’échantillon). - <span class="math inline">\(\bar{x}\)</span> est la moyenne de l’échantillon. - les coefficients <span class="math inline">\(a_i\)</span> sont donnés par <span class="math inline">\(a = (a_1, ..., a_n) = \frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}\)</span> - où <span class="math inline">\(m = (m_1, ..., m_n)^T\)</span> sont les valeurs attendues des statistiques d’ordre d’un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et <span class="math inline">\(V\)</span> est la matrice de covariance de ces statistiques d’ordre.</p>
 <section id="test-de-normalite-des-series-dinteret" class="level2">
 <h2 class="anchored" data-anchor-id="test-de-normalite-des-series-dinteret">test de Normalite des series d’interet</h2>
 <div class="cell">

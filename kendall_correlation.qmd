@@ -2,6 +2,22 @@
 title: "Test de Corrélation de Kendall"
 ---
 
+Le coefficient de corrélation de rang de Kendall, communément appelé tau de Kendall (τ), est une statistique utilisée pour mesurer l'association ordinale entre deux quantités mesurées. Un test tau est un test d'hypothèse non paramétrique pour la dépendance statistique basé sur le coefficient tau.
+
+Le coefficient de Kendall est calculé comme suit:
+
+$\tau = \frac{n_c - n_d}{\frac{1}{2}n(n-1)}$
+
+
+où:
+- $n_c$ est le nombre de paires concordantes.
+- $n_d$ est le nombre de paires discordantes.
+- $n$ est le nombre d'observations.
+
+Une paire de points $(x_i, y_i)$ et $(x_j, y_j)$ est dite concordante si $x_i < x_j$ et $y_i < y_j$, ou si $x_i > x_j$ et $y_i > y_j$. Elle est dite discordante si $x_i < x_j$ et $y_i > y_j$, ou si $x_i > x_j$ et $y_i < y_j$.
+
+La valeur de $\tau$ est comprise entre -1 et 1. Une valeur de 1 indique une corrélation parfaite positive, une valeur de -1 indique une corrélation parfaite négative et une valeur de 0 indique une absence de corrélation.
+
 Donc on peut proceder a un test de correlation de Kendall.
 
 ```{r}

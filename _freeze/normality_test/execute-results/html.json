@@ -1,9 +1,11 @@
 {
-  "hash": "5a54982253d4fe4d8f9d0fe45655c339",
+  "hash": "67e83b9c951258904baf92ad0b620c41",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Test de Normalité de Shapiro-Wilk\"\n---\n\n## test de Normalite des series d'interet\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/shapiro_series_test.png)\n:::\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Test de Normalité de Shapiro-Wilk\"\n---\n\nLe test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.\n\nL'hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l'hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.\n\nLa statistique du test est:\n\n$W = \\frac{(\\sum_{i=1}^{n} a_i x_{(i)})^2}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$\n\noù:\n- $x_{(i)}$ est la i-ème statistique d'ordre (c'est-à-dire le i-ème plus petit nombre dans l'échantillon).\n- $\\bar{x}$ est la moyenne de l'échantillon.\n- les coefficients $a_i$ sont donnés par $a = (a_1, ..., a_n) = \\frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}$\n- où $m = (m_1, ..., m_n)^T$ sont les valeurs attendues des statistiques d'ordre d'un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et $V$ est la matrice de covariance de ces statistiques d'ordre.\n\n## test de Normalite des series d'interet\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/shapiro_series_test.png)\n:::\n:::\n",
+    "supporting": [
+      "normality_test_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

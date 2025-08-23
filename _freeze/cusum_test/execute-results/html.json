@@ -1,9 +1,11 @@
 {
-  "hash": "d26b905723fd26edd872352f095b2b8d",
+  "hash": "2c4223af91c2f644f7281afcc42e21be",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Test de Stabilité CUSUM\"\n---\n\n## CUSUM IT\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_it.modele.png)\n:::\n:::\n\n\n## CUSUM ET\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_et.modele.png)\n:::\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Test de Stabilité CUSUM\"\n---\n\nLe test CUSUM (Cumulative Sum) est un outil d'analyse de la stabilité des paramètres dans un modèle de régression. Il a été introduit par Brown, Durbin et Evans (1975) pour détecter les changements structurels dans les paramètres d'un modèle. L'idée principale du test CUSUM est de voir si les résidus récursifs s'éloignent de manière significative de leur moyenne de zéro.\n\nLe test CUSUM est basé sur la somme cumulée des résidus récursifs. La statistique du test est calculée comme suit:\n\n$W_t = \\sum_{i=k+1}^{t} \\frac{w_i}{\\hat{\\sigma}}$ pour $t = k+1, ..., T$\n\noù:\n- $w_i$ sont les résidus récursifs.\n- $\\hat{\\sigma}$ est l'estimation de l'écart-type des résidus récursifs.\n\nLa statistique $W_t$ est ensuite normalisée et tracée par rapport au temps. Si la statistique CUSUM se situe à l'intérieur d'une bande de confiance, on ne rejette pas l'hypothèse nulle de la stabilité des paramètres. Si la statistique CUSUM sort de la bande de confiance, on rejette l'hypothèse nulle et on conclut à une instabilité des paramètres.\n\nLes lignes de confiance sont calculées comme suit:\n\n$y = \\pm [a\\sqrt{(T-k)} + \\frac{2a(t-k)}{\\sqrt{(T-k)}}]$\n\noù:\n- $a$ est une constante qui dépend du niveau de signification souhaité (par exemple, a = 0,948 pour un niveau de signification de 5%).\n- $T$ est le nombre total d'observations.\n- $k$ est le nombre de paramètres dans le modèle.\n- $t$ est le point temporel actuel.\n\n## CUSUM IT\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_it.modele.png)\n:::\n:::\n\n\n## CUSUM ET\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/cusum_et.modele.png)\n:::\n:::\n",
+    "supporting": [
+      "cusum_test_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

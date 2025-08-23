@@ -2,6 +2,20 @@
 title: "Test de Normalité de Shapiro-Wilk"
 ---
 
+Le test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.
+
+L'hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l'hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.
+
+La statistique du test est:
+
+$W = \frac{(\sum_{i=1}^{n} a_i x_{(i)})^2}{\sum_{i=1}^{n} (x_i - \bar{x})^2}$
+
+où:
+- $x_{(i)}$ est la i-ème statistique d'ordre (c'est-à-dire le i-ème plus petit nombre dans l'échantillon).
+- $\bar{x}$ est la moyenne de l'échantillon.
+- les coefficients $a_i$ sont donnés par $a = (a_1, ..., a_n) = \frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}$
+- où $m = (m_1, ..., m_n)^T$ sont les valeurs attendues des statistiques d'ordre d'un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et $V$ est la matrice de covariance de ces statistiques d'ordre.
+
 ## test de Normalite des series d'interet
 
 ```{r}

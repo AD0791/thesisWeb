@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -218,6 +247,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Le test de causalité de Granger est un test statistique permettant de déterminer si une série temporelle est utile pour prévoir une autre. L’hypothèse nulle est que les coefficients des valeurs passées de la première série temporelle sont nuls dans une régression des valeurs de la deuxième série temporelle sur ses propres valeurs passées et sur les valeurs passées de la première série temporelle. Si la valeur p est inférieure à un certain niveau de signification, l’hypothèse nulle est rejetée et on conclut que la première série temporelle est utile pour prévoir la seconde.</p>
+<p>Le test de causalité de Granger est basé sur les régressions suivantes:</p>
+<p>Modèle non restreint: <span class="math inline">\(Y_t = \alpha_0 + \sum_{i=1}^{p} \alpha_i Y_{t-i} + \sum_{j=1}^{q} \beta_j X_{t-j} + \epsilon_t\)</span></p>
+<p>Modèle restreint: <span class="math inline">\(Y_t = \alpha_0 + \sum_{i=1}^{p} \alpha_i Y_{t-i} + u_t\)</span></p>
+<p>où: - <span class="math inline">\(Y_t\)</span> est la valeur de la série temporelle Y à l’instant t. - <span class="math inline">\(X_t\)</span> est la valeur de la série temporelle X à l’instant t. - <span class="math inline">\(\alpha_i\)</span> et <span class="math inline">\(\beta_j\)</span> sont les coefficients de régression. - <span class="math inline">\(\epsilon_t\)</span> et <span class="math inline">\(u_t\)</span> sont les termes d’erreur. - <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont les ordres de retard.</p>
+<p>L’hypothèse nulle est que <span class="math inline">\(X\)</span> ne cause pas <span class="math inline">\(Y\)</span> au sens de Granger, c’est-à-dire <span class="math inline">\(\beta_1 = \beta_2 = ... = \beta_q = 0\)</span>.</p>
+<p>Le test F est utilisé pour tester cette hypothèse. La statistique F est calculée comme suit:</p>
+<p><span class="math inline">\(F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-p-q-1)}\)</span></p>
+<p>où: - <span class="math inline">\(SSR_r\)</span> est la somme des carrés des résidus du modèle restreint. - <span class="math inline">\(SSR_{ur}\)</span> est la somme des carrés des résidus du modèle non restreint. - <span class="math inline">\(n\)</span> est le nombre d’observations. - <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont les ordres de retard.</p>
 <section id="test-de-causalite-de-ganger" class="level2">
 <h2 class="anchored" data-anchor-id="test-de-causalite-de-ganger">Test de Causalite de Ganger</h2>
 <div class="cell">

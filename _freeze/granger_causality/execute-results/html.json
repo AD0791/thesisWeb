@@ -1,9 +1,11 @@
 {
-  "hash": "0143473c909e3d288b01915f00c084fa",
+  "hash": "6a66ca49690fd41f678ca76af5b453e9",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Test de Causalité de Granger\"\n---\n\n## Test de Causalite de Ganger\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/granger_test.png)\n:::\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Test de Causalité de Granger\"\n---\n\nLe test de causalité de Granger est un test statistique permettant de déterminer si une série temporelle est utile pour prévoir une autre. L'hypothèse nulle est que les coefficients des valeurs passées de la première série temporelle sont nuls dans une régression des valeurs de la deuxième série temporelle sur ses propres valeurs passées et sur les valeurs passées de la première série temporelle. Si la valeur p est inférieure à un certain niveau de signification, l'hypothèse nulle est rejetée et on conclut que la première série temporelle est utile pour prévoir la seconde.\n\nLe test de causalité de Granger est basé sur les régressions suivantes:\n\nModèle non restreint:\n$Y_t = \\alpha_0 + \\sum_{i=1}^{p} \\alpha_i Y_{t-i} + \\sum_{j=1}^{q} \\beta_j X_{t-j} + \\epsilon_t$\n\nModèle restreint:\n$Y_t = \\alpha_0 + \\sum_{i=1}^{p} \\alpha_i Y_{t-i} + u_t$\n\noù:\n- $Y_t$ est la valeur de la série temporelle Y à l'instant t.\n- $X_t$ est la valeur de la série temporelle X à l'instant t.\n- $\\alpha_i$ et $\\beta_j$ sont les coefficients de régression.\n- $\\epsilon_t$ et $u_t$ sont les termes d'erreur.\n- $p$ et $q$ sont les ordres de retard.\n\nL'hypothèse nulle est que $X$ ne cause pas $Y$ au sens de Granger, c'est-à-dire $\\beta_1 = \\beta_2 = ... = \\beta_q = 0$.\n\nLe test F est utilisé pour tester cette hypothèse. La statistique F est calculée comme suit:\n\n$F = \\frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-p-q-1)}$\n\noù:\n- $SSR_r$ est la somme des carrés des résidus du modèle restreint.\n- $SSR_{ur}$ est la somme des carrés des résidus du modèle non restreint.\n- $n$ est le nombre d'observations.\n- $p$ et $q$ sont les ordres de retard.\n\n## Test de Causalite de Ganger\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](./tests/outputs/granger_test.png)\n:::\n:::\n",
+    "supporting": [
+      "granger_causality_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

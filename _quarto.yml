@@ -37,8 +37,6 @@ website:
             href: diagnostic_tests.qmd
           - text: "Test CUSUM"
             href: cusum_test.qmd
-          - text: "Test de Spécification"
-            href: specification_test.qmd
       - text: "Test Economique"
         menu:
           - text: "test de Normalite des series d'interet"

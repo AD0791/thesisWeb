@@ -1,0 +1,225 @@
+---
+title: "Cadre Opératoire"
+#author: "Benzico Pierre & Alexandro Disla"
+#format: html
+#editor: visual
+#bibliography: references.bib
+---
+
+# Cadre Opératoire {#sec-cadre-operatoire}
+
+Ce chapitre est consacré à l'opérationnalisation de notre étude portant sur l'impact du taux de change sur les importations et les exportations haïtiennes. Dans un premier temps, nous justifions la pertinence des variables retenues dans notre modélisation ainsi que les signes attendus conformément à la littérature économique. Dans un second temps, nous présentons les sources de données, la période d'étude et les éventuels traitements appliqués aux données.
+
+## Justification théorique et empirique des variables {#sec-justification-variables}
+
+Pour analyser empiriquement la relation entre le taux de change et les flux commerciaux d'Haïti, nous proposons deux modèles ARDL (AutoRegressive Distributed Lag). Dans ces modèles, les variables dépendantes sont respectivement les importations (IT) et les exportations (ET), tandis que la variable indépendante principale est le taux de change (TC). Nous intégrons également des variables de contrôle permettant de capturer d'autres déterminants fondamentaux du commerce international : le PIB d'Haïti (PIB), le PIB des États-Unis (PIB_USA) et l'indice des prix à la consommation (IPC).
+
+Le choix de ces variables repose sur la théorie économique du commerce international et sur les travaux empiriques portant sur les pays en développement, en particulier les petites économies ouvertes comme Haïti.
+
+### Variables dépendantes {#sec-var-dependantes}
+
+#### Importations (IT)
+
+Les importations constituent un flux entrant de biens et services en provenance de l'étranger. Dans le cas d'Haïti, les importations représentent une composante majeure de l'activité économique, le pays étant fortement dépendant des produits étrangers pour satisfaire sa demande intérieure.
+
+La théorie économique suggère que les importations sont fonction du revenu national (effet positif), du taux de change réel (effet positif d'une dépréciation qui renchérit les importations) et des prix relatifs. Les travaux de Goldstein et Khan (1985) ont établi les fondements théoriques de la demande d'importations, mettant en évidence l'élasticité-prix et l'élasticité-revenu comme déterminants clés.
+
+Dans notre modélisation, les importations sont exprimées en dollars américains constants (base 2010), ce qui permet d'éliminer les effets de l'inflation américaine et de capturer les variations réelles des flux commerciaux.
+
+$$
+IT_t = f(TC_t, PIB_t, PIB\_USA_t, IPC_t)
+$$ {#eq-import}
+
+#### Exportations (ET)
+
+Les exportations représentent la valeur des biens et services vendus à l'étranger par les résidents haïtiens. Elles constituent une source de devises étrangères et un moteur potentiel de croissance économique.
+
+Selon la théorie du commerce international, les exportations dépendent de la demande étrangère (approximée ici par le PIB des États-Unis, principal partenaire commercial d'Haïti), du taux de change (une dépréciation améliorant la compétitivité-prix des exportations) et de la capacité productive nationale.
+
+Les travaux de Rose (1991) et Bahmani-Oskooee (1986) ont démontré l'importance du taux de change dans la détermination des flux d'exportations, en particulier pour les pays en développement.
+
+$$
+ET_t = g(TC_t, PIB_t, PIB\_USA_t, IPC_t)
+$$ {#eq-export}
+
+### Variable indépendante principale {#sec-var-independante}
+
+#### Taux de change (TC)
+
+Le taux de change représente le prix relatif entre deux monnaies. Dans notre étude, nous utilisons le taux de change nominal bilatéral HTG/USD (gourdes haïtiennes par dollar américain). Une augmentation de ce taux signifie une dépréciation de la gourde par rapport au dollar.
+
+**Fondements théoriques**
+
+La relation entre le taux de change et les flux commerciaux est au cœur de la théorie économique internationale. L'effet d'une variation du taux de change sur la balance commerciale est généralement analysé à travers deux prismes théoriques :
+
+1. **La condition de Marshall-Lerner** : Pour qu'une dépréciation améliore la balance commerciale, la somme des élasticités-prix des exportations et des importations (en valeur absolue) doit être supérieure à l'unité. Cette condition, formulée par Marshall (1923) et Lerner (1944), constitue un préalable théorique fondamental.
+
+2. **La courbe en J** : Magee (1973) a mis en évidence un phénomène dynamique selon lequel une dépréciation détériore initialement la balance commerciale avant de l'améliorer. Ce délai s'explique par les contrats préexistants et le temps d'ajustement des quantités échangées.
+
+**Impact attendu sur les importations**
+
+Une dépréciation de la gourde (hausse de TC) renchérit les importations en termes de monnaie locale. Cela devrait, toutes choses égales par ailleurs, réduire le volume des importations si la demande est élastique au prix. Toutefois, pour une économie comme Haïti où de nombreuses importations sont incompressibles (produits alimentaires de base, carburants), l'effet volume peut être limité.
+
+**Signe attendu** : Indéterminé (positif sur la valeur en USD si effet volume faible, négatif si l'élasticité-prix est élevée)
+
+**Impact attendu sur les exportations**
+
+Une dépréciation améliore la compétitivité-prix des exportations haïtiennes sur les marchés internationaux. Les produits haïtiens deviennent relativement moins chers pour les acheteurs étrangers, ce qui devrait stimuler la demande d'exportations.
+
+**Signe attendu** : Positif
+
+### Variables de contrôle {#sec-var-controle}
+
+#### Produit Intérieur Brut d'Haïti (PIB)
+
+Le PIB représente la valeur totale des biens et services produits sur le territoire haïtien pendant une année. Il capture la capacité productive de l'économie et constitue une approximation du revenu national.
+
+**Impact sur les importations** : Conformément à la théorie keynésienne de la fonction d'importation, une hausse du revenu national entraîne une augmentation de la demande d'importations (propension marginale à importer positive). Cet effet est particulièrement prononcé dans les économies où la production locale ne peut satisfaire la demande intérieure.
+
+**Signe attendu** : Positif
+
+**Impact sur les exportations** : Un PIB plus élevé peut signifier une capacité productive accrue, permettant de dégager des surplus exportables. Toutefois, un revenu national plus élevé peut aussi refléter une demande intérieure absorbant une part plus importante de la production.
+
+**Signe attendu** : Positif ou indéterminé
+
+#### Produit Intérieur Brut des États-Unis (PIB_USA)
+
+Le PIB des États-Unis représente la demande potentielle du principal partenaire commercial d'Haïti. Les États-Unis absorbent une part majoritaire des exportations haïtiennes et constituent la principale source d'importations.
+
+**Impact sur les importations** : Un PIB américain plus élevé peut signifier une offre mondiale plus abondante et des prix potentiellement plus bas, favorisant les importations haïtiennes.
+
+**Signe attendu** : Positif
+
+**Impact sur les exportations** : Une demande américaine plus forte stimule les exportations haïtiennes, en particulier dans le secteur textile qui bénéficie des accords préférentiels (HOPE/HELP).
+
+**Signe attendu** : Positif
+
+#### Indice des Prix à la Consommation (IPC)
+
+L'IPC mesure l'évolution du niveau général des prix en Haïti (base 100 = 2010). Il capture les pressions inflationnistes internes qui affectent le pouvoir d'achat des ménages et la compétitivité des entreprises.
+
+**Impact sur les importations** : Une inflation élevée érode le pouvoir d'achat des ménages et peut réduire la demande d'importations. Toutefois, si l'inflation est plus rapide en Haïti qu'à l'étranger, les produits importés deviennent relativement moins chers.
+
+**Signe attendu** : Indéterminé
+
+**Impact sur les exportations** : Une inflation élevée détériore la compétitivité-prix des exportations si elle n'est pas compensée par une dépréciation équivalente du taux de change nominal.
+
+**Signe attendu** : Négatif
+
+## Tableau récapitulatif des signes attendus {#sec-signes-attendus}
+
+Le tableau suivant synthétise les effets attendus des variables explicatives sur les importations et les exportations, conformément à la littérature théorique et empirique.
+
+| Variable | Description | Effet sur IT | Effet sur ET |
+|----------|-------------|:------------:|:------------:|
+| TC | Taux de change HTG/USD | +/- | + |
+| PIB | PIB d'Haïti (USD constants 2010) | + | +/- |
+| PIB_USA | PIB des États-Unis (USD constants 2010) | + | + |
+| IPC | Indice des prix à la consommation | +/- | - |
+
+: Signes attendus des variables dans les modèles d'importation et d'exportation {#tbl-signes}
+
+**Légende** : (+) effet positif attendu ; (-) effet négatif attendu ; (+/-) effet indéterminé a priori.
+
+## Spécification des modèles {#sec-specification}
+
+Conformément à l'approche ARDL développée par Pesaran, Shin et Smith (2001), nous spécifions deux modèles économétriques permettant de tester l'existence d'une relation de long terme entre le taux de change et les flux commerciaux.
+
+### Modèle pour les importations (IT)
+
+$$
+\Delta \ln(IT_t) = \alpha_0 + \sum_{i=1}^{p} \alpha_{1i} \Delta \ln(IT_{t-i}) + \sum_{i=0}^{q_1} \alpha_{2i} \Delta \ln(TC_{t-i}) + \sum_{i=0}^{q_2} \alpha_{3i} \Delta \ln(PIB_{t-i}) + \sum_{i=0}^{q_3} \alpha_{4i} \Delta \ln(PIB\_USA_{t-i}) + \sum_{i=0}^{q_4} \alpha_{5i} \Delta \ln(IPC_{t-i}) + \beta_1 \ln(IT_{t-1}) + \beta_2 \ln(TC_{t-1}) + \beta_3 \ln(PIB_{t-1}) + \beta_4 \ln(PIB\_USA_{t-1}) + \beta_5 \ln(IPC_{t-1}) + \varepsilon_t
+$$ {#eq-ardl-it}
+
+### Modèle pour les exportations (ET)
+
+$$
+\Delta \ln(ET_t) = \gamma_0 + \sum_{i=1}^{p} \gamma_{1i} \Delta \ln(ET_{t-i}) + \sum_{i=0}^{q_1} \gamma_{2i} \Delta \ln(TC_{t-i}) + \sum_{i=0}^{q_2} \gamma_{3i} \Delta \ln(PIB_{t-i}) + \sum_{i=0}^{q_3} \gamma_{4i} \Delta \ln(PIB\_USA_{t-i}) + \sum_{i=0}^{q_4} \gamma_{5i} \Delta \ln(IPC_{t-i}) + \delta_1 \ln(ET_{t-1}) + \delta_2 \ln(TC_{t-1}) + \delta_3 \ln(PIB_{t-1}) + \delta_4 \ln(PIB\_USA_{t-1}) + \delta_5 \ln(IPC_{t-1}) + \mu_t
+$$ {#eq-ardl-et}
+
+où $\Delta$ désigne l'opérateur de différence première, $\ln$ le logarithme naturel, $p$ et $q_i$ les ordres de retards optimaux déterminés par les critères d'information (AIC, BIC), et $\varepsilon_t$, $\mu_t$ les termes d'erreur.
+
+## Collecte des données, sources et période {#sec-donnees}
+
+### Période d'étude
+
+Notre analyse couvre la période **1988-2022**, soit 35 observations annuelles. Le choix de cette période se justifie par plusieurs facteurs :
+
+1. **Début de la libéralisation économique** : L'année 1988 marque le début effectif des réformes structurelles en Haïti sous l'impulsion des programmes d'ajustement structurel.
+
+2. **Disponibilité des données** : Les séries sont complètes et cohérentes sur cette période.
+
+3. **Pertinence économique** : Cette période englobe plusieurs chocs majeurs ayant affecté l'économie haïtienne (embargo 1991-1994, séisme 2010, instabilité politique récurrente).
+
+### Sources des données
+
+Les données proviennent de sources officielles reconnues pour leur fiabilité :
+
+| Variable | Source | Spécificité |
+|----------|--------|-------------|
+| Taux de change (TC) | Banque de la République d'Haïti (BRH) | Moyenne annuelle du taux HTG/USD |
+| Importations (IT) | Banque Mondiale (WDI) | USD constants 2010 |
+| Exportations (ET) | Banque Mondiale (WDI) | USD constants 2010 |
+| PIB Haïti (PIB) | Banque Mondiale (WDI) | USD constants 2010 |
+| PIB États-Unis (PIB_USA) | Banque Mondiale (WDI) | USD constants 2010 |
+| IPC | Banque Mondiale (WDI) | Base 100 = 2010 |
+
+: Description et sources des variables de l'étude {#tbl-sources}
+
+### Description des variables
+
+**Taux de change (TC)** : Le taux de change officiel fait référence au taux indiqué par les autorités nationales ou au taux fixé légalement par le marché des taux. Il est calculé comme une moyenne annuelle sur la base des moyennes mensuelles (unités de gourdes haïtiennes par dollar américain).
+
+**Importations (IT) et Exportations (ET)** : Les flux commerciaux sont exprimés en dollars américains constants (base 2010), ce qui permet d'éliminer les effets de l'inflation et de capturer les variations réelles des échanges.
+
+**PIB d'Haïti et des États-Unis** : Le Produit Intérieur Brut aux prix du marché représente la somme de la valeur ajoutée brute de tous les producteurs résidents, plus les taxes sur les produits et moins les subventions non incluses dans la valeur des produits.
+
+**IPC** : L'indice des prix à la consommation reflète la variation du coût d'acquisition d'un panier de biens et services par le consommateur moyen haïtien.
+
+## Transformation des variables {#sec-transformation}
+
+Pour linéariser les relations et stabiliser la variance des séries, toutes les variables sont transformées en logarithme naturel. Cette transformation présente plusieurs avantages :
+
+1. **Interprétation en termes d'élasticités** : Les coefficients estimés représentent directement les élasticités de la variable dépendante par rapport aux variables explicatives.
+
+2. **Réduction de l'hétéroscédasticité** : La transformation logarithmique atténue généralement les problèmes d'hétéroscédasticité.
+
+3. **Normalisation des distributions** : Les distributions des variables transformées se rapprochent souvent de la normalité.
+
+Les variables transformées sont définies comme suit :
+
+- $\ln(IT_t)$ : Logarithme naturel des importations
+- $\ln(ET_t)$ : Logarithme naturel des exportations  
+- $\ln(TC_t)$ : Logarithme naturel du taux de change
+- $\ln(PIB_t)$ : Logarithme naturel du PIB d'Haïti
+- $\ln(PIB\_USA_t)$ : Logarithme naturel du PIB des États-Unis
+- $\ln(IPC_t)$ : Logarithme naturel de l'indice des prix
+
+## Statistiques descriptives {#sec-stat-descriptives}
+
+Le tableau ci-dessous présente les principales statistiques descriptives des variables utilisées dans notre modélisation sur la période 1988-2022.
+
+| Variable | Moyenne | Écart-type | Minimum | Maximum |
+|----------|--------:|----------:|--------:|--------:|
+| TC (HTG/USD) | 37.89 | 27.58 | 5.00 | 115.63 |
+| IT (millions USD) | 2 968 | 1 662 | 627 | 6 298 |
+| ET (millions USD) | 810 | 509 | 251 | 1 747 |
+| PIB (milliards USD) | 12.70 | 1.84 | 8.96 | 15.76 |
+| PIB_USA (billions USD) | 15.62 | 3.29 | 9.29 | 20.95 |
+| IPC (2010=100) | 82.49 | 97.63 | 4.54 | 409.13 |
+
+: Statistiques descriptives des variables (1988-2022) {#tbl-stats}
+
+Ces statistiques révèlent plusieurs faits stylisés importants :
+
+1. **Forte dépréciation du taux de change** : Le taux de change est passé de 5 HTG/USD en 1988 à plus de 115 HTG/USD en 2022, soit une dépréciation de plus de 2200%.
+
+2. **Déficit commercial structurel** : Les importations sont en moyenne 3,7 fois supérieures aux exportations, reflétant la dépendance structurelle d'Haïti vis-à-vis de l'extérieur.
+
+3. **Inflation cumulée importante** : L'IPC est passé de 4,54 en 1988 à 409,13 en 2022, témoignant d'une érosion significative du pouvoir d'achat.
+
+## Conclusion du chapitre {#sec-conclusion-co}
+
+Ce chapitre a présenté le cadre opératoire de notre étude sur l'impact du taux de change sur les flux commerciaux haïtiens. Nous avons justifié le choix des variables retenues au regard de la théorie économique et des travaux empiriques existants, présenté les signes attendus, et décrit les sources de données utilisées.
+
+L'approche ARDL adoptée permettra de tester l'existence de relations de cointégration entre les variables et d'estimer les élasticités de court et de long terme. Le chapitre suivant présentera en détail les résultats de l'analyse économétrique, incluant les tests de stationnarité, le test de cointégration aux bornes de Pesaran et al. (2001), et l'estimation des coefficients de court et long terme.

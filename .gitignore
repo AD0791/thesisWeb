@@ -58,3 +58,5 @@ rsconnect/
 *_cache/
 /renv/
 
+
+**/*.quarto_ipynb

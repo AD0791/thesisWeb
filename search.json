@@ -91,109 +91,284 @@
     "text": "Le test de cointégration de Pesaran, également connu sous le nom de “Bound test”, est utilisé pour déterminer s’il existe une relation de long terme entre les variables d’un modèle ARDL.\n\n\nLe test est basé sur un test de Wald (test F) des coefficients des termes de long terme.\n\nH0 : Il n’y a pas de relation de long terme (pas de cointégration).\nH1 : Il existe une relation de long terme (cointégration).\n\n\n\n\nLa statistique F calculée est comparée à deux bornes critiques :\n\nSi la statistique F est supérieure à la borne supérieure, on rejette H0 et on conclut à la cointégration.\nSi la statistique F est inférieure à la borne inférieure, on ne rejette pas H0.\nSi la statistique F se situe entre les deux bornes, le test est non concluant.\n\n\n\n\nPour le modèle d’exportation (ET), le cas 3 (intercept non restreint et sans tendance) a été retenu."
   },
   {
-    "objectID": "normality_test.html",
-    "href": "normality_test.html",
-    "title": "Test de Normalité de Shapiro-Wilk",
+    "objectID": "chapitre_5.html",
+    "href": "chapitre_5.html",
+    "title": "Chapitre V - Modélisation économétrique",
     "section": "",
-    "text": "Le test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.\nL’hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l’hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.\nLa statistique du test est:\n\\(W = \\frac{(\\sum_{i=1}^{n} a_i x_{(i)})^2}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\)\noù: - \\(x_{(i)}\\) est la i-ème statistique d’ordre (c’est-à-dire le i-ème plus petit nombre dans l’échantillon). - \\(\\bar{x}\\) est la moyenne de l’échantillon. - les coefficients \\(a_i\\) sont donnés par \\(a = (a_1, ..., a_n) = \\frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}\\) - où \\(m = (m_1, ..., m_n)^T\\) sont les valeurs attendues des statistiques d’ordre d’un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et \\(V\\) est la matrice de covariance de ces statistiques d’ordre."
+    "text": "Ce chapitre présente les résultats de notre modélisation économétrique portant sur l’impact du taux de change sur les importations et les exportations haïtiennes pour la période 1988-2022. Conformément à l’approche ARDL (AutoRegressive Distributed Lag) développée par Pesaran, Shin et Smith (2001), nous procédons à l’estimation de deux modèles distincts : un modèle pour les importations (IT) et un modèle pour les exportations (ET).\nL’analyse s’articule autour des étapes suivantes :\n\nPrésentation de la spécification théorique des modèles\nExamen des propriétés statistiques des séries temporelles\nTests de cointégration aux bornes\nAnalyse de la corrélation et de la causalité\nEstimation des relations de court et long terme\nTests diagnostiques et de stabilité"
   },
   {
-    "objectID": "normality_test.html#test-de-normalite-des-series-dinteret",
-    "href": "normality_test.html#test-de-normalite-des-series-dinteret",
-    "title": "Test de Normalité de Shapiro-Wilk",
-    "section": "test de Normalite des series d’interet",
-    "text": "test de Normalite des series d’interet"
+    "objectID": "chapitre_5.html#modèle-pour-les-importations-it",
+    "href": "chapitre_5.html#modèle-pour-les-importations-it",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Modèle pour les importations (IT)",
+    "text": "Modèle pour les importations (IT)\n\\[\n\\begin{align}\n\\Delta \\ln(IT_t) &= \\alpha_0 + \\sum_{i=1}^{p} \\alpha_{1i} \\Delta \\ln(IT_{t-i}) + \\sum_{i=0}^{q_1} \\alpha_{2i} \\Delta \\ln(TC_{t-i}) \\\\\n&+ \\sum_{i=0}^{q_2} \\alpha_{3i} \\Delta \\ln(PIB_{t-i}) + \\sum_{i=0}^{q_3} \\alpha_{4i} \\Delta \\ln(PIB\\_USA_{t-i}) \\\\\n&+ \\sum_{i=0}^{q_4} \\alpha_{5i} \\Delta \\ln(IPC_{t-i}) + \\beta_1 \\ln(IT_{t-1}) + \\beta_2 \\ln(TC_{t-1}) \\\\\n&+ \\beta_3 \\ln(PIB_{t-1}) + \\beta_4 \\ln(PIB\\_USA_{t-1}) + \\beta_5 \\ln(IPC_{t-1}) + \\varepsilon_t\n\\end{align}\n\\tag{1}\\]"
   },
   {
-    "objectID": "cointegration_test.html",
-    "href": "cointegration_test.html",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "objectID": "chapitre_5.html#modèle-pour-les-exportations-et",
+    "href": "chapitre_5.html#modèle-pour-les-exportations-et",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Modèle pour les exportations (ET)",
+    "text": "Modèle pour les exportations (ET)\n\\[\n\\begin{align}\n\\Delta \\ln(ET_t) &= \\gamma_0 + \\sum_{i=1}^{p} \\gamma_{1i} \\Delta \\ln(ET_{t-i}) + \\sum_{i=0}^{q_1} \\gamma_{2i} \\Delta \\ln(TC_{t-i}) \\\\\n&+ \\sum_{i=0}^{q_2} \\gamma_{3i} \\Delta \\ln(PIB_{t-i}) + \\sum_{i=0}^{q_3} \\gamma_{4i} \\Delta \\ln(PIB\\_USA_{t-i}) \\\\\n&+ \\sum_{i=0}^{q_4} \\gamma_{5i} \\Delta \\ln(IPC_{t-i}) + \\delta_1 \\ln(ET_{t-1}) + \\delta_2 \\ln(TC_{t-1}) \\\\\n&+ \\delta_3 \\ln(PIB_{t-1}) + \\delta_4 \\ln(PIB\\_USA_{t-1}) + \\delta_5 \\ln(IPC_{t-1}) + \\mu_t\n\\end{align}\n\\tag{2}\\]\noù \\(\\Delta\\) désigne l’opérateur de différence première, \\(\\ln\\) le logarithme naturel, \\(p\\) et \\(q_i\\) les ordres de retards optimaux déterminés par le critère d’information d’Akaike (AIC)."
+  },
+  {
+    "objectID": "chapitre_5.html#tests-de-stationnarité",
+    "href": "chapitre_5.html#tests-de-stationnarité",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Tests de stationnarité",
+    "text": "Tests de stationnarité\nPour appliquer l’approche ARDL, il est nécessaire de vérifier l’ordre d’intégration des variables. Nous avons utilisé trois tests complémentaires :\n\nADF (Augmented Dickey-Fuller)\nKPSS (Kwiatkowski-Phillips-Schmidt-Shin)\nPP (Phillips-Perron)\n\n\n\n\n\n\n\n\n\n\nConclusion : Toutes les variables sont intégrées d’ordre 1 (I(1)), c’est-à-dire qu’elles deviennent stationnaires après différenciation. Cette hétérogénéité des ordres d’intégration justifie pleinement l’utilisation du test de cointégration aux bornes de Pesaran et al. (2001)."
+  },
+  {
+    "objectID": "chapitre_5.html#tests-de-cointégration",
+    "href": "chapitre_5.html#tests-de-cointégration",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Tests de cointégration",
+    "text": "Tests de cointégration\n\nModèle IT\nPour le modèle des importations, le cas 4 (intercept non restreint et tendance restreinte) a été retenu.\n\n\n\n\n\n\n\n\n\nInterprétation : La F-statistique (5.89) est supérieure à la borne supérieure au seuil de 5%, ce qui nous permet de rejeter l’hypothèse nulle d’absence de cointégration. Il existe donc une relation de long terme entre le taux de change et les importations haïtiennes.\n\n\nModèle ET\nPour le modèle des exportations, le cas 3 (intercept non restreint et sans tendance) a été retenu.\n\n\n\n\n\n\n\n\n\nInterprétation : La F-statistique (7.23) est supérieure à la borne supérieure même au seuil de 1%, confirmant une relation de cointégration très robuste pour les exportations."
+  },
+  {
+    "objectID": "chapitre_5.html#corrélation-et-causalité",
+    "href": "chapitre_5.html#corrélation-et-causalité",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Corrélation et causalité",
+    "text": "Corrélation et causalité\n\nCorrélation de Kendall\nÉtant donné que nos variables ne suivent pas une distribution normale (vérifié par le test de Shapiro-Wilk), nous utilisons le coefficient de corrélation de rang de Kendall :\n\n\n\n\n\n\n\n\n\nLes coefficients de Kendall positifs et fortement significatifs (\\(\\tau\\) = 0.72 pour IT et \\(\\tau\\) = 0.68 pour ET) indiquent une association forte entre le taux de change et les flux commerciaux.\n\n\nCausalité de Granger\n\n\n\n\n\n\n\n\n\nLes résultats révèlent une causalité unidirectionnelle :\n\nLe taux de change cause les importations (p = 0.0124*)\nLe taux de change cause les exportations (p = 0.0215*)\nL’inverse n’est pas vérifié"
+  },
+  {
+    "objectID": "chapitre_5.html#coefficients-de-court-et-long-terme",
+    "href": "chapitre_5.html#coefficients-de-court-et-long-terme",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Coefficients de court et long terme",
+    "text": "Coefficients de court et long terme\n\nModèle IT - Importations\n\nModèle à Correction d’Erreur (ECM)\n\\[\n\\begin{align}\n\\Delta \\text{Importation}_t &= -50.503^{***} - 0.8234^{***} \\cdot \\text{EC}_{t-1} \\\\\n&- 0.783^{**} \\cdot \\Delta \\text{Taux.Change}_t + 1.3778^{***} \\cdot \\Delta \\text{Taux.Change}_{t-1} \\\\\n&+ 0.8364^{*} \\cdot \\Delta \\text{Taux.Change}_{t-2} + 1.0723^{**} \\cdot \\Delta \\text{Taux.Change}_{t-3} \\\\\n&+ 1.4397^{.} \\cdot \\Delta \\text{PIB}_t + 1.0529 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&+ 0.89 \\cdot \\Delta \\text{PIB.USA}_t - 1.355 \\cdot \\Delta \\text{PIB.USA}_{t-1} \\\\\n&- 1.7264 \\cdot \\Delta \\text{PIB.USA}_{t-2} + 2.8411^{.} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 0.8355 \\cdot \\Delta \\text{IPC}_t - 1.5135^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ \\varepsilon_t\n\\end{align}\n\\]\n\n\nTerme de correction d’erreur\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Importation}_{t-1} + 0.5926 \\cdot \\text{Taux.Change}_{t-1} \\\\\n&- 0.3108 \\cdot \\text{PIB}_{t-1} - 1.8199^{*} \\cdot \\text{PIB.USA}_{t-1} - 1.0459^{.} \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]\n\n\n\n\n\n\nImportantInterprétation des coefficients de long terme (IT)\n\n\n\n\nTaux de change (+0.59) : Une dépréciation de 1% de la gourde augmente les importations de 0.59% à long terme\nECM (-0.82) : 82.34% du déséquilibre est corrigé chaque année - convergence rapide\n\n\n\n\n\n\nModèle ET - Exportations\n\nModèle à Correction d’Erreur (ECM)\n\\[\n\\begin{align}\n\\Delta \\text{Exportation}_t &= -57.2974 - 0.7521^{***} \\cdot \\text{EC}_{t-1} \\\\\n&+ 2.0095^{**} \\cdot \\Delta \\text{Taux.Change}_t + 0.8152 \\cdot \\Delta \\text{Taux.Change}_{t-1} \\\\\n&- 1.5088 \\cdot \\Delta \\text{Taux.Change}_{t-2} + 0.3339 \\cdot \\Delta \\text{Taux.Change}_{t-3} \\\\\n&+ 4.3398^{*} \\cdot \\Delta \\text{PIB}_t + 3.1831^{.} \\cdot \\Delta \\text{PIB}_{t-1} + 3.5012^{*} \\cdot \\Delta \\text{PIB}_{t-2} \\\\\n&- 1.5893 \\cdot \\Delta \\text{PIB.USA}_t + 3.3099 \\cdot \\Delta \\text{PIB.USA}_{t-1} \\\\\n&+ 4.9073^{.} \\cdot \\Delta \\text{PIB.USA}_{t-2} - 7.4745^{*} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 3.5742^{**} \\cdot \\Delta \\text{IPC}_t - 3.3771^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ \\varepsilon_t\n\\end{align}\n\\]\n\n\nTerme de correction d’erreur\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Exportation}_{t-1} + 1.5866^{***} \\cdot \\text{Taux.Change}_{t-1} \\\\\n&- 12.6797^{***} \\cdot \\text{PIB}_{t-1} + 15.814^{**} \\cdot \\text{PIB.USA}_{t-1} - 3.5121^{**} \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]\n\n\n\n\n\n\nImportantInterprétation des coefficients de long terme (ET)\n\n\n\n\nTaux de change (+1.59*) : Une dépréciation de 1% de la gourde stimule les exportations de 1.59%** à long terme - effet très significatif\nPIB USA (+15.81)** : La demande américaine est le principal moteur des exportations haïtiennes\nPIB Haïti (-12.68*)** : Effet négatif surprenant, possiblement lié à la substitution consommation intérieure/exportation\nECM (-0.75) : 75.21% du déséquilibre est corrigé chaque année"
+  },
+  {
+    "objectID": "chapitre_5.html#tests-diagnostiques",
+    "href": "chapitre_5.html#tests-diagnostiques",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Tests diagnostiques",
+    "text": "Tests diagnostiques\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTous les tests diagnostiques sont validés :\n\n\n\nTest\nHypothèse testée\nConclusion\n\n\n\n\nBreusch-Godfrey\nAutocorrélation\nAbsence d’autocorrélation ✓\n\n\nBreusch-Pagan\nHétéroscédasticité\nHomoscédasticité ✓\n\n\nShapiro-Wilk\nNormalité des résidus\nRésidus normaux ✓\n\n\nRamsey RESET\nSpécification\nModèle bien spécifié ✓"
+  },
+  {
+    "objectID": "chapitre_5.html#tests-de-stabilité-cusum",
+    "href": "chapitre_5.html#tests-de-stabilité-cusum",
+    "title": "Chapitre V - Modélisation économétrique",
+    "section": "Tests de stabilité CUSUM",
+    "text": "Tests de stabilité CUSUM\nLes tests CUSUM et CUSUM carré permettent de vérifier la stabilité structurelle des modèles.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion : Les statistiques CUSUM restent à l’intérieur des bandes de confiance à 5%, confirmant la stabilité structurelle des modèles sur la période 1988-2022."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Accueil",
     "section": "",
-    "text": "Considérons le modèle ARDL suivant :\n\\[ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t \\]\nLe ARDL Bound Test implique deux tests de nullité :"
+    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
   },
   {
-    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
-    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Test de cointégration de Pesaran (Bound test) - Modèle IT",
-    "text": "Test de cointégration de Pesaran (Bound test) - Modèle IT\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n4ème cas retenu"
-  },
-  {
-    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
-    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Test de cointégration de Pesaran (Bound test) - Modèle ET",
-    "text": "Test de cointégration de Pesaran (Bound test) - Modèle ET\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n3ème cas retenu"
-  },
-  {
-    "objectID": "cointegration_test.html#conclusion-du-test-de-cointégration",
-    "href": "cointegration_test.html#conclusion-du-test-de-cointégration",
-    "title": "Test de Cointégration de Pesaran (Bound Test)",
-    "section": "Conclusion du test de cointégration",
-    "text": "Conclusion du test de cointégration\n\nModèle IT:\n\nECM avec intercept non restreint et une tendance restreinte\n\nModèle ET:\n\nECM avec intercept non restreint et sans tendance"
-  },
-  {
-    "objectID": "stationarity.html",
-    "href": "stationarity.html",
-    "title": "Analyse de la Stationnarité",
+    "objectID": "index.html#accueil",
+    "href": "index.html#accueil",
+    "title": "Accueil",
     "section": "",
-    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
+    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
   },
   {
-    "objectID": "stationarity.html#procédure",
-    "href": "stationarity.html#procédure",
-    "title": "Analyse de la Stationnarité",
+    "objectID": "jacquesbera.html",
+    "href": "jacquesbera.html",
+    "title": "Test de Normalite des Variables sous etudes",
     "section": "",
-    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
+    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
   },
   {
-    "objectID": "stationarity.html#filtre-de-différence",
-    "href": "stationarity.html#filtre-de-différence",
-    "title": "Analyse de la Stationnarité",
-    "section": "Filtre de différence",
-    "text": "Filtre de différence\nLe filtre de différence est une opération couramment utilisée dans l’analyse des séries chronologiques pour transformer une série en une série stationnaire en différenciant les observations. La différenciation implique de soustraire chaque observation de la série par son observation précédente. Cette opération aide à éliminer les tendances et les structures temporelles de la série, rendant ainsi la série stationnaire. Voici comment le filtre de différence est mathématiquement représenté :\nSi nous avons une série chronologique (y_t) pour (t = 1, 2, …, T), alors la série de différences premières, notée (y_t), est définie comme :\n\\[ \\Delta y_t = y_t - y_{t-1} \\]\nCette équation montre que chaque observation (y_t) est soustraite de son observation précédente (y_{t-1}) pour obtenir la différence première (y_t). Cela peut être répété pour chaque observation dans la série, créant ainsi une nouvelle série de différences premières avec une longueur de (T - 1), car la première observation n’a pas de valeur précédente à soustraire.\nL’opération de différenciation peut être répétée plusieurs fois si nécessaire pour obtenir une série encore plus stationnaire, en soustrayant chaque observation par son observation précédente dans la série de différences premières. La série résultante est appelée série de différences d’ordre (d), où (d) représente le nombre de différences effectuées.\nVoici un exemple d’équation LaTeX pour représenter la série de différences premières : Cette équation peut être utilisée dans les documents LaTeX pour représenter mathématiquement le concept de différenciation dans l’analyse des séries chronologiques."
-  },
-  {
-    "objectID": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
-    "href": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
-    "title": "Analyse de la Stationnarité",
-    "section": "Hypothèses pour les tests de stationnarité",
-    "text": "Hypothèses pour les tests de stationnarité\nBien sûr, voici les hypothèses nulles et alternatives pour les tests ADF, KPSS et Phillips-Perron :\n\nTest de Dickey-Fuller Augmenté (ADF) :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\nTest KPSS (Kwiatkowski-Phillips-Schmidt-Shin) :\n\nHypothèse Nulle (H0) : La série chronologique est stationnaire.\nHypothèse Alternative (H1) : La série chronologique n’est pas stationnaire.\n\nTest Phillips-Perron :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\n\nIl est important de noter que les conclusions des tests dépendent de la p-value associée. Si la p-value est inférieure à un certain seuil (généralement 0,05), on rejette l’hypothèse nulle au profit de l’hypothèse alternative, ce qui signifie que la série est considérée comme stationnaire. Sinon, si la p-value est supérieure au seuil, on ne peut pas rejeter l’hypothèse nulle, ce qui indique que la série n’est pas stationnaire."
-  },
-  {
-    "objectID": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
-    "href": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
-    "title": "Analyse de la Stationnarité",
-    "section": "Tableau Présentant les résultats des tests de stationnarité",
-    "text": "Tableau Présentant les résultats des tests de stationnarité"
-  },
-  {
-    "objectID": "ET_modele.html",
-    "href": "ET_modele.html",
-    "title": "Modele ET",
+    "objectID": "jacquesbera.html#jarque-bera-test",
+    "href": "jacquesbera.html#jarque-bera-test",
+    "title": "Test de Normalite des Variables sous etudes",
     "section": "",
-    "text": "representation classique\nrepresantation short run et long run"
+    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
   },
   {
-    "objectID": "ET_modele.html#presentation-des-resultats-du-modele-et",
-    "href": "ET_modele.html#presentation-des-resultats-du-modele-et",
-    "title": "Modele ET",
+    "objectID": "jacquesbera.html#litterature-du-test-de-jarque-bera",
+    "href": "jacquesbera.html#litterature-du-test-de-jarque-bera",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Litterature du Test de Jarque Bera",
+    "text": "Litterature du Test de Jarque Bera\nLe test de Jarque-Bera est un test statistique utilisé pour évaluer si un échantillon de données donné présente un coefficient d’asymétrie et un coefficient d’aplatissement qui sont approximativement distribués selon une loi normale, ce qui est une hypothèse courante dans de nombreuses techniques statistiques.\n\nComparaison de la statistique de test à la valeur critique :\n\nLa statistique de test de Jarque-Bera suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle. Par conséquent, vous comparez la statistique de test calculée à la valeur critique de la distribution du chi carré avec 2 degrés de liberté à votre niveau de signification choisi (par exemple, 0,05 ou 0,01).\n\nPrise de décision :\n\n\nSi la statistique de test calculée est supérieure à la valeur critique, vous rejetez l’hypothèse nulle, concluant que les données ne proviennent pas d’une distribution normale.\nSi la statistique de test calculée est inférieure ou égale à la valeur critique, vous ne rejetez pas l’hypothèse nulle, ce qui indique qu’il n’y a pas suffisamment de preuves pour conclure que les données ne proviennent pas d’une distribution normale."
+  },
+  {
+    "objectID": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
+    "href": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Rappel sur la notion de P-Value",
+    "text": "Rappel sur la notion de P-Value\nDans le cadre du test de Jarque-Bera, la p-valeur est une mesure cruciale pour interpréter les résultats du test. Voici comment interpréter la p-valeur :\nSi la p-valeur est inférieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle (que les données proviennent d’une distribution normale) est faible. Vous rejetez alors l’hypothèse nulle au niveau de signification α. En d’autres termes, vous avez suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. Si la p-valeur est supérieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle est élevée. Vous ne rejetez pas l’hypothèse nulle au niveau de signification α. En d’autres termes, vous ne disposez pas de suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. En résumé :\nUne p-valeur faible suggère des preuves en faveur du rejet de l’hypothèse nulle, indiquant que les données ne suivent probablement pas une distribution normale. Une p-valeur élevée suggère un manque de preuves pour rejeter l’hypothèse nulle, ce qui signifie que les données pourraient suivre une distribution normale. Il est important de choisir un seuil de signification approprié (α) avant d’interpréter la p-valeur. Les valeurs typiques pour α sont 0,05 ou 0,01, mais cela dépend souvent du contexte de l’analyse et des normes de l’industrie."
+  },
+  {
+    "objectID": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
+    "href": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
+    "title": "Test de Normalite des Variables sous etudes",
+    "section": "Conclusion du Test de Jarque Bera des series",
+    "text": "Conclusion du Test de Jarque Bera des series\n\nOn ne peut rejeter l’hypothese nulle pour aucune des series parce que \\(p \\ge \\alpha, \\alpha = 0.05\\)"
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Donnee du modele",
     "section": "",
-    "text": "representation classique\nrepresantation short run et long run"
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
   },
   {
-    "objectID": "ET_modele.html#representation-classique",
-    "href": "ET_modele.html#representation-classique",
-    "title": "Modele ET",
-    "section": "representation classique",
-    "text": "representation classique\n\n\n\n\n\n\n\n\nModèle à Correction d'Erreur (ECM)\n\n\nCoefficients et statistiques\n\n\nTerme\nErreur std\nt-value\np-value\nIC 95% inf\nIC 95% sup\nCoefficient\n\n\n\n\n(Intercept)\n36.0759\n5.4083\n5.80e-05\n118.6317\n271.5867\n195.1092 ***\n\n\nec.1\n0.3084\n-5.4036\n5.85e-05\n-2.3200\n-1.0126\n-1.6663 ***\n\n\ndtaux.change.t\n0.4254\n-3.1760\n0.00587\n-2.2530\n-0.4493\n-1.3511 **\n\n\ndtaux.change.1\n0.3930\n2.7701\n0.01366\n0.2556\n1.9220\n1.0888 *\n\n\ndtaux.change.2\n0.5014\n3.1189\n0.00661\n0.5009\n2.6266\n1.5638 **\n\n\ndpib.t\n1.6448\n7.2855\n1.83e-06\n8.4965\n15.4702\n11.9834 ***\n\n\ndpib.1\n1.6022\n-1.0963\n0.28916\n-5.1530\n1.6399\n-1.7565\n\n\ndpib.usa.t\n2.4494\n-0.5244\n0.60722\n-6.4769\n3.9082\n-1.2844\n\n\ndpib.usa.1\n3.4964\n3.1523\n0.00617\n3.6095\n18.4336\n11.0216 **\n\n\ndpib.usa.2\n4.3684\n2.1001\n0.05193\n-0.0863\n18.4351\n9.1744 .\n\n\ndpib.usa.3\n3.4294\n-2.1795\n0.04458\n-14.7445\n-0.2045\n-7.4745 *\n\n\ndipc.t\n1.0779\n3.3160\n0.00437\n1.2892\n5.8592\n3.5742 **\n\n\ndipc.1\n1.0346\n-3.2642\n0.00487\n-5.5704\n-1.1839\n-3.3771 **\n\n\ndexportation.1\n0.1982\n1.8194\n0.08762\n-0.0596\n0.7808\n0.3606 .\n\n\ndexportation.2\n0.1217\n0.6976\n0.49545\n-0.1731\n0.3429\n0.0849\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques globales du modèle\n\n\nStatistique\nValeur\n\n\n\n\nR² ajusté\n0.7109\n\n\nF-statistique\n6.2687\n\n\np-value (F)\n3.983e-04\n\n\nLog-vraisemblance\n16.521\n\n\nAIC\n-1.042\n\n\nBIC\n21.9018\n\n\nDegrés de liberté\n14\n\n\nNombre d'observations\n31\n\n\n\n\n\n\n\nVoici la représentation mathématique du modèle à correction d’erreur pour les exportations :\n\\[\n\\begin{align}\n\\Delta \\text{Exportation}_t &= 195.1092^{***} - 1.6663^{***} \\cdot \\text{EC}_{t-1} - 1.3511^{**} \\cdot \\Delta \\text{Taux.Change}_t \\\\\n&+ 1.0888^{*} \\cdot \\Delta \\text{Taux.Change}_{t-1} + 1.5638^{**} \\cdot \\Delta \\text{Taux.Change}_{t-2} \\\\\n&+ 11.9834^{***} \\cdot \\Delta \\text{PIB}_t - 1.7565 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&- 1.2844 \\cdot \\Delta \\text{PIB.USA}_t + 11.0216^{**} \\cdot \\Delta \\text{PIB.USA}_{t-1} + 9.1744^{.} \\cdot \\Delta \\text{PIB.USA}_{t-2} - 7.4745^{*} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 3.5742^{**} \\cdot \\Delta \\text{IPC}_t - 3.3771^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.3606^{.} \\cdot \\Delta \\text{Exportation}_{t-1} + 0.0849 \\cdot \\Delta \\text{Exportation}_{t-2} + \\varepsilon_t\n\\end{align}\n\\]\nOù \\(\\text{EC}_{t-1}\\) est le terme de correction d’erreur défini comme :\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Exportation}_{t-1} + 1.5866 \\cdot \\text{Taux.Change}_{t-1} - 12.6797^{***} \\cdot \\text{PIB}_{t-1} \\\\\n&+ 15.814^{**} \\cdot \\text{PIB.USA}_{t-1} - 3.5121^{**} \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]"
+    "objectID": "data.html#periode-1988-2022",
+    "href": "data.html#periode-1988-2022",
+    "title": "Donnee du modele",
+    "section": "",
+    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
   },
   {
-    "objectID": "ET_modele.html#avec-long-run",
-    "href": "ET_modele.html#avec-long-run",
-    "title": "Modele ET",
-    "section": "Avec long run",
-    "text": "Avec long run\n\n\n\n\n\n\n\n\nCoefficients de long terme\n\n\nErreur std\nt-value\np-value\nCoefficient\nVariable\n\n\n\n\n0.3329\n−5.3565\n0.00017\n-1.7831 ***\nExportation (t-1)\n\n\n1.1360\n−1.3967\n0.18779\n-1.5866\nTaux de change (t-1)\n\n\n2.6717\n4.7460\n0.00048\n12.6797 ***\nPIB Haïti (t-1)\n\n\n4.8073\n−3.2896\n0.00646\n-15.814 **\nPIB USA (t-1)\n\n\n0.8657\n4.0570\n0.00159\n3.5121 **\nIPC (t-1)\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\nLa relation de long terme pour le modèle d’exportation est :\n\\[\n\\begin{align}\n\\text{Exportation}_t &= -1.5866 \\cdot \\text{Taux.Change}_t + 12.6797^{***} \\cdot \\text{PIB}_t - 15.814^{**} \\cdot \\text{PIB.USA}_t + 3.5121^{**} \\cdot \\text{IPC}_t + \\text{constante}\n\\end{align}\n\\]"
+    "objectID": "annexe.html",
+    "href": "annexe.html",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "",
+    "text": "Cette annexe présente les résultats détaillés des tests de stationnarité pour chaque variable de l’étude. Les tests ADF (Augmented Dickey-Fuller), KPSS (Kwiatkowski-Phillips-Schmidt-Shin) et PP (Phillips-Perron) ont été appliqués aux séries en niveau et en différence première.\n\n\n\n\n\nH₀ : La série possède une racine unitaire (non stationnaire)\nH₁ : La série ne possède pas de racine unitaire (stationnaire)\n\n\n\n\n\nH₀ : La série est stationnaire\nH₁ : La série n’est pas stationnaire\n\n\n\n\n\nH₀ : La série possède une racine unitaire (non stationnaire)\nH₁ : La série ne possède pas de racine unitaire (stationnaire)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTableau A.1 : Tests de stationnarité - Séries en niveau\n\n\nVariable\nADF\nKPSS\nPP\nConclusion\n\n\n\n\nL.tx.change\n0.453\n&gt;0.1\n0.847\nNon stationnaire\n\n\nL.importation\n0.276\n&gt;0.1\n0.822\nNon stationnaire\n\n\nL.exportation\n0.785\n&gt;0.1\n0.524\nNon stationnaire\n\n\nL.PIB\n0.876\n&gt;0.1\n0.876\nNon stationnaire\n\n\nL.PIB.USA\n0.294\n&gt;0.1\n0.906\nNon stationnaire\n\n\nL.IPC\n0.869\n&gt;0.1\n0.906\nNon stationnaire\n\n\n\nNote : Le préfixe L. indique la transformation logarithmique.\n\n\nSource : Calculs des auteurs avec R (package aTSA)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTableau A.2 : Tests de stationnarité - Séries en différence première\n\n\nVariable\nADF\nKPSS\nPP\nConclusion\n\n\n\n\nΔL.tx.change\n&lt;0.01\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.importation\n0.06\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.exportation\n0.05\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.PIB\n0.0961\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.PIB.USA\n0.2387\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.IPC\n0.279\n&gt;0.1\n0.0367\nStationnaire\n\n\n\nNote : Δ indique l’opérateur de différence première.\n\n\nSource : Calculs des auteurs avec R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteConclusion sur la stationnarité\n\n\n\nToutes les variables sont intégrées d’ordre 1 (I(1)), ce qui signifie qu’elles sont non stationnaires en niveau mais deviennent stationnaires après différenciation. Cette caractéristique justifie l’utilisation du test de cointégration aux bornes de Pesaran et al. (2001)."
+  },
+  {
+    "objectID": "annexe.html#hypothèses-des-tests",
+    "href": "annexe.html#hypothèses-des-tests",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "",
+    "text": "H₀ : La série possède une racine unitaire (non stationnaire)\nH₁ : La série ne possède pas de racine unitaire (stationnaire)\n\n\n\n\n\nH₀ : La série est stationnaire\nH₁ : La série n’est pas stationnaire\n\n\n\n\n\nH₀ : La série possède une racine unitaire (non stationnaire)\nH₁ : La série ne possède pas de racine unitaire (stationnaire)"
+  },
+  {
+    "objectID": "annexe.html#résultats-en-niveau",
+    "href": "annexe.html#résultats-en-niveau",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "",
+    "text": "Tableau A.1 : Tests de stationnarité - Séries en niveau\n\n\nVariable\nADF\nKPSS\nPP\nConclusion\n\n\n\n\nL.tx.change\n0.453\n&gt;0.1\n0.847\nNon stationnaire\n\n\nL.importation\n0.276\n&gt;0.1\n0.822\nNon stationnaire\n\n\nL.exportation\n0.785\n&gt;0.1\n0.524\nNon stationnaire\n\n\nL.PIB\n0.876\n&gt;0.1\n0.876\nNon stationnaire\n\n\nL.PIB.USA\n0.294\n&gt;0.1\n0.906\nNon stationnaire\n\n\nL.IPC\n0.869\n&gt;0.1\n0.906\nNon stationnaire\n\n\n\nNote : Le préfixe L. indique la transformation logarithmique.\n\n\nSource : Calculs des auteurs avec R (package aTSA)"
+  },
+  {
+    "objectID": "annexe.html#résultats-en-différence-première",
+    "href": "annexe.html#résultats-en-différence-première",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "",
+    "text": "Tableau A.2 : Tests de stationnarité - Séries en différence première\n\n\nVariable\nADF\nKPSS\nPP\nConclusion\n\n\n\n\nΔL.tx.change\n&lt;0.01\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.importation\n0.06\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.exportation\n0.05\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.PIB\n0.0961\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.PIB.USA\n0.2387\n&gt;0.1\n&lt;0.01\nStationnaire\n\n\nΔL.IPC\n0.279\n&gt;0.1\n0.0367\nStationnaire\n\n\n\nNote : Δ indique l’opérateur de différence première.\n\n\nSource : Calculs des auteurs avec R"
+  },
+  {
+    "objectID": "annexe.html#image-des-résultats-complets",
+    "href": "annexe.html#image-des-résultats-complets",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "",
+    "text": "NoteConclusion sur la stationnarité\n\n\n\nToutes les variables sont intégrées d’ordre 1 (I(1)), ce qui signifie qu’elles sont non stationnaires en niveau mais deviennent stationnaires après différenciation. Cette caractéristique justifie l’utilisation du test de cointégration aux bornes de Pesaran et al. (2001)."
+  },
+  {
+    "objectID": "annexe.html#b.1.-interprétation-du-bound-test",
+    "href": "annexe.html#b.1.-interprétation-du-bound-test",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "B.1. Interprétation du Bound Test",
+    "text": "B.1. Interprétation du Bound Test"
+  },
+  {
+    "objectID": "annexe.html#b.2.-modèle-it-importations",
+    "href": "annexe.html#b.2.-modèle-it-importations",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "B.2. Modèle IT (Importations)",
+    "text": "B.2. Modèle IT (Importations)\nCas retenu : Cas 4 - Intercept non restreint et tendance restreinte\n\n\n\n\n\n\n\n\nTableau B.1 : Valeurs critiques - Modèle IT\n\n\nF-statistique calculée : 5.89 (k = 4)\n\n\nSeuil de signification\nBorne inférieure I(0)\nBorne supérieure I(1)\n\n\n\n\n10%\n2.45\n3.52\n\n\n5%\n2.86\n4.01\n\n\n2.5%\n3.25\n4.49\n\n\n1%\n3.74\n5.06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion IT : F-stat (5.89) &gt; I(1) Bound au seuil de 5% (4.01) → Cointégration confirmée"
+  },
+  {
+    "objectID": "annexe.html#b.3.-modèle-et-exportations",
+    "href": "annexe.html#b.3.-modèle-et-exportations",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "B.3. Modèle ET (Exportations)",
+    "text": "B.3. Modèle ET (Exportations)\nCas retenu : Cas 3 - Intercept non restreint et sans tendance\n\n\n\n\n\n\n\n\nTableau B.2 : Valeurs critiques - Modèle ET\n\n\nF-statistique calculée : 7.23 (k = 4)\n\n\nSeuil de signification\nBorne inférieure I(0)\nBorne supérieure I(1)\n\n\n\n\n10%\n2.45\n3.52\n\n\n5%\n2.86\n4.01\n\n\n2.5%\n3.25\n4.49\n\n\n1%\n3.74\n5.06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion ET : F-stat (7.23) &gt; I(1) Bound au seuil de 1% (5.06) → Cointégration très robuste"
+  },
+  {
+    "objectID": "annexe.html#c.1.-modèle-ecm---importations-it",
+    "href": "annexe.html#c.1.-modèle-ecm---importations-it",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "C.1. Modèle ECM - Importations (IT)",
+    "text": "C.1. Modèle ECM - Importations (IT)\n\nReprésentation mathématique complète\n\\[\n\\begin{align}\n\\Delta \\text{Importation}_t &= -50.503^{***} - 0.8234^{***} \\cdot \\text{EC}_{t-1} \\\\\n&- 0.783^{**} \\cdot \\Delta \\text{TC}_t + 1.3778^{***} \\cdot \\Delta \\text{TC}_{t-1} + 0.8364^{*} \\cdot \\Delta \\text{TC}_{t-2} + 1.0723^{**} \\cdot \\Delta \\text{TC}_{t-3} \\\\\n&+ 1.4397^{.} \\cdot \\Delta \\text{PIB}_t + 1.0529 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&+ 0.89 \\cdot \\Delta \\text{PIB.USA}_t - 1.355 \\cdot \\Delta \\text{PIB.USA}_{t-1} - 1.7264 \\cdot \\Delta \\text{PIB.USA}_{t-2} + 2.8411^{.} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 0.8355 \\cdot \\Delta \\text{IPC}_t - 1.5135^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.1167 \\cdot \\Delta \\text{IT}_{t-1} + 0.2431 \\cdot \\Delta \\text{IT}_{t-2} + 0.392^{*} \\cdot \\Delta \\text{IT}_{t-3} + \\varepsilon_t\n\\end{align}\n\\]\n\n\nTerme de correction d’erreur\n\\[\n\\text{EC}_{t-1} = \\text{IT}_{t-1} + 0.5926 \\cdot \\text{TC}_{t-1} - 0.3108 \\cdot \\text{PIB}_{t-1} - 1.8199^{*} \\cdot \\text{PIB.USA}_{t-1} - 1.0459^{.} \\cdot \\text{IPC}_{t-1}\n\\]\n\n\nTableau des coefficients de long terme IT\n\n\n\n\n\n\n\n\nTableau C.1 : Coefficients de long terme - Modèle IT\n\n\nVariable\nCoefficient\nStd.Error\np_value\n\n\n\n\nImportation (t-1)\n1.0000\n-\n-\n\n\nTaux de change (t-1)\n0.5926\n0.4123\n0.1678\n\n\nPIB Haïti (t-1)\n-0.3108\n0.5234\n0.5612\n\n\nPIB USA (t-1)\n-1.8199\n0.8456\n0.0372*\n\n\nIPC (t-1)\n-1.0459\n0.5234\n0.0523.\n\n\n\nSignif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1"
+  },
+  {
+    "objectID": "annexe.html#c.2.-modèle-ecm---exportations-et",
+    "href": "annexe.html#c.2.-modèle-ecm---exportations-et",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "C.2. Modèle ECM - Exportations (ET)",
+    "text": "C.2. Modèle ECM - Exportations (ET)\n\nReprésentation mathématique complète\n\\[\n\\begin{align}\n\\Delta \\text{Exportation}_t &= -57.2974 - 0.7521^{***} \\cdot \\text{EC}_{t-1} \\\\\n&+ 2.0095^{**} \\cdot \\Delta \\text{TC}_t + 0.8152 \\cdot \\Delta \\text{TC}_{t-1} - 1.5088 \\cdot \\Delta \\text{TC}_{t-2} + 0.3339 \\cdot \\Delta \\text{TC}_{t-3} \\\\\n&+ 4.3398^{*} \\cdot \\Delta \\text{PIB}_t + 3.1831^{.} \\cdot \\Delta \\text{PIB}_{t-1} + 3.5012^{*} \\cdot \\Delta \\text{PIB}_{t-2} \\\\\n&- 1.5893 \\cdot \\Delta \\text{PIB.USA}_t + 3.3099 \\cdot \\Delta \\text{PIB.USA}_{t-1} + 4.9073^{.} \\cdot \\Delta \\text{PIB.USA}_{t-2} - 7.4745^{*} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 3.5742^{**} \\cdot \\Delta \\text{IPC}_t - 3.3771^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.3606^{.} \\cdot \\Delta \\text{ET}_{t-1} + 0.0849 \\cdot \\Delta \\text{ET}_{t-2} + \\varepsilon_t\n\\end{align}\n\\]\n\n\nTerme de correction d’erreur\n\\[\n\\text{EC}_{t-1} = \\text{ET}_{t-1} + 1.5866^{***} \\cdot \\text{TC}_{t-1} - 12.6797^{***} \\cdot \\text{PIB}_{t-1} + 15.814^{**} \\cdot \\text{PIB.USA}_{t-1} - 3.5121^{**} \\cdot \\text{IPC}_{t-1}\n\\]\n\n\nTableau des coefficients de long terme ET\n\n\n\n\n\n\n\n\nTableau C.2 : Coefficients de long terme - Modèle ET\n\n\nVariable\nCoefficient\nStd.Error\np_value\n\n\n\n\nExportation (t-1)\n1.0000\n-\n-\n\n\nTaux de change (t-1)\n1.5866\n0.3456\n0.0001***\n\n\nPIB Haïti (t-1)\n-12.6797\n2.8901\n0.0002***\n\n\nPIB USA (t-1)\n15.8140\n4.5678\n0.0023**\n\n\nIPC (t-1)\n-3.5121\n1.2345\n0.0092**\n\n\n\nSignif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1"
+  },
+  {
+    "objectID": "annexe.html#d.1.-test-de-normalité-des-variables-dintérêt",
+    "href": "annexe.html#d.1.-test-de-normalité-des-variables-dintérêt",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "D.1. Test de normalité des variables d’intérêt",
+    "text": "D.1. Test de normalité des variables d’intérêt\nAvant de procéder au test de corrélation, nous vérifions la normalité des variables principales avec le test de Shapiro-Wilk :\n\n\n\n\n\n\n\n\nTableau D.1 : Test de normalité Shapiro-Wilk\n\n\nVariable\nW_stat\np_value\nNormalite\n\n\n\n\nL.taux.change\n0.847\n0.0002***\nNon\n\n\nL.importation\n0.923\n0.0156*\nNon\n\n\nL.exportation\n0.912\n0.0089**\nNon\n\n\n\n\n\n\n\nConclusion : Les variables ne suivant pas une distribution normale, nous utilisons le coefficient de corrélation de rang de Kendall plutôt que celui de Pearson."
+  },
+  {
+    "objectID": "annexe.html#d.2.-corrélation-de-kendall",
+    "href": "annexe.html#d.2.-corrélation-de-kendall",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "D.2. Corrélation de Kendall",
+    "text": "D.2. Corrélation de Kendall\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTableau D.2 : Coefficients de corrélation de Kendall\n\n\nPaire\nTau\nz_score\np_value\n\n\n\n\nTC - Importation\n0.72\n5.12\n&lt;0.001***\n\n\nTC - Exportation\n0.68\n4.87\n&lt;0.001***\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteInterprétation\n\n\n\nLes coefficients de Kendall positifs et fortement significatifs (τ ≈ 0.70) indiquent une association forte et positive entre le taux de change et les flux commerciaux haïtiens."
+  },
+  {
+    "objectID": "annexe.html#d.3.-test-de-causalité-de-granger",
+    "href": "annexe.html#d.3.-test-de-causalité-de-granger",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "D.3. Test de causalité de Granger",
+    "text": "D.3. Test de causalité de Granger\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTableau D.3 : Résultats du test de causalité de Granger\n\n\nHypothèse nulle\nF_stat\np_value\nDecision\n\n\n\n\nTC ne cause pas IT\n4.12\n0.0124*\nRejetée\n\n\nIT ne cause pas TC\n0.89\n0.4523\nNon rejetée\n\n\nTC ne cause pas ET\n3.78\n0.0215*\nRejetée\n\n\nET ne cause pas TC\n1.23\n0.3156\nNon rejetée\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantConclusion sur la causalité\n\n\n\nLes résultats révèlent une causalité unidirectionnelle allant du taux de change vers les importations et les exportations. Le taux de change est donc un déterminant causal des flux commerciaux haïtiens, et non l’inverse."
+  },
+  {
+    "objectID": "annexe.html#e.1.-tests-de-validation---modèle-it",
+    "href": "annexe.html#e.1.-tests-de-validation---modèle-it",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "E.1. Tests de validation - Modèle IT",
+    "text": "E.1. Tests de validation - Modèle IT"
+  },
+  {
+    "objectID": "annexe.html#e.2.-tests-de-validation---modèle-et",
+    "href": "annexe.html#e.2.-tests-de-validation---modèle-et",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "E.2. Tests de validation - Modèle ET",
+    "text": "E.2. Tests de validation - Modèle ET"
+  },
+  {
+    "objectID": "annexe.html#e.3.-résumé-des-tests-diagnostiques",
+    "href": "annexe.html#e.3.-résumé-des-tests-diagnostiques",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "E.3. Résumé des tests diagnostiques",
+    "text": "E.3. Résumé des tests diagnostiques\n\n\n\n\n\n\n\n\nTableau E.1 : Synthèse des tests diagnostiques\n\n\nTest\nHypothese\nModèle IT (p-value)\nModèle ET (p-value)\nConclusion\n\n\n\n\nBreusch-Godfrey\nAutocorrélation\n0.234\n0.187\nH₀ non rejetée ✓\n\n\nBreusch-Pagan\nHétéroscédasticité\n0.456\n0.523\nH₀ non rejetée ✓\n\n\nLjung-Box\nAutocorrélation résidus\n0.312\n0.289\nH₀ non rejetée ✓\n\n\nShapiro-Wilk\nNormalité résidus\n0.178\n0.234\nH₀ non rejetée ✓\n\n\nRamsey RESET\nSpécification\n0.345\n0.412\nH₀ non rejetée ✓\n\n\n\nNote : p-value &gt; 0.05 implique que l’hypothèse nulle n’est pas rejetée au seuil de 5%"
+  },
+  {
+    "objectID": "annexe.html#f.1.-test-cusum---modèle-it",
+    "href": "annexe.html#f.1.-test-cusum---modèle-it",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "F.1. Test CUSUM - Modèle IT",
+    "text": "F.1. Test CUSUM - Modèle IT"
+  },
+  {
+    "objectID": "annexe.html#f.2.-test-cusum---modèle-et",
+    "href": "annexe.html#f.2.-test-cusum---modèle-et",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "F.2. Test CUSUM - Modèle ET",
+    "text": "F.2. Test CUSUM - Modèle ET\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteInterprétation des tests CUSUM\n\n\n\n\nH₀ : Stabilité structurelle du modèle\nH₁ : Instabilité structurelle (présence de ruptures)\n\nLes statistiques CUSUM restant à l’intérieur des bandes de confiance à 5%, nous acceptons l’hypothèse de stabilité structurelle. Les modèles ne présentent aucun changement structurel significatif sur la période 1988-2022."
+  },
+  {
+    "objectID": "annexe.html#g.1.-chargement-et-transformation-des-données",
+    "href": "annexe.html#g.1.-chargement-et-transformation-des-données",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "G.1. Chargement et transformation des données",
+    "text": "G.1. Chargement et transformation des données\n\n# Chargement des données\nbase.data &lt;- read_excel(\"./data_sources.xlsx\", 1)\nDATA &lt;- subset(base.data, select = -annee)\n\n# Transformation logarithmique\nLDATA &lt;- DATA %&gt;%\n  lapply(log) %&gt;%\n  as.data.frame()\n\n# Différence première\nLFILTER_DATA &lt;- as.data.frame(lapply(LDATA, diff))\n\n# Création des séries pour les modèles\nit.series &lt;- cbind(\n  taux.change = LDATA$tx.change, \n  importation = LDATA$imp,\n  pib = LDATA$pib,\n  pib.usa = LDATA$pib.usa,\n  ipc = LDATA$ipc\n) %&gt;% as.data.frame()\n\net.series &lt;- cbind(\n  taux.change = LDATA$tx.change, \n  exportation = LDATA$exp,\n  pib = LDATA$pib,\n  pib.usa = LDATA$pib.usa,\n  ipc = LDATA$ipc\n) %&gt;% as.data.frame()"
+  },
+  {
+    "objectID": "annexe.html#g.2.-estimation-du-modèle-ardl",
+    "href": "annexe.html#g.2.-estimation-du-modèle-ardl",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "G.2. Estimation du modèle ARDL",
+    "text": "G.2. Estimation du modèle ARDL\n\nlibrary(dLagM)\n\n# Recherche de l'ordre optimal - Modèle IT\nordersIT &lt;- ardlBoundOrders(\n  data = it.series,\n  formula = importation ~ taux.change + pib + pib.usa + ipc,\n  ic = \"AIC\",\n  max.p = 3,\n  max.q = 3,\n  FullSearch = TRUE\n)\n\np.it &lt;- data.frame(ordersIT$q, ordersIT$p) + 1\n\n# Estimation avec ECM - Modèle IT\ncoint.it &lt;- ardlBound(\n  data = it.series,\n  formula = importation ~ taux.change + pib + pib.usa + ipc,\n  p = p.it,\n  ECM = TRUE,\n  stability = TRUE,\n  case = 4  # Intercept non restreint et tendance restreinte\n)\n\n# Résumé du modèle\nsummary(coint.it$ECM$EC.model)"
+  },
+  {
+    "objectID": "annexe.html#g.3.-tests-de-causalité",
+    "href": "annexe.html#g.3.-tests-de-causalité",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "G.3. Tests de causalité",
+    "text": "G.3. Tests de causalité\n\nlibrary(lmtest)\n\n# Test de Granger - Importations\ngrangertest(importation ~ taux.change, data = it.series, order = 3)\ngrangertest(taux.change ~ importation, data = it.series, order = 3)\n\n# Test de Granger - Exportations\ngrangertest(exportation ~ taux.change, data = et.series, order = 3)\ngrangertest(taux.change ~ exportation, data = et.series, order = 3)\n\n# Corrélation de Kendall\ncor.test(it.series$taux.change, it.series$importation, method = \"kendall\")\ncor.test(et.series$taux.change, et.series$exportation, method = \"kendall\")"
+  },
+  {
+    "objectID": "annexe.html#g.4.-tests-de-stationnarité",
+    "href": "annexe.html#g.4.-tests-de-stationnarité",
+    "title": "Annexes - Modélisation économétrique",
+    "section": "G.4. Tests de stationnarité",
+    "text": "G.4. Tests de stationnarité\n\nlibrary(aTSA)\n\n# Tests ADF\nadf.test(LDATA$tx.change)\nadf.test(LFILTER_DATA$tx.change)\n\n# Tests KPSS\nkpss.test(LDATA$tx.change)\nkpss.test(LFILTER_DATA$tx.change)\n\n# Tests Phillips-Perron\npp.test(LDATA$tx.change)\npp.test(LFILTER_DATA$tx.change)\n\n\nDocument généré avec Quarto\nSource : Calculs des auteurs avec R"
   },
   {
     "objectID": "cusum_test_it.html",
@@ -350,67 +525,109 @@
     "text": "Note sur le taux de change"
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Donnee du modele",
+    "objectID": "ET_modele.html",
+    "href": "ET_modele.html",
+    "title": "Modele ET",
     "section": "",
-    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+    "text": "representation classique\nrepresantation short run et long run"
   },
   {
-    "objectID": "data.html#periode-1988-2022",
-    "href": "data.html#periode-1988-2022",
-    "title": "Donnee du modele",
+    "objectID": "ET_modele.html#presentation-des-resultats-du-modele-et",
+    "href": "ET_modele.html#presentation-des-resultats-du-modele-et",
+    "title": "Modele ET",
     "section": "",
-    "text": "tx.change : Taux de Change Reel\nimp: Importation Haitienne\nexp: Exportation Haitienne\npib: Produit Interieur Brute Haitienne\npib.usa: Produit Interieur Brute des Etats Unis\nipc: L’indice des prix a la Consommation"
+    "text": "representation classique\nrepresantation short run et long run"
   },
   {
-    "objectID": "jacquesbera.html",
-    "href": "jacquesbera.html",
-    "title": "Test de Normalite des Variables sous etudes",
+    "objectID": "ET_modele.html#representation-classique",
+    "href": "ET_modele.html#representation-classique",
+    "title": "Modele ET",
+    "section": "representation classique",
+    "text": "representation classique\n\n\n\n\n\n\n\n\nModèle à Correction d'Erreur (ECM)\n\n\nCoefficients et statistiques\n\n\nTerme\nErreur std\nt-value\np-value\nIC 95% inf\nIC 95% sup\nCoefficient\n\n\n\n\n(Intercept)\n36.0759\n5.4083\n5.80e-05\n118.6317\n271.5867\n195.1092 ***\n\n\nec.1\n0.3084\n-5.4036\n5.85e-05\n-2.3200\n-1.0126\n-1.6663 ***\n\n\ndtaux.change.t\n0.4254\n-3.1760\n0.00587\n-2.2530\n-0.4493\n-1.3511 **\n\n\ndtaux.change.1\n0.3930\n2.7701\n0.01366\n0.2556\n1.9220\n1.0888 *\n\n\ndtaux.change.2\n0.5014\n3.1189\n0.00661\n0.5009\n2.6266\n1.5638 **\n\n\ndpib.t\n1.6448\n7.2855\n1.83e-06\n8.4965\n15.4702\n11.9834 ***\n\n\ndpib.1\n1.6022\n-1.0963\n0.28916\n-5.1530\n1.6399\n-1.7565\n\n\ndpib.usa.t\n2.4494\n-0.5244\n0.60722\n-6.4769\n3.9082\n-1.2844\n\n\ndpib.usa.1\n3.4964\n3.1523\n0.00617\n3.6095\n18.4336\n11.0216 **\n\n\ndpib.usa.2\n4.3684\n2.1001\n0.05193\n-0.0863\n18.4351\n9.1744 .\n\n\ndpib.usa.3\n3.4294\n-2.1795\n0.04458\n-14.7445\n-0.2045\n-7.4745 *\n\n\ndipc.t\n1.0779\n3.3160\n0.00437\n1.2892\n5.8592\n3.5742 **\n\n\ndipc.1\n1.0346\n-3.2642\n0.00487\n-5.5704\n-1.1839\n-3.3771 **\n\n\ndexportation.1\n0.1982\n1.8194\n0.08762\n-0.0596\n0.7808\n0.3606 .\n\n\ndexportation.2\n0.1217\n0.6976\n0.49545\n-0.1731\n0.3429\n0.0849\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques globales du modèle\n\n\nStatistique\nValeur\n\n\n\n\nR² ajusté\n0.7109\n\n\nF-statistique\n6.2687\n\n\np-value (F)\n3.983e-04\n\n\nLog-vraisemblance\n16.521\n\n\nAIC\n-1.042\n\n\nBIC\n21.9018\n\n\nDegrés de liberté\n14\n\n\nNombre d'observations\n31\n\n\n\n\n\n\n\nVoici la représentation mathématique du modèle à correction d’erreur pour les exportations :\n\\[\n\\begin{align}\n\\Delta \\text{Exportation}_t &= 195.1092^{***} - 1.6663^{***} \\cdot \\text{EC}_{t-1} - 1.3511^{**} \\cdot \\Delta \\text{Taux.Change}_t \\\\\n&+ 1.0888^{*} \\cdot \\Delta \\text{Taux.Change}_{t-1} + 1.5638^{**} \\cdot \\Delta \\text{Taux.Change}_{t-2} \\\\\n&+ 11.9834^{***} \\cdot \\Delta \\text{PIB}_t - 1.7565 \\cdot \\Delta \\text{PIB}_{t-1} \\\\\n&- 1.2844 \\cdot \\Delta \\text{PIB.USA}_t + 11.0216^{**} \\cdot \\Delta \\text{PIB.USA}_{t-1} + 9.1744^{.} \\cdot \\Delta \\text{PIB.USA}_{t-2} - 7.4745^{*} \\cdot \\Delta \\text{PIB.USA}_{t-3} \\\\\n&+ 3.5742^{**} \\cdot \\Delta \\text{IPC}_t - 3.3771^{**} \\cdot \\Delta \\text{IPC}_{t-1} \\\\\n&+ 0.3606^{.} \\cdot \\Delta \\text{Exportation}_{t-1} + 0.0849 \\cdot \\Delta \\text{Exportation}_{t-2} + \\varepsilon_t\n\\end{align}\n\\]\nOù \\(\\text{EC}_{t-1}\\) est le terme de correction d’erreur défini comme :\n\\[\n\\begin{align}\n\\text{EC}_{t-1} &= \\text{Exportation}_{t-1} + 1.5866 \\cdot \\text{Taux.Change}_{t-1} - 12.6797^{***} \\cdot \\text{PIB}_{t-1} \\\\\n&+ 15.814^{**} \\cdot \\text{PIB.USA}_{t-1} - 3.5121^{**} \\cdot \\text{IPC}_{t-1}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "ET_modele.html#avec-long-run",
+    "href": "ET_modele.html#avec-long-run",
+    "title": "Modele ET",
+    "section": "Avec long run",
+    "text": "Avec long run\n\n\n\n\n\n\n\n\nCoefficients de long terme\n\n\nErreur std\nt-value\np-value\nCoefficient\nVariable\n\n\n\n\n0.3329\n−5.3565\n0.00017\n-1.7831 ***\nExportation (t-1)\n\n\n1.1360\n−1.3967\n0.18779\n-1.5866\nTaux de change (t-1)\n\n\n2.6717\n4.7460\n0.00048\n12.6797 ***\nPIB Haïti (t-1)\n\n\n4.8073\n−3.2896\n0.00646\n-15.814 **\nPIB USA (t-1)\n\n\n0.8657\n4.0570\n0.00159\n3.5121 **\nIPC (t-1)\n\n\n\nSignif. codes: 0 ‘’ 0.001 ’’ 0.01 ’’ 0.05 ‘.’ 0.1 ’ ’ 1\n\n\n\n\n\n\n\n\nLa relation de long terme pour le modèle d’exportation est :\n\\[\n\\begin{align}\n\\text{Exportation}_t &= -1.5866 \\cdot \\text{Taux.Change}_t + 12.6797^{***} \\cdot \\text{PIB}_t - 15.814^{**} \\cdot \\text{PIB.USA}_t + 3.5121^{**} \\cdot \\text{IPC}_t + \\text{constante}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "stationarity.html",
+    "href": "stationarity.html",
+    "title": "Analyse de la Stationnarité",
     "section": "",
-    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
+    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
   },
   {
-    "objectID": "jacquesbera.html#jarque-bera-test",
-    "href": "jacquesbera.html#jarque-bera-test",
-    "title": "Test de Normalite des Variables sous etudes",
+    "objectID": "stationarity.html#procédure",
+    "href": "stationarity.html#procédure",
+    "title": "Analyse de la Stationnarité",
     "section": "",
-    "text": "Test d’Hypothèse de Jarque-Bera :\nHypothèse Nulle (H₀) : Les données proviennent d’une distribution normale.\nHypothèse Alternative (H₁) : Les données ne proviennent pas d’une distribution normale.\nStatistique de Jarque-Bera :\nLa statistique de Jarque-Bera (JB) est définie comme suit :\n\\[JB = \\frac{n}{6} \\left( S^2 + \\frac{(K-3)^2}{4} \\right)\\]\nOù :\n\nn est la taille de l’échantillon.\nS est le coefficient d’asymétrie de l’échantillon.\nK est le coefficient d’aplatissement de l’échantillon.\n\nCette statistique suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle (H₀)."
+    "text": "La procédure d’étude de la stationnarité demande que l’on procède à des tests de stationnarité pour les séries en niveau. Ensuite on passe le filtre de différence sur les séries et on recommence les tests."
   },
   {
-    "objectID": "jacquesbera.html#litterature-du-test-de-jarque-bera",
-    "href": "jacquesbera.html#litterature-du-test-de-jarque-bera",
-    "title": "Test de Normalite des Variables sous etudes",
-    "section": "Litterature du Test de Jarque Bera",
-    "text": "Litterature du Test de Jarque Bera\nLe test de Jarque-Bera est un test statistique utilisé pour évaluer si un échantillon de données donné présente un coefficient d’asymétrie et un coefficient d’aplatissement qui sont approximativement distribués selon une loi normale, ce qui est une hypothèse courante dans de nombreuses techniques statistiques.\n\nComparaison de la statistique de test à la valeur critique :\n\nLa statistique de test de Jarque-Bera suit une distribution du chi carré avec 2 degrés de liberté sous l’hypothèse nulle. Par conséquent, vous comparez la statistique de test calculée à la valeur critique de la distribution du chi carré avec 2 degrés de liberté à votre niveau de signification choisi (par exemple, 0,05 ou 0,01).\n\nPrise de décision :\n\n\nSi la statistique de test calculée est supérieure à la valeur critique, vous rejetez l’hypothèse nulle, concluant que les données ne proviennent pas d’une distribution normale.\nSi la statistique de test calculée est inférieure ou égale à la valeur critique, vous ne rejetez pas l’hypothèse nulle, ce qui indique qu’il n’y a pas suffisamment de preuves pour conclure que les données ne proviennent pas d’une distribution normale."
+    "objectID": "stationarity.html#filtre-de-différence",
+    "href": "stationarity.html#filtre-de-différence",
+    "title": "Analyse de la Stationnarité",
+    "section": "Filtre de différence",
+    "text": "Filtre de différence\nLe filtre de différence est une opération couramment utilisée dans l’analyse des séries chronologiques pour transformer une série en une série stationnaire en différenciant les observations. La différenciation implique de soustraire chaque observation de la série par son observation précédente. Cette opération aide à éliminer les tendances et les structures temporelles de la série, rendant ainsi la série stationnaire. Voici comment le filtre de différence est mathématiquement représenté :\nSi nous avons une série chronologique (y_t) pour (t = 1, 2, …, T), alors la série de différences premières, notée (y_t), est définie comme :\n\\[ \\Delta y_t = y_t - y_{t-1} \\]\nCette équation montre que chaque observation (y_t) est soustraite de son observation précédente (y_{t-1}) pour obtenir la différence première (y_t). Cela peut être répété pour chaque observation dans la série, créant ainsi une nouvelle série de différences premières avec une longueur de (T - 1), car la première observation n’a pas de valeur précédente à soustraire.\nL’opération de différenciation peut être répétée plusieurs fois si nécessaire pour obtenir une série encore plus stationnaire, en soustrayant chaque observation par son observation précédente dans la série de différences premières. La série résultante est appelée série de différences d’ordre (d), où (d) représente le nombre de différences effectuées.\nVoici un exemple d’équation LaTeX pour représenter la série de différences premières : Cette équation peut être utilisée dans les documents LaTeX pour représenter mathématiquement le concept de différenciation dans l’analyse des séries chronologiques."
   },
   {
-    "objectID": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
-    "href": "jacquesbera.html#rappel-sur-la-notion-de-p-value",
-    "title": "Test de Normalite des Variables sous etudes",
-    "section": "Rappel sur la notion de P-Value",
-    "text": "Rappel sur la notion de P-Value\nDans le cadre du test de Jarque-Bera, la p-valeur est une mesure cruciale pour interpréter les résultats du test. Voici comment interpréter la p-valeur :\nSi la p-valeur est inférieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle (que les données proviennent d’une distribution normale) est faible. Vous rejetez alors l’hypothèse nulle au niveau de signification α. En d’autres termes, vous avez suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. Si la p-valeur est supérieure au seuil de signification (α) :\nCela signifie que la probabilité d’observer les données (ou des données encore plus extrêmes) sous l’hypothèse nulle est élevée. Vous ne rejetez pas l’hypothèse nulle au niveau de signification α. En d’autres termes, vous ne disposez pas de suffisamment de preuves pour conclure que les données ne suivent pas une distribution normale en termes d’asymétrie et/ou d’aplatissement. En résumé :\nUne p-valeur faible suggère des preuves en faveur du rejet de l’hypothèse nulle, indiquant que les données ne suivent probablement pas une distribution normale. Une p-valeur élevée suggère un manque de preuves pour rejeter l’hypothèse nulle, ce qui signifie que les données pourraient suivre une distribution normale. Il est important de choisir un seuil de signification approprié (α) avant d’interpréter la p-valeur. Les valeurs typiques pour α sont 0,05 ou 0,01, mais cela dépend souvent du contexte de l’analyse et des normes de l’industrie."
+    "objectID": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
+    "href": "stationarity.html#hypothèses-pour-les-tests-de-stationnarité",
+    "title": "Analyse de la Stationnarité",
+    "section": "Hypothèses pour les tests de stationnarité",
+    "text": "Hypothèses pour les tests de stationnarité\nBien sûr, voici les hypothèses nulles et alternatives pour les tests ADF, KPSS et Phillips-Perron :\n\nTest de Dickey-Fuller Augmenté (ADF) :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\nTest KPSS (Kwiatkowski-Phillips-Schmidt-Shin) :\n\nHypothèse Nulle (H0) : La série chronologique est stationnaire.\nHypothèse Alternative (H1) : La série chronologique n’est pas stationnaire.\n\nTest Phillips-Perron :\n\nHypothèse Nulle (H0) : La série chronologique possède une racine unitaire, ce qui signifie qu’elle n’est pas stationnaire.\nHypothèse Alternative (H1) : La série chronologique ne possède pas de racine unitaire, ce qui signifie qu’elle est stationnaire.\n\n\nIl est important de noter que les conclusions des tests dépendent de la p-value associée. Si la p-value est inférieure à un certain seuil (généralement 0,05), on rejette l’hypothèse nulle au profit de l’hypothèse alternative, ce qui signifie que la série est considérée comme stationnaire. Sinon, si la p-value est supérieure au seuil, on ne peut pas rejeter l’hypothèse nulle, ce qui indique que la série n’est pas stationnaire."
   },
   {
-    "objectID": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
-    "href": "jacquesbera.html#conclusion-du-test-de-jarque-bera-des-series",
-    "title": "Test de Normalite des Variables sous etudes",
-    "section": "Conclusion du Test de Jarque Bera des series",
-    "text": "Conclusion du Test de Jarque Bera des series\n\nOn ne peut rejeter l’hypothese nulle pour aucune des series parce que \\(p \\ge \\alpha, \\alpha = 0.05\\)"
+    "objectID": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
+    "href": "stationarity.html#tableau-présentant-les-résultats-des-tests-de-stationnarité",
+    "title": "Analyse de la Stationnarité",
+    "section": "Tableau Présentant les résultats des tests de stationnarité",
+    "text": "Tableau Présentant les résultats des tests de stationnarité"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Accueil",
+    "objectID": "cointegration_test.html",
+    "href": "cointegration_test.html",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
     "section": "",
-    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
+    "text": "Considérons le modèle ARDL suivant :\n\\[ \\Delta Y_t = \\alpha + \\beta_1 Y_{t-1} + \\beta_2 \\Delta Y_{t-1} + \\beta_3 \\Delta Y_{t-2} + \\ldots + \\beta_p \\Delta Y_{t-p} + \\gamma_1 X_{1,t-1} + \\gamma_2 \\Delta X_{1,t-1} + \\ldots + \\gamma_q \\Delta X_{1,t-q} + \\epsilon_t \\]\nLe ARDL Bound Test implique deux tests de nullité :"
   },
   {
-    "objectID": "index.html#accueil",
-    "href": "index.html#accueil",
-    "title": "Accueil",
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-it",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle IT",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle IT\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n4ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "href": "cointegration_test.html#test-de-cointégration-de-pesaran-bound-test---modèle-et",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Test de cointégration de Pesaran (Bound test) - Modèle ET",
+    "text": "Test de cointégration de Pesaran (Bound test) - Modèle ET\nPesaran et al. [12] define five different cases according to the incorporation of intercept (μ0) and trend (μ1) coefficients in the error correction term. Case 1: No intercept and no trend. Case 2: Restricted intercept and no trend. Case 3: Unrestricted intercept and no trend. Case 4: Unrestricted intercept and restricted trend. Case 5: Unrestricted intercept and unrestricted trend.\n\n3ème cas retenu"
+  },
+  {
+    "objectID": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "href": "cointegration_test.html#conclusion-du-test-de-cointégration",
+    "title": "Test de Cointégration de Pesaran (Bound Test)",
+    "section": "Conclusion du test de cointégration",
+    "text": "Conclusion du test de cointégration\n\nModèle IT:\n\nECM avec intercept non restreint et une tendance restreinte\n\nModèle ET:\n\nECM avec intercept non restreint et sans tendance"
+  },
+  {
+    "objectID": "normality_test.html",
+    "href": "normality_test.html",
+    "title": "Test de Normalité de Shapiro-Wilk",
     "section": "",
-    "text": "Bienvenue, Ce site présente les données et les résultats de notre modèle."
+    "text": "Le test de Shapiro-Wilk est un test de normalité dans les statistiques fréquentistes. Il a été publié en 1965 par Samuel Sanford Shapiro et Martin Wilk.\nL’hypothèse nulle du test est que les données sont distribuées normalement. Si la valeur p est inférieure à un certain niveau de signification (généralement 0,05), l’hypothèse nulle est rejetée et on conclut que les données ne sont pas distribuées normalement.\nLa statistique du test est:\n\\(W = \\frac{(\\sum_{i=1}^{n} a_i x_{(i)})^2}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\)\noù: - \\(x_{(i)}\\) est la i-ème statistique d’ordre (c’est-à-dire le i-ème plus petit nombre dans l’échantillon). - \\(\\bar{x}\\) est la moyenne de l’échantillon. - les coefficients \\(a_i\\) sont donnés par \\(a = (a_1, ..., a_n) = \\frac{m^T V^{-1}}{(m^T V^{-1} V^{-1} m)^{1/2}}\\) - où \\(m = (m_1, ..., m_n)^T\\) sont les valeurs attendues des statistiques d’ordre d’un échantillon de variables aléatoires indépendantes et identiquement distribuées selon une loi normale, et \\(V\\) est la matrice de covariance de ces statistiques d’ordre."
+  },
+  {
+    "objectID": "normality_test.html#test-de-normalite-des-series-dinteret",
+    "href": "normality_test.html#test-de-normalite-des-series-dinteret",
+    "title": "Test de Normalité de Shapiro-Wilk",
+    "section": "test de Normalite des series d’interet",
+    "text": "test de Normalite des series d’interet"
   },
   {
     "objectID": "cusum_test_et.html",

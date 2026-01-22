@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Etablissement du nombre de retard Maximal pour les series sous etudes – Mod</title>
+<title>Chapitre V - Modélisation économétrique – Mod</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -236,9 +236,34 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#information-criterion" id="toc-information-criterion" class="nav-link active" data-scroll-target="#information-criterion">Information Criterion</a></li>
-  <li><a href="#max-lag-importation" id="toc-max-lag-importation" class="nav-link" data-scroll-target="#max-lag-importation">Max Lag Importation</a></li>
-  <li><a href="#max-lag-exportation" id="toc-max-lag-exportation" class="nav-link" data-scroll-target="#max-lag-exportation">Max Lag Exportation</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#spécification-théorique" id="toc-spécification-théorique" class="nav-link" data-scroll-target="#spécification-théorique">Spécification théorique</a>
+  <ul class="collapse">
+  <li><a href="#modèle-pour-les-importations-it" id="toc-modèle-pour-les-importations-it" class="nav-link" data-scroll-target="#modèle-pour-les-importations-it">Modèle pour les importations (IT)</a></li>
+  <li><a href="#modèle-pour-les-exportations-et" id="toc-modèle-pour-les-exportations-et" class="nav-link" data-scroll-target="#modèle-pour-les-exportations-et">Modèle pour les exportations (ET)</a></li>
+  </ul></li>
+  <li><a href="#résultats-empiriques" id="toc-résultats-empiriques" class="nav-link" data-scroll-target="#résultats-empiriques">Résultats empiriques</a>
+  <ul class="collapse">
+  <li><a href="#tests-de-stationnarité" id="toc-tests-de-stationnarité" class="nav-link" data-scroll-target="#tests-de-stationnarité">Tests de stationnarité</a></li>
+  <li><a href="#tests-de-cointégration" id="toc-tests-de-cointégration" class="nav-link" data-scroll-target="#tests-de-cointégration">Tests de cointégration</a>
+  <ul class="collapse">
+  <li><a href="#modèle-it" id="toc-modèle-it" class="nav-link" data-scroll-target="#modèle-it">Modèle IT</a></li>
+  <li><a href="#modèle-et" id="toc-modèle-et" class="nav-link" data-scroll-target="#modèle-et">Modèle ET</a></li>
+  </ul></li>
+  <li><a href="#corrélation-et-causalité" id="toc-corrélation-et-causalité" class="nav-link" data-scroll-target="#corrélation-et-causalité">Corrélation et causalité</a>
+  <ul class="collapse">
+  <li><a href="#corrélation-de-kendall" id="toc-corrélation-de-kendall" class="nav-link" data-scroll-target="#corrélation-de-kendall">Corrélation de Kendall</a></li>
+  <li><a href="#causalité-de-granger" id="toc-causalité-de-granger" class="nav-link" data-scroll-target="#causalité-de-granger">Causalité de Granger</a></li>
+  </ul></li>
+  <li><a href="#coefficients-de-court-et-long-terme" id="toc-coefficients-de-court-et-long-terme" class="nav-link" data-scroll-target="#coefficients-de-court-et-long-terme">Coefficients de court et long terme</a>
+  <ul class="collapse">
+  <li><a href="#modèle-it---importations" id="toc-modèle-it---importations" class="nav-link" data-scroll-target="#modèle-it---importations">Modèle IT - Importations</a></li>
+  <li><a href="#modèle-et---exportations" id="toc-modèle-et---exportations" class="nav-link" data-scroll-target="#modèle-et---exportations">Modèle ET - Exportations</a></li>
+  </ul></li>
+  <li><a href="#tests-diagnostiques" id="toc-tests-diagnostiques" class="nav-link" data-scroll-target="#tests-diagnostiques">Tests diagnostiques</a></li>
+  <li><a href="#tests-de-stabilité-cusum" id="toc-tests-de-stabilité-cusum" class="nav-link" data-scroll-target="#tests-de-stabilité-cusum">Tests de stabilité CUSUM</a></li>
+  </ul></li>
+  <li><a href="#conclusion-du-chapitre" id="toc-conclusion-du-chapitre" class="nav-link" data-scroll-target="#conclusion-du-chapitre">Conclusion du chapitre</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Etablissement du nombre de retard Maximal pour les series sous etudes</h1>
+<h1 class="title">Chapitre V - Modélisation économétrique</h1>
 </div>
 
 
@@ -264,49 +289,337 @@ window.Quarto = {
 </header>
 
 
-<section id="information-criterion" class="level2">
-<h2 class="anchored" data-anchor-id="information-criterion">Information Criterion</h2>
-<p>Les critères d’information sont des outils utilisés en statistiques pour sélectionner un modèle parmi un ensemble de modèles candidats. L’objectif est de choisir le modèle qui offre un bon équilibre entre l’ajustement aux données et la complexité du modèle. Les deux critères d’information les plus couramment utilisés sont le Critère d’Information Akaike (AIC) et le Critère d’Information Bayésien (BIC). Voici une explication de ces deux critères :</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Ce chapitre présente les résultats de notre modélisation économétrique portant sur l’impact du taux de change sur les importations et les exportations haïtiennes pour la période 1988-2022. Conformément à l’approche ARDL (AutoRegressive Distributed Lag) développée par Pesaran, Shin et Smith (2001), nous procédons à l’estimation de deux modèles distincts : un modèle pour les importations (IT) et un modèle pour les exportations (ET).</p>
+<p>L’analyse s’articule autour des étapes suivantes :</p>
 <ol type="1">
-<li><strong>Critère d’Information Akaike (AIC)</strong> :
-<ul>
-<li>Le Critère d’Information Akaike (AIC) a été développé par Hirotugu Akaike dans les années 1970. Il est basé sur la théorie de l’information et est largement utilisé pour comparer des modèles statistiques.</li>
-<li>L’AIC est calculé à partir de la fonction de vraisemblance du modèle et de sa complexité, mesurée par le nombre de paramètres du modèle. L’AIC est défini comme : <span class="math display">\[\text{AIC} = -2 \times \text{log-vraisemblance maximisée} + 2 \times \text{nombre de paramètres du modèle}\]</span></li>
-<li>Le modèle avec le plus faible AIC est considéré comme le meilleur ajustement parmi les modèles considérés.</li>
-</ul></li>
-<li><strong>Critère d’Information Bayésien (BIC)</strong> :
-<ul>
-<li>Le Critère d’Information Bayésien (BIC), également connu sous le nom de Critère de Schwarz, a été développé par Gideon Schwarz dans les années 1970. Il est basé sur la théorie bayésienne de la probabilité.</li>
-<li>Comme l’AIC, le BIC prend en compte à la fois l’ajustement aux données et la complexité du modèle. Cependant, le BIC pénalise la complexité du modèle plus fortement que l’AIC.</li>
-<li>Le BIC est calculé comme suit : <span class="math display">\[\text{BIC} = -2 \times \text{log-vraisemblance maximisée} + \log(n) \times \text{nombre de paramètres du modèle}\]</span> où $ n $ est la taille de l’échantillon.</li>
-<li>Comme pour l’AIC, le modèle avec le plus faible BIC est considéré comme le meilleur ajustement parmi les modèles considérés.</li>
-</ul></li>
+<li>Présentation de la spécification théorique des modèles</li>
+<li>Examen des propriétés statistiques des séries temporelles</li>
+<li>Tests de cointégration aux bornes</li>
+<li>Analyse de la corrélation et de la causalité</li>
+<li>Estimation des relations de court et long terme</li>
+<li>Tests diagnostiques et de stabilité</li>
 </ol>
-<p>En résumé, les critères d’information, tels que l’AIC et le BIC, fournissent une approche objective pour comparer différents modèles statistiques en tenant compte à la fois de leur ajustement aux données et de leur complexité. Ces critères sont largement utilisés dans la sélection de modèles en statistiques et en apprentissage automatique.</p>
 </section>
-<section id="max-lag-importation" class="level2">
-<h2 class="anchored" data-anchor-id="max-lag-importation">Max Lag Importation</h2>
+<section id="spécification-théorique" class="level1">
+<h1>Spécification théorique</h1>
+<p>Le modèle ARDL (AutoRegressive Distributed Lag) combine les caractéristiques des modèles autorégressifs (AR) et des modèles à retards échelonnés (DL). Ce type de modélisation est particulièrement adapté à notre étude pour plusieurs raisons :</p>
+<ul>
+<li>Il permet d’estimer simultanément les effets de <strong>court terme</strong> et de <strong>long terme</strong> des variables explicatives sur les variables dépendantes</li>
+<li>Il est applicable même lorsque les variables sont intégrées à des ordres différents (I(0) ou I(1))</li>
+<li>Il fournit des estimateurs sans biais pour les échantillons de petite taille</li>
+<li>Il permet de tester l’existence d’une relation de cointégration via le <strong>test aux bornes</strong> (bounds test)</li>
+</ul>
+<section id="modèle-pour-les-importations-it" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-pour-les-importations-it">Modèle pour les importations (IT)</h2>
+<p><span id="eq-ardl-it"><span class="math display">\[
+\begin{align}
+\Delta \ln(IT_t) &amp;= \alpha_0 + \sum_{i=1}^{p} \alpha_{1i} \Delta \ln(IT_{t-i}) + \sum_{i=0}^{q_1} \alpha_{2i} \Delta \ln(TC_{t-i}) \\
+&amp;+ \sum_{i=0}^{q_2} \alpha_{3i} \Delta \ln(PIB_{t-i}) + \sum_{i=0}^{q_3} \alpha_{4i} \Delta \ln(PIB\_USA_{t-i}) \\
+&amp;+ \sum_{i=0}^{q_4} \alpha_{5i} \Delta \ln(IPC_{t-i}) + \beta_1 \ln(IT_{t-1}) + \beta_2 \ln(TC_{t-1}) \\
+&amp;+ \beta_3 \ln(PIB_{t-1}) + \beta_4 \ln(PIB\_USA_{t-1}) + \beta_5 \ln(IPC_{t-1}) + \varepsilon_t
+\end{align}
+\tag{1}\]</span></span></p>
+</section>
+<section id="modèle-pour-les-exportations-et" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-pour-les-exportations-et">Modèle pour les exportations (ET)</h2>
+<p><span id="eq-ardl-et"><span class="math display">\[
+\begin{align}
+\Delta \ln(ET_t) &amp;= \gamma_0 + \sum_{i=1}^{p} \gamma_{1i} \Delta \ln(ET_{t-i}) + \sum_{i=0}^{q_1} \gamma_{2i} \Delta \ln(TC_{t-i}) \\
+&amp;+ \sum_{i=0}^{q_2} \gamma_{3i} \Delta \ln(PIB_{t-i}) + \sum_{i=0}^{q_3} \gamma_{4i} \Delta \ln(PIB\_USA_{t-i}) \\
+&amp;+ \sum_{i=0}^{q_4} \gamma_{5i} \Delta \ln(IPC_{t-i}) + \delta_1 \ln(ET_{t-1}) + \delta_2 \ln(TC_{t-1}) \\
+&amp;+ \delta_3 \ln(PIB_{t-1}) + \delta_4 \ln(PIB\_USA_{t-1}) + \delta_5 \ln(IPC_{t-1}) + \mu_t
+\end{align}
+\tag{2}\]</span></span></p>
+<p>où <span class="math inline">\(\Delta\)</span> désigne l’opérateur de différence première, <span class="math inline">\(\ln\)</span> le logarithme naturel, <span class="math inline">\(p\)</span> et <span class="math inline">\(q_i\)</span> les ordres de retards optimaux déterminés par le critère d’information d’Akaike (AIC).</p>
+</section>
+</section>
+<section id="résultats-empiriques" class="level1">
+<h1>Résultats empiriques</h1>
+<section id="tests-de-stationnarité" class="level2">
+<h2 class="anchored" data-anchor-id="tests-de-stationnarité">Tests de stationnarité</h2>
+<p>Pour appliquer l’approche ARDL, il est nécessaire de vérifier l’ordre d’intégration des variables. Nous avons utilisé trois tests complémentaires :</p>
+<ul>
+<li><strong>ADF</strong> (Augmented Dickey-Fuller)</li>
+<li><strong>KPSS</strong> (Kwiatkowski-Phillips-Schmidt-Shin)</li>
+<li><strong>PP</strong> (Phillips-Perron)</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="./tests/outputs/optimal_selection_AIC_IT.png" class="img-fluid figure-img"></p>
+<p><img src="./tests/outputs/res_stationarity.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p><strong>Conclusion</strong> : Toutes les variables sont intégrées d’ordre 1 (I(1)), c’est-à-dire qu’elles deviennent stationnaires après différenciation. Cette hétérogénéité des ordres d’intégration justifie pleinement l’utilisation du test de cointégration aux bornes de Pesaran et al.&nbsp;(2001).</p>
 </section>
-<section id="max-lag-exportation" class="level2">
-<h2 class="anchored" data-anchor-id="max-lag-exportation">Max Lag Exportation</h2>
+<section id="tests-de-cointégration" class="level2">
+<h2 class="anchored" data-anchor-id="tests-de-cointégration">Tests de cointégration</h2>
+<section id="modèle-it" class="level3">
+<h3 class="anchored" data-anchor-id="modèle-it">Modèle IT</h3>
+<p>Pour le modèle des importations, le <strong>cas 4</strong> (intercept non restreint et tendance restreinte) a été retenu.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="./tests/outputs/optimal_selection_AIC_ET.png" class="img-fluid figure-img"></p>
+<p><img src="./tests/outputs/peasaran.coint.test_it.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p><strong>Interprétation</strong> : La F-statistique (5.89) est supérieure à la borne supérieure au seuil de 5%, ce qui nous permet de rejeter l’hypothèse nulle d’absence de cointégration. Il existe donc une relation de long terme entre le taux de change et les importations haïtiennes.</p>
+</section>
+<section id="modèle-et" class="level3">
+<h3 class="anchored" data-anchor-id="modèle-et">Modèle ET</h3>
+<p>Pour le modèle des exportations, le <strong>cas 3</strong> (intercept non restreint et sans tendance) a été retenu.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/peasaran.coint.test_et.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interprétation</strong> : La F-statistique (7.23) est supérieure à la borne supérieure même au seuil de 1%, confirmant une relation de cointégration très robuste pour les exportations.</p>
+</section>
+</section>
+<section id="corrélation-et-causalité" class="level2">
+<h2 class="anchored" data-anchor-id="corrélation-et-causalité">Corrélation et causalité</h2>
+<section id="corrélation-de-kendall" class="level3">
+<h3 class="anchored" data-anchor-id="corrélation-de-kendall">Corrélation de Kendall</h3>
+<p>Étant donné que nos variables ne suivent pas une distribution normale (vérifié par le test de Shapiro-Wilk), nous utilisons le coefficient de corrélation de rang de Kendall :</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/kendall_test.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Les coefficients de Kendall positifs et fortement significatifs (<span class="math inline">\(\tau\)</span> = 0.72 pour IT et <span class="math inline">\(\tau\)</span> = 0.68 pour ET) indiquent une <strong>association forte</strong> entre le taux de change et les flux commerciaux.</p>
+</section>
+<section id="causalité-de-granger" class="level3">
+<h3 class="anchored" data-anchor-id="causalité-de-granger">Causalité de Granger</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/granger_test.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Les résultats révèlent une <strong>causalité unidirectionnelle</strong> :</p>
+<ul>
+<li>Le taux de change <strong>cause</strong> les importations (p = 0.0124*)</li>
+<li>Le taux de change <strong>cause</strong> les exportations (p = 0.0215*)</li>
+<li>L’inverse n’est pas vérifié</li>
+</ul>
+</section>
+</section>
+<section id="coefficients-de-court-et-long-terme" class="level2">
+<h2 class="anchored" data-anchor-id="coefficients-de-court-et-long-terme">Coefficients de court et long terme</h2>
+<section id="modèle-it---importations" class="level3">
+<h3 class="anchored" data-anchor-id="modèle-it---importations">Modèle IT - Importations</h3>
+<section id="modèle-à-correction-derreur-ecm" class="level4">
+<h4 class="anchored" data-anchor-id="modèle-à-correction-derreur-ecm">Modèle à Correction d’Erreur (ECM)</h4>
+<p><span class="math display">\[
+\begin{align}
+\Delta \text{Importation}_t &amp;= -50.503^{***} - 0.8234^{***} \cdot \text{EC}_{t-1} \\
+&amp;- 0.783^{**} \cdot \Delta \text{Taux.Change}_t + 1.3778^{***} \cdot \Delta \text{Taux.Change}_{t-1} \\
+&amp;+ 0.8364^{*} \cdot \Delta \text{Taux.Change}_{t-2} + 1.0723^{**} \cdot \Delta \text{Taux.Change}_{t-3} \\
+&amp;+ 1.4397^{.} \cdot \Delta \text{PIB}_t + 1.0529 \cdot \Delta \text{PIB}_{t-1} \\
+&amp;+ 0.89 \cdot \Delta \text{PIB.USA}_t - 1.355 \cdot \Delta \text{PIB.USA}_{t-1} \\
+&amp;- 1.7264 \cdot \Delta \text{PIB.USA}_{t-2} + 2.8411^{.} \cdot \Delta \text{PIB.USA}_{t-3} \\
+&amp;+ 0.8355 \cdot \Delta \text{IPC}_t - 1.5135^{**} \cdot \Delta \text{IPC}_{t-1} \\
+&amp;+ \varepsilon_t
+\end{align}
+\]</span></p>
+</section>
+<section id="terme-de-correction-derreur" class="level4">
+<h4 class="anchored" data-anchor-id="terme-de-correction-derreur">Terme de correction d’erreur</h4>
+<p><span class="math display">\[
+\begin{align}
+\text{EC}_{t-1} &amp;= \text{Importation}_{t-1} + 0.5926 \cdot \text{Taux.Change}_{t-1} \\
+&amp;- 0.3108 \cdot \text{PIB}_{t-1} - 1.8199^{*} \cdot \text{PIB.USA}_{t-1} - 1.0459^{.} \cdot \text{IPC}_{t-1}
+\end{align}
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Interprétation des coefficients de long terme (IT)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Taux de change (+0.59)</strong> : Une dépréciation de 1% de la gourde augmente les importations de 0.59% à long terme</li>
+<li><strong>ECM (-0.82)</strong> : 82.34% du déséquilibre est corrigé chaque année - convergence rapide</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="modèle-et---exportations" class="level3">
+<h3 class="anchored" data-anchor-id="modèle-et---exportations">Modèle ET - Exportations</h3>
+<section id="modèle-à-correction-derreur-ecm-1" class="level4">
+<h4 class="anchored" data-anchor-id="modèle-à-correction-derreur-ecm-1">Modèle à Correction d’Erreur (ECM)</h4>
+<p><span class="math display">\[
+\begin{align}
+\Delta \text{Exportation}_t &amp;= -57.2974 - 0.7521^{***} \cdot \text{EC}_{t-1} \\
+&amp;+ 2.0095^{**} \cdot \Delta \text{Taux.Change}_t + 0.8152 \cdot \Delta \text{Taux.Change}_{t-1} \\
+&amp;- 1.5088 \cdot \Delta \text{Taux.Change}_{t-2} + 0.3339 \cdot \Delta \text{Taux.Change}_{t-3} \\
+&amp;+ 4.3398^{*} \cdot \Delta \text{PIB}_t + 3.1831^{.} \cdot \Delta \text{PIB}_{t-1} + 3.5012^{*} \cdot \Delta \text{PIB}_{t-2} \\
+&amp;- 1.5893 \cdot \Delta \text{PIB.USA}_t + 3.3099 \cdot \Delta \text{PIB.USA}_{t-1} \\
+&amp;+ 4.9073^{.} \cdot \Delta \text{PIB.USA}_{t-2} - 7.4745^{*} \cdot \Delta \text{PIB.USA}_{t-3} \\
+&amp;+ 3.5742^{**} \cdot \Delta \text{IPC}_t - 3.3771^{**} \cdot \Delta \text{IPC}_{t-1} \\
+&amp;+ \varepsilon_t
+\end{align}
+\]</span></p>
+</section>
+<section id="terme-de-correction-derreur-1" class="level4">
+<h4 class="anchored" data-anchor-id="terme-de-correction-derreur-1">Terme de correction d’erreur</h4>
+<p><span class="math display">\[
+\begin{align}
+\text{EC}_{t-1} &amp;= \text{Exportation}_{t-1} + 1.5866^{***} \cdot \text{Taux.Change}_{t-1} \\
+&amp;- 12.6797^{***} \cdot \text{PIB}_{t-1} + 15.814^{**} \cdot \text{PIB.USA}_{t-1} - 3.5121^{**} \cdot \text{IPC}_{t-1}
+\end{align}
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Interprétation des coefficients de long terme (ET)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Taux de change (+1.59</strong>*)<strong> : Une dépréciation de 1% de la gourde </strong>stimule les exportations de 1.59%** à long terme - effet très significatif</li>
+<li><strong>PIB USA (+15.81</strong>)** : La demande américaine est le principal moteur des exportations haïtiennes</li>
+<li><strong>PIB Haïti (-12.68</strong>*)** : Effet négatif surprenant, possiblement lié à la substitution consommation intérieure/exportation</li>
+<li><strong>ECM (-0.75)</strong> : 75.21% du déséquilibre est corrigé chaque année</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="tests-diagnostiques" class="level2">
+<h2 class="anchored" data-anchor-id="tests-diagnostiques">Tests diagnostiques</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/VAL.IT.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/VAL.ET.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Tous les tests diagnostiques sont validés</strong> :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Hypothèse testée</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Breusch-Godfrey</td>
+<td>Autocorrélation</td>
+<td>Absence d’autocorrélation ✓</td>
+</tr>
+<tr class="even">
+<td>Breusch-Pagan</td>
+<td>Hétéroscédasticité</td>
+<td>Homoscédasticité ✓</td>
+</tr>
+<tr class="odd">
+<td>Shapiro-Wilk</td>
+<td>Normalité des résidus</td>
+<td>Résidus normaux ✓</td>
+</tr>
+<tr class="even">
+<td>Ramsey RESET</td>
+<td>Spécification</td>
+<td>Modèle bien spécifié ✓</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tests-de-stabilité-cusum" class="level2">
+<h2 class="anchored" data-anchor-id="tests-de-stabilité-cusum">Tests de stabilité CUSUM</h2>
+<p>Les tests CUSUM et CUSUM carré permettent de vérifier la stabilité structurelle des modèles.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/cusum_it.modele.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./tests/outputs/cusum_et.modele.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Conclusion</strong> : Les statistiques CUSUM restent à l’intérieur des bandes de confiance à 5%, confirmant la <strong>stabilité structurelle</strong> des modèles sur la période 1988-2022.</p>
+</section>
+</section>
+<section id="conclusion-du-chapitre" class="level1">
+<h1>Conclusion du chapitre</h1>
+<p>Ce chapitre a présenté les résultats de notre analyse économétrique portant sur l’impact du taux de change sur les flux commerciaux haïtiens. Les principaux résultats sont résumés ci-dessous :</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Synthèse des résultats
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Stationnarité</strong> : Toutes les variables sont I(1), justifiant l’utilisation du test de Pesaran</li>
+<li><strong>Cointégration</strong> : Relations de long terme confirmées pour IT et ET</li>
+<li><strong>Causalité</strong> : Le taux de change cause les flux commerciaux (unidirectionnel)</li>
+<li><strong>Long terme</strong> :
+<ul>
+<li>Dépréciation → ↑ Importations (+0.59%)</li>
+<li>Dépréciation → ↑ Exportations (+1.59%)</li>
+</ul></li>
+<li><strong>Convergence</strong> : Rapide (ECM ≈ -0.75 à -0.82)</li>
+<li><strong>Validité</strong> : Tous les tests diagnostiques et de stabilité confirment la robustesse des modèles</li>
+</ol>
+</div>
+</div>
+<p>Ces résultats ont des <strong>implications importantes pour la politique économique</strong> en Haïti. La forte sensibilité des flux commerciaux aux variations du taux de change suggère que la politique de change doit être gérée avec prudence. L’effet positif de la dépréciation sur les exportations pourrait être exploité pour stimuler les secteurs exportateurs.</p>
+<hr>
+<p><em>Signif. codes : 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ’ ’ 1</em></p>
 
 
 </section>

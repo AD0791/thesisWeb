@@ -1,9 +1,5 @@
 ---
 title: "Cadre Opératoire"
-#author: "Benzico Pierre & Alexandro Disla"
-#format: html
-#editor: visual
-#bibliography: references.bib
 ---
 
 # Cadre Opératoire {#sec-cadre-operatoire}

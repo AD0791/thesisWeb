@@ -44,9 +44,15 @@ website:
           - text: "Corrélation de Kendall"
             href: kendall_correlation.qmd
           - text: "Causalité de Granger"
-            href: granger_causality.qmd 
-      - text: "Cadre Operatoire"
-        href: cadre_operatoire.qmd     
+            href: granger_causality.qmd
+      - text: "Chapitres Rediges"
+        menu:
+          - text: "Chapitre 4"
+            href: cadre_operatoire.qmd
+          - text: "Chapitre 5"
+            href: chapitre_5.qmd
+          - text: "Annexe"
+            href: annexe.qmd 
 execute:
   echo: false
   freeze: auto
